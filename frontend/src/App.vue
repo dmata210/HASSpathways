@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <p>Sample text</p>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-card color="#fa8072">
+      <v-card-text class="mb-2 mt-2" style="font-family: 'Muli', sans-serif; font-size: 20px">
+        HASSpathways
+        <v-btn id="button" to="/mypathways">My Pathways</v-btn>
+      </v-card-text>
+
+    </v-card>
+
+    <div class="mt-2 ml-2 mb-2" style="font-family: 'Muli', sans-serif">
+      <v-btn class="mr-4" to="/inquiry">Explore inquiry courses</v-btn>
+      <v-btn to="/pathway">Explore pathways</v-btn>
+    </div>
+
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: 'App'
+};
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+#button {
+  float: right;
 }
 </style>
