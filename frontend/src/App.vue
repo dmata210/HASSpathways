@@ -13,6 +13,22 @@
       <v-btn to="/pathway">Explore pathways</v-btn>
     </div>
 
+    <div class="ml-2 mr-2" id="progress" style="font-family: 'Muli', sans-serif">
+      <v-stepper alt-labels>
+        <v-stepper-header>
+          <v-stepper-step step="1">Step 1</v-stepper-step>
+
+          <v-divider></v-divider>
+
+          <v-stepper-step step="2">Step 2</v-stepper-step>
+
+          <v-divider></v-divider>
+
+          <v-stepper-step step="3">Step 3</v-stepper-step>
+        </v-stepper-header>
+      </v-stepper>
+    </div>
+
     <router-view></router-view>
   </v-app>
 </template>
@@ -20,7 +36,7 @@
 <script>
 
 export default {
-  name: 'App'
+  name: 'App',
 };
 
 </script>
@@ -30,4 +46,9 @@ export default {
 #button {
   float: right;
 }
+
+#progress {
+  width: 500px;
+}
+
 </style>
