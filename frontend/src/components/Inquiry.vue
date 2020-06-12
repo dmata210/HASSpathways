@@ -1,15 +1,22 @@
 <template>
-  <v-app>
+
+  <div>
+    <ProgressBar></ProgressBar>
     <NavigationDrawer :items="inquiries"></NavigationDrawer>
-  </v-app>
+  </div>
+
 </template>
 
 <script>
 
+import ProgressBar from './ProgressBar'
 import NavigationDrawer from './NavigationDrawer'
 
 export default {
-  components: { NavigationDrawer },
+  components: {
+    NavigationDrawer,
+    ProgressBar
+  },
   data() {
     return {
       inquiries: [
