@@ -1,15 +1,20 @@
 <template>
-  <v-app>
+  <div>
+    <ProgressBar></ProgressBar>
     <NavigationDrawer :items="pathways"></NavigationDrawer>
-  </v-app>
+  </div>
 </template>
 
 <script>
 
 import NavigationDrawer from './NavigationDrawer'
+import ProgressBar from './ProgressBar'
 
 export default {
-  components: { NavigationDrawer },
+  components: {
+    NavigationDrawer,
+    ProgressBar
+  },
   data() {
     return {
       pathways: [
@@ -31,6 +36,5 @@ export default {
 </script>
 
 <style>
-
 
 </style>

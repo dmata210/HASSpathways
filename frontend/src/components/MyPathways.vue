@@ -1,5 +1,6 @@
 <template>
-  <v-app>
+
+  <div>
     <v-card class="mt-4 mb-4 mr-2 ml-2">
 
       <v-card-text style="font-family: 'Muli', sans-serif; font-size: 18px">
@@ -23,5 +24,6 @@
       </v-card-text>
 
     </v-card>
-  </v-app>
+  </div>
+  
 </template>
