@@ -1,31 +1,28 @@
 <template>
   <v-app>
-    <i v-if=drawer class="material-icons" @click="drawer=!drawer">keyboard_arrow_left</i>
-    <i v-else class="material-icons" @click="drawer=!drawer">keyboard_arrow_right</i>
-    <v-navigation-drawer v-model="drawer" color="#D3D3D3" height="450" width="256" class="mt-4">
-      <ul class="mt-4 mr-2">
-        <li class="mt-2" v-for="item in items" :key="item.name">
-          {{ item.name }}
-        </li>
-      </ul>
-    </v-navigation-drawer>
+    <NavigationDrawer :items="inquiries"></NavigationDrawer>
   </v-app>
 </template>
 
 <script>
 
+import NavigationDrawer from './NavigationDrawer'
+
 export default {
+  components: { NavigationDrawer },
   data() {
     return {
-      drawer: true,
-      items: [
+      inquiries: [
         { name: 'AI and Society'},
         { name: 'The American Dream'},
         { name: 'Are Humans Rational?'},
         { name: 'The Art of Listening'},
         { name: 'Behind the Television Screen'},
         { name: 'Century of the Gene'},
-        { name: '...'}
+        { name: 'Designing Climate Justice'},
+        { name: 'Documentary in the 21st Century'},
+        { name: 'Fiction: From Film to the Internet'},
+        { name: 'The Genome and You'}
       ]
     }
   }
@@ -34,10 +31,5 @@ export default {
 </script>
 
 <style>
-
-li {
-  list-style-type: none;
-  font-family: 'Muli', sans-serif;
-}
 
 </style>

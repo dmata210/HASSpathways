@@ -1,31 +1,28 @@
 <template>
   <v-app>
-    <i v-if=drawer class="material-icons" @click="drawer=!drawer">keyboard_arrow_left</i>
-    <i v-else class="material-icons" @click="drawer=!drawer">keyboard_arrow_right</i>
-    <v-navigation-drawer v-model="drawer" color="#D3D3D3" height="450" width="256" class="mt-4">
-      <ul class="mt-4 mr-2">
-        <li class="mt-2" v-for="item in items" :key="item.name">
-          {{ item.name }}
-        </li>
-      </ul>
-    </v-navigation-drawer>
+    <NavigationDrawer :items="pathways"></NavigationDrawer>
   </v-app>
 </template>
 
 <script>
 
+import NavigationDrawer from './NavigationDrawer'
+
 export default {
+  components: { NavigationDrawer },
   data() {
     return {
-      drawer: true,
-      items: [
+      pathways: [
         { name: 'Artificial Intelligence'},
         { name: 'Chinese Language'},
         { name: 'History'},
         { name: 'Creative Design and Innovation'},
         { name: 'Economics'},
         { name: 'Electronic Arts'},
-        { name: '...'}
+        { name: 'Arts History, Theory, and Criticism'},
+        { name: 'Behavioral and Cognitive Neuroscience'},
+        { name: 'Design, Innovation, and Society'},
+        { name: 'Economics of Biotech and Medical Markets'}
       ]
     }
   }
@@ -35,13 +32,5 @@ export default {
 
 <style>
 
-li {
-  list-style-type: none;
-  font-family: 'Muli', sans-serif;
-}
-
-.material-icons {
-    cursor: pointer;
-}
 
 </style>
