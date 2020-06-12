@@ -34,14 +34,11 @@
       
       <!-- pathway courses & course information -->
       <div>
-        <v-card width="100%" color="#e5e8ed">
+        <v-card width="100%" height="100%" color="#e5e8ed">
 
           <!-- all courses possible for path -->
           <v-navigation-drawer v-modoel="drawer" color="#e5e8ed" height="100%" width="256" class="mt-4">
             <ul class="mt-4 mr-2">
-              <v-btn color="#e5e8ed" small depressed class="mt-2 text-wrap" v-for="item in items" :key="item.course_name">
-                {{ item.courses[0].course_name }}
-              </v-btn>
               <v-btn color="#e5e8ed" small depressed class="mt-2 text-wrap" v-for="item in items" :key="item.course_name">
                 {{ item.courses[0].course_name }}
               </v-btn>
@@ -171,10 +168,9 @@ export default {
 #actual_course_information {
   background: #e5e8ed;
   position: absolute;
-  top: 10%;
   left: 256px;
-  width: 50%;
-  height: 30%;
+  top: 15%;
+
 }
 
 li {
