@@ -25,7 +25,7 @@
         <v-card width="100%" height="100%" color="#e5e8ed">
 
             <!-- all courses possible for path -->
-            <v-navigation-drawer v-modoel="drawer" color="#e5e8ed" height="100%" width="256" class="mt-4">
+            <v-navigation-drawer floating v-modoel="drawer" color="#e5e8ed" height="100%" width="256" class="mt-4">
                 <ul class="mt-4 mr-2">
                     
                     <v-btn color="#e5e8ed" block depressed class="mt-2 text-wrap" v-for="item in items.Courses" :key="item" @click="specifiedCourse = item">
