@@ -1,5 +1,4 @@
 <template>
-    <!-- <p> {{ items.pathDescription }} </p> -->
     <div id="right_panel">
     <!-- pathway info -->
     <v-card width="100%" class="mt-1" color="#e5e8ed">
@@ -10,9 +9,8 @@
             </p>
 
             <!-- pathway description // THIS SHOULD CHANGE UPON CLICKING A NEW PATHWAY -->
-            <!-- child of parent (line 4) -->
             <p class="font-weight-medium">
-                {{ items.pathDescription}}
+                {{ items.pathDescription }}
             </p>
         </v-card-text>
     </v-card>
@@ -27,16 +25,12 @@
         <v-card width="100%" height="100%" color="#e5e8ed">
 
             <!-- all courses possible for path -->
-            <!-- child of parent (line 4) -->
-            <!-- parent for course descriptions -->
             <v-navigation-drawer v-modoel="drawer" color="#e5e8ed" height="100%" width="256" class="mt-4">
                 <ul class="mt-4 mr-2">
-                    <v-btn color="#e5e8ed" block depressed class="mt-2 text-wrap"> hi </v-btn>
-                    <v-btn color="#e5e8ed" block depressed class="mt-2 text-wrap"> hi </v-btn>
-                    <v-btn color="#e5e8ed" block depressed class="mt-2 text-wrap"> hi </v-btn>
-                    <!-- <v-btn color="#e5e8ed" block depressed class="mt-2 text-wrap" v-for="item in items" :key="item.Courses[0]">
-                        asd
-                    </v-btn> -->
+                    
+                    <v-btn color="#e5e8ed" block depressed class="mt-2 text-wrap" v-for="item in items.Courses" :key="item" @click="specifiedCourse = item">
+                        {{ item }}
+                    </v-btn>
                 </ul>
             </v-navigation-drawer>
 
@@ -44,9 +38,8 @@
             <v-card-title id="course_information_headline" class="font-weight-black">Course Information</v-card-title>
 
             <!-- THIS SHOULD CHANGE UPON CLICKING ON COURSE NAME  -->
-            <!-- child of parent (line 45) -->
             <v-card-title id="actual_course_information" class="font-weight-regular">
-                {{ items.name }}
+                Course information for id: {{ specifiedCourse }}
             </v-card-title>
             <v-card-actions>
                 <v-spacer></v-spacer>
@@ -67,7 +60,7 @@ export default {
     props: ['items'],
     data() {
         return {
-
+            specifiedCourse: null
         }
     },
 
