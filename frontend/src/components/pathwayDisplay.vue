@@ -60,7 +60,7 @@ export default {
     props: ['items'],
     data() {
         return {
-            specifiedCourse: null
+            specifiedCourse: 1
         }
     },
 
