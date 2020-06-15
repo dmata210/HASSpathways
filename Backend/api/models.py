@@ -8,22 +8,24 @@ from django.db import models
 
 
 class Courses(models.Model):
+	code = models.IntegerField(primary_key=True)
 	name = models.CharField(max_length=100)
-	catagory = models.CharField(max_length=100)
-	code = models.IntegerField()
-	paths = []
+	category = models.CharField(max_length=100)
+#	paths = []
 
-def __init__(self,name,cata,code,paths):
-	self.name = name
-	self.catagory = cata
+#def __init__(self,name,cate,code,paths):
+def __init__(self,code,name,cate):
 	self.code = code
-	self.paths = paths
+	self.name = name
+	self.category = cate
+#	self.paths = paths
 
 def __str__(self):
-        return '%d %s %s %s' % (self.id,self.name, self.code, self.catagory)
+        return '%d %s %s' % (self.code, self.name, self.category)
 
 
-class pathways(models.Model):
+class Pathways(models.Model):
+	#will use the auto primary key
 	name = models.CharField(max_length=100)
 	desc = models.TextField()
 	classes = models.ManyToManyField(Courses)
