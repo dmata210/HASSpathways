@@ -25,5 +25,5 @@
 
     </v-card>
   </div>
-  
+
 </template>
