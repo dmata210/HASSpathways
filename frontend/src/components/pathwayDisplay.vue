@@ -1,57 +1,68 @@
 <template>
     <div id="right_panel">
-    <!-- pathway info -->
-    <v-card width="100%" class="mt-1" color="#e5e8ed">
-        <v-card-text>
-            <!-- pathway name -->
-            <p class="font-weight-black">
-                Pathway Description
-            </p>
+        <!-- pathway info -->
+        <v-card width="100%" class="mt-1" color="#e5e8ed">
+            <v-card-text>
+                <!-- pathway name -->
+                <p class="font-weight-black">
+                    Pathway Description
+                </p>
 
-            <!-- pathway description // THIS SHOULD CHANGE UPON CLICKING A NEW PATHWAY -->
-            <p class="font-weight-medium">
-                {{ items.pathDescription }}
-            </p>
-        </v-card-text>
-    </v-card>
-    
-    <br>
-
-    <!-- THIS SHOULD CHANGE (FIRST/SECOND/THIRD) ON STEPPER EVENT -->
-    <p class="font-weight-bold"> Select a first course option </p>
-    
-    <!-- pathway courses & course information // THIS SHOULD CHANGE UPON NEW PATHWAY CLICK (NEW COURSES DISPLAYED)-->
-    <div>
-        <v-card width="100%" height="100%" color="#e5e8ed">
-
-            <!-- all courses possible for path -->
-            <v-navigation-drawer floating v-modoel="drawer" color="#e5e8ed" height="100%" width="256" class="mt-4">
-                <ul class="mt-4 mr-2">
-                    
-                    <v-btn color="#e5e8ed" block depressed class="mt-2 text-wrap" v-for="item in items.Courses" :key="item" @click="specifiedCourse = item">
-                        {{ item }}
-                    </v-btn>
-                </ul>
-            </v-navigation-drawer>
-
-            <!-- course information -->
-            <v-card-title id="course_information_headline" class="font-weight-black">Course Information</v-card-title>
-
-            <!-- THIS SHOULD CHANGE UPON CLICKING ON COURSE NAME  -->
-            <v-card-title id="actual_course_information" class="font-weight-regular">
-                Course information for id: {{ specifiedCourse }}
-            </v-card-title>
-            <v-card-actions>
-                <v-spacer></v-spacer>
-
-                <!-- THIS SHOULD TRIGGER STEPPER EVENT -->
-                <v-btn text color="primary">
-                    Select
-                </v-btn>
-            </v-card-actions>
+                <!-- pathway description // THIS SHOULD CHANGE UPON CLICKING A NEW PATHWAY -->
+                <p class="font-weight-medium">
+                    {{ items.pathDescription }}
+                </p>
+            </v-card-text>
         </v-card>
+
+        <br>
+
+        <p class="font-weight-bold"> Select a first course option </p>
+        
+            
+        <!-- All avaiable courses for a pathway -->
+        <div id="navigation_drawer_panel">
+            <v-list color="#e5e8ed" flat width="15%" nav class="py-3">
+                <v-list-item v-for="item in items.Courses" :key="item" @click="specifiedCourse = item">
+                    <v-list-item-content>
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-list-item-title v-on="on">{{ item }}</v-list-item-title>
+                            </template>
+                            <span>{{ item }}</span>
+                        </v-tooltip>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+        </div>
+
+        <!-- Course information for each course part of the specified pathway -->
+        <div id="coursePanel">
+            <v-card width="100%">
+                <v-card-title>
+                    {{ specifiedCourse }}
+                    <v-spacer></v-spacer>
+                        <v-chip small color="orange" class="ma-2" text-color="white">IHSS 1140</v-chip>
+                        <v-chip small color="red" class="ma-2" text-color="white">Required</v-chip>
+                        <v-chip small color="green" class="ma-2" text-color="white">Major Restricted</v-chip>
+                        <v-chip small color="green" class="ma-2" text-color="white">Gateway Course</v-chip>
+                        <v-chip small color="red" class="ma-2" text-color="white">HASS Inquiry</v-chip>
+                </v-card-title>
+                <v-card-text class="font-weight-black">
+                    Integrated with Chinese culture, students will learn all four types of language skills (listening, speaking, reading, and writing). After completing the Chinese pathway, students will be able to communicate in Chinese at their targeted proficiency levels and think critically and creatively with global and multicultural awareness.
+
+
+
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn text color="primary">Select</v-btn>
+                </v-card-actions>
+            </v-card>
+        </div>
+
+
     </div>
-</div>
 </template>
 
 <script>
@@ -74,20 +85,16 @@ export default {
         top: 4%;
         width: 80%;
     }
-
-
-    #course_information_headline {
-        background:#e5e8ed;
-        position: absolute;
-        top: 0px;
-        left: 256px;  
+    
+    #navigation_drawer_panel {
+        float: left;
+        width: 100%;
     }
 
-    #actual_course_information {
-        background: #e5e8ed;
+    #coursePanel {
         position: absolute;
-        left: 256px;
-        top: 30%;
+        left: 15%;
+        width: 85%;
     }
 
 </style>
