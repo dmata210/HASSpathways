@@ -39,6 +39,7 @@
         <!-- Course information for each course part of the specified pathway -->
         <div id="coursePanel">
             <v-card width="100%">
+                <!-- course name & important chips -->
                 <v-card-title>
                     {{ specifiedCourse }}
                     <v-spacer></v-spacer>
@@ -48,11 +49,10 @@
                         <v-chip small color="green" class="ma-2" text-color="white">Gateway Course</v-chip>
                         <v-chip small color="red" class="ma-2" text-color="white">HASS Inquiry</v-chip>
                 </v-card-title>
+
+                <!-- course description -->
                 <v-card-text class="font-weight-black">
                     Integrated with Chinese culture, students will learn all four types of language skills (listening, speaking, reading, and writing). After completing the Chinese pathway, students will be able to communicate in Chinese at their targeted proficiency levels and think critically and creatively with global and multicultural awareness.
-
-
-
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
