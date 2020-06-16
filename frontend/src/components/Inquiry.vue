@@ -1,7 +1,6 @@
 <template>
 
   <div>
-    <ProgressBar></ProgressBar>
     <NavigationDrawer :items="inquiries"></NavigationDrawer>
   </div>
 
@@ -9,13 +8,11 @@
 
 <script>
 
-import ProgressBar from './ProgressBar'
 import NavigationDrawer from './NavigationDrawer'
 
 export default {
   components: {
-    NavigationDrawer,
-    ProgressBar
+    NavigationDrawer
   },
   data() {
     return {

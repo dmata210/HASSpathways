@@ -13,6 +13,8 @@
       <v-btn id="button" to="/mypathways" class="mr-2">Activity</v-btn>
     </div>
 
+    <ProgressBar></ProgressBar>
+
     <router-view></router-view>
 
   </v-app>
@@ -20,8 +22,13 @@
 
 <script>
 
+import ProgressBar from './components/ProgressBar'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    ProgressBar
+  }
 };
 
 </script>

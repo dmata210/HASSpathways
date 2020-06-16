@@ -4,6 +4,10 @@
     <!-- parent for pathway description & pathway courses -->
     <i v-if=drawer class="material-icons" @click="drawer=!drawer">keyboard_arrow_left</i>
     <i v-else class="material-icons" @click="drawer=!drawer">keyboard_arrow_right</i>
+    
+    <!-- fix this so it works with pathwayDisplay -->
+    <NavigationDrawer :items="pathways"></NavigationDrawer>
+
     <v-navigation-drawer v-model="drawer" color="#D3D3D3" height="450" width="14%" class="mt-4">
       <ul class="mt-4 mr-2">
         <v-btn small block depressed class="mt-2 text-wrap" v-for="item in pathway_info" :key="item.name" @click="specifiedPath = item">
@@ -19,11 +23,14 @@
 
 <script>
 import pathwayDisplay from './pathwayDisplay.vue'
+import NavigationDrawer from './NavigationDrawer'
+
 
 export default {
   // props to change things on the page on click
   components: {
     pathwayDisplay
+    NavigationDrawer
   },
   data() {
     return {
