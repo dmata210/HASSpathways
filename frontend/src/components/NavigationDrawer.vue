@@ -21,7 +21,7 @@
       <v-list>
 
         <!-- LIST OF COURSES/PATHWAYS -->
-        <v-list-item class="ml-2" style="font-family: 'Muli', sans-serif" v-for="item in items" :key="item.name">
+        <v-list-item @click="setPath(item)" class="ml-2" style="font-family: 'Muli', sans-serif" v-for="item in items" :key="item.name">
         
         <v-list-item-content>
           <v-list-item-title>{{ item.name }}</v-list-item-title>
@@ -43,7 +43,14 @@ export default {
   data() {
     return {
       drawer: true,
-      mini: false
+      mini: false,
+      specifiedPath: ""
+    }
+  },
+  methods: {
+    setPath(path) {
+      console.log(path.name)
+      this.$emit("pathSelection", path)
     }
   }
 }

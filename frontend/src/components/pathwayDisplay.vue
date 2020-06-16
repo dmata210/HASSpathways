@@ -75,8 +75,7 @@ export default {
         return {
             specifiedCourse: 1
         }
-    },
-
+    }
 }
 </script>
 
