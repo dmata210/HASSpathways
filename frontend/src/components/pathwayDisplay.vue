@@ -50,6 +50,8 @@
                         <v-chip small color="red" class="ma-2" text-color="white">HASS Inquiry</v-chip>
                 </v-card-title>
 
+                <v-divider></v-divider>
+
                 <!-- course description -->
                 <v-card-text class="font-weight-black">
                     Integrated with Chinese culture, students will learn all four types of language skills (listening, speaking, reading, and writing). After completing the Chinese pathway, students will be able to communicate in Chinese at their targeted proficiency levels and think critically and creatively with global and multicultural awareness.
