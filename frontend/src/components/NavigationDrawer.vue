@@ -21,13 +21,15 @@
       <v-list>
 
         <!-- LIST OF COURSES/PATHWAYS -->
-        <v-list-item @click="setPath(item)" class="ml-2" style="font-family: 'Muli', sans-serif" v-for="item in items" :key="item.name">
-        
-        <v-list-item-content>
-          <v-list-item-title>{{ item.name }}</v-list-item-title>
-        </v-list-item-content>
-        
-        </v-list-item>
+        <v-list-item-group mandatory color="#fa8072">
+          <v-list-item @click="setPath(item)" class="ml-2" style="font-family: 'Muli', sans-serif" v-for="item in items" :key="item.name">
+          
+          <v-list-item-content>
+            <v-list-item-title>{{ item.name }}</v-list-item-title>
+          </v-list-item-content>
+          
+          </v-list-item>
+        </v-list-item-group>
 
       </v-list>
 
@@ -37,6 +39,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'NavigationDrawer',
   props: ['items'],
@@ -48,11 +51,16 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setSelectedCourse1']),
     setPath(path) {
-      console.log(path.name)
       this.$emit("pathSelection", path)
+      console.log(this.progressBarStatus)
+      this.$store.commit('setSelectedCourse1', path.name)
+      console.log(this.$store)
     }
-  }
+  },
+  computed: mapGetters(['progressBarStatus']),
+  
 }
 </script>
 
