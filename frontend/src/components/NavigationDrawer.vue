@@ -49,7 +49,6 @@ export default {
   },
   methods: {
     setPath(path) {
-      console.log(path.name)
       this.$emit("pathSelection", path)
     }
   }

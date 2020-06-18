@@ -18,7 +18,6 @@
         <br>
 
         <p class="font-weight-bold"> Select a first course option </p>
-        
             
         <!-- All avaiable courses for a pathway -->
         <div id="navigation_drawer_panel">
@@ -81,7 +80,7 @@ export default {
 
 <style scoped>
     #right_panel {
-        position: absolute;
+        position: left;
         left: 16%;
         top: 4%;
         width: 80%;
