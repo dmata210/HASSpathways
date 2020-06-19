@@ -59,25 +59,11 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn text color="primary" @click="showAdditionalCourses(specifiedPathway)">Display Courses</v-btn>
+                    <v-btn text color="primary" @click="showAdditionalCourses(specifiedPathway)">Select</v-btn>
+                    <!-- so now data has to transfer from here to the pathways page -->
                 </v-card-actions>
             </v-card>
         </div>
-
-        <br>
-
-        <div id="showCourses">
-            
-            <div id="cousePanel_4_showCourses">
-                <v-card height="10%" width="100%">
-                    <v-card-title>Courses</v-card-title>
-                    <v-card-text class="font-weight-black">Information Information Information Information Information Information Information Information Information Information Information Information Information Information </v-card-text>
-                </v-card>
-            </div>
-
-            
-        </div>
-        
     </div>
 </template>
 
