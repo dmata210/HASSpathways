@@ -1,9 +1,10 @@
 <template>
 
-  <div>
-    <NavigationDrawer :items="pathway_info" @pathSelection="updateCourse"></NavigationDrawer>
-    
-    <courseDisplay :items="specifiedCourse"></courseDisplay>
+  <div id="test">
+
+    <inquiryDisplay id="i_pan" class="inquiryDisplay_id" :items="specifiedCourse"></inquiryDisplay>
+
+    <NavigationDrawer id="n_bar" class="navDrawer_id" :items="pathway_info" @drawerSelector="drawerSetter" @pathSelection="updateCourse"></NavigationDrawer>
 
   </div>
 
@@ -12,16 +13,17 @@
 <script>
 
 import NavigationDrawer from './NavigationDrawer'
-import courseDisplay from './courseDisplay'
+import inquiryDisplay from './inquiryDisplay'
 
 export default {
   components: {
     NavigationDrawer,
-    courseDisplay
+    inquiryDisplay
   },
   data() {
     return {
       specifiedCourse: "asd1",
+      drawerValue: false,
       pathway_info: [
         { name: "Minds and Machines", courseDescription: "This course is an introduction to the philosophy of mind and cognitive science. Students meet in small sections to have class discussions and debates about questions like: What are minds? Are minds physical or non-physical? Do humans have free will? Does reliance on technology turn humans into cyborgs? How close are humans to building an intelligent robot or machine? Do we want this to be a goal? Students will learn how make a philosophical argument, and how to express them in writing or through an oral presentation. This course is communication intensive", pathways: ["a", "b", "c"] },
         { name: "AI and Society", courseDescription: "n/a", pathways: ["c1", "d1", "e2"] },
@@ -37,6 +39,31 @@ export default {
     updateCourse(course) {
       this.specifiedCourse = course;
       console.log(this.specifiedCourse.name)
+    },
+    drawerSetter(word) {
+      if (word === "open") {
+        this.drawerValue = false
+        // nav bar
+        document.getElementById("n_bar").style.float = "left";
+        document.getElementById("n_bar").style.left = "7%"
+        document.getElementById("n_bar").style.width = "20%"
+
+        // course panel
+        document.getElementById("i_pan").style.position = "absolute"
+        document.getElementById("i_pan").style.left = "14%"
+        document.getElementById("i_pan").style.width = "80%"
+
+      }else if (word === "close") {
+        this.drawerValue = true
+        // nav panel
+        document.getElementById("n_bar").style.float = "left";
+
+        // course panel
+        document.getElementById("i_pan").style.position = "absolute"
+        document.getElementById("i_pan").style.left = "5%"
+        document.getElementById("i_pan").style.width = "89%"
+
+      }
     }
   },
 }
@@ -44,5 +71,19 @@ export default {
 </script>
 
 <style>
+
+  .navDrawer_id {
+    float: left;
+    left: "7%";
+    width: "20%";
+  }
+
+  .inquiryDisplay_id {
+    position: absolute;
+    left: 14%;
+    width: 80%;
+  }
+
+
 
 </style>
