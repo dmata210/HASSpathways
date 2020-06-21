@@ -72,6 +72,7 @@ export default {
 
 <style>
 
+
   .navDrawer_id {
     float: left;
     left: "7%";
