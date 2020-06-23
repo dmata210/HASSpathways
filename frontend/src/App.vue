@@ -28,6 +28,9 @@ export default {
   name: 'App',
   components: {
     ProgressBar
+  },
+  created() {
+    
   }
 };
 

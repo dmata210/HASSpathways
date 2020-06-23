@@ -9,6 +9,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'pathway',
+      component: Pathway
+    },
+    {
       path: '/inquiry',
       name: 'inquiry',
       component: Inquiry

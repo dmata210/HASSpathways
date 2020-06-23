@@ -1,8 +1,7 @@
 <template>
  
-  <!-- <v-card height="500" width="400" elevation="0"> -->
   <div id="navDrawer">
-    <v-navigation-drawer width="100%" height="500" v-model="drawer" :mini-variant.sync="mini" color="#DCDCDC">
+    <v-navigation-drawer class="rounded" width="100%" height="500" v-model="drawer" :mini-variant.sync="mini" color="#DCDCDC">
     
       <v-list-item>
 
@@ -21,10 +20,10 @@
 
       </v-list-item>
 
-      <v-list>
+      <v-list nav>
 
         <!-- LIST OF COURSES/PATHWAYS -->
-        <v-list-item-group elevation="0" color="#fa8072">
+        <v-list-item-group mandatory id="listItemGroup" elevation="0" color="#fa8072">
 
           <v-list-item @click="setPath(item)" style="font-family: 'Muli', sans-serif" v-for="item in items" :key="item.name">
           
@@ -40,7 +39,6 @@
 
     </v-navigation-drawer>
   </div>
-  <!-- </v-card> -->
     
 </template>
 
@@ -57,18 +55,20 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setSelectedCourse1']),
+    ...mapMutations(['setSelectedPathway, increment']),
     setPath(path) {
       this.$emit("pathSelection", path)
 
-      this.$store.commit('setSelectedCourse1', path.name)
+      // this.$store.commit('setSelectedPathway', path.name)
+      this.$store.commit('increment')
+      console.log(this.$store.getters.progressBarStatus)
     },
     setDrawer(){
       if (this.mini) {
         console.log("opened")
         this.$emit("drawerSelector", "open")
         this.mini = false;
-      }else{
+      } else{
         console.log("closed")
         this.$emit("drawerSelector", "close")
         this.mini = true;
@@ -76,18 +76,30 @@ export default {
     }
   },
   computed: mapGetters(['progressBarStatus']),
-  mounted: {
+  created() {
+    this.setPath(this.items[0])
+  }
+  // mounted: {
 
-  },
+  // },
   
 }
 </script>
 
 <style>
+
   #textButtons {
-    font-size: 0.8vw;
+    font-size: 1.2vw;
   }
 
- 
+  .rounded {
+    border-radius: 6px;
+  }
+
+  #listItemGroup {
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
 
 </style>
