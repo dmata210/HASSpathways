@@ -43,7 +43,9 @@
 </template>
 
 <script>
+
 import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'NavigationDrawer',
   props: ['items'],
@@ -55,35 +57,33 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setSelectedPathway, increment']),
+    ...mapMutations(['setSelectedPathway', 'increment']),
     setPath(path) {
       this.$emit("pathSelection", path)
-
-      // this.$store.commit('setSelectedPathway', path.name)
-      this.$store.commit('increment')
-      console.log(this.$store.getters.progressBarStatus)
+      this.setSelectedPathway(path.name)
+      console.log(this.pathway)
     },
     setDrawer(){
       if (this.mini) {
         console.log("opened")
         this.$emit("drawerSelector", "open")
         this.mini = false;
-      } else{
+      } else {
         console.log("closed")
         this.$emit("drawerSelector", "close")
         this.mini = true;
       }
     }
   },
-  computed: mapGetters(['progressBarStatus']),
+  computed: mapGetters(['pathway']),
   created() {
     this.setPath(this.items[0])
   }
   // mounted: {
 
   // },
-  
 }
+
 </script>
 
 <style>

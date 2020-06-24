@@ -1,4 +1,5 @@
 <template>
+
   <!-- <div id="right_panel"> -->
 
     <v-card class="ml-4 mr-4" height="600px" elevation=0 style="font-family: 'Muli', sans-serif">
@@ -67,7 +68,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text color="primary">Select</v-btn>
+          <v-btn @click="selectCourse" text color="primary">Select</v-btn>
         </v-card-actions>
 
       </v-card>
@@ -77,9 +78,12 @@
     </v-card>
 
   <!-- </div> -->
+
 </template>
 
 <script>
+
+import { mapMutations } from 'vuex'
 
 export default {
   props: ['items'],
@@ -87,11 +91,19 @@ export default {
     return {
       specifiedCourse: ''
     }
+  },
+  methods: {
+    ...mapMutations(['setSelectedCourse1']),
+    selectCourse() {
+      console.log(this.specifiedCourse)
+      this.setSelectedCourse1(this.specifiedCourse)
+    }
   }
 }
 </script>
 
 <style scoped>
+
   /* #right_panel {
     position: absolute;
     left: 16%;
