@@ -51,7 +51,7 @@ export default {
   // number of steps shown as complete on the progressbar based on the 
   // current application state
   computed: {
-    ...mapGetters(['progressBarStatus', 'firstCourse', 'secondCoure', 'thirdCourse']),
+    ...mapGetters(['progressBarStatus', 'firstCourse', 'secondCourse', 'thirdCourse']),
     numberOfCoursesSelected () {
       return this.progressBarStatus;
     },
@@ -59,7 +59,7 @@ export default {
       return {
         firstCourse: this.firstCourse ? this.firstCourse : "No Course Selected",
         secondCourse: this.secondCourse ? this.secondCourse : "No Course Selected",
-        thirdCourse: this.thirdCourse ? this.firstCourse : "No Course Selected"
+        thirdCourse: this.thirdCourse ? this.thirdCourse : "No Course Selected"
       }
     }
   }

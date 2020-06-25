@@ -1,7 +1,7 @@
 <template>
  
   <div id="navDrawer">
-    <v-navigation-drawer class="rounded" width="100%" height="500" v-model="drawer" :mini-variant.sync="mini" color="#DCDCDC">
+    <v-navigation-drawer class="rounded" width="100%" height="565px" v-model="drawer" :mini-variant.sync="mini" color="#DCDCDC">
     
       <v-list-item>
 
@@ -78,6 +78,7 @@ export default {
   computed: mapGetters(['pathway']),
   created() {
     this.setPath(this.items[0])
+    console.log(this.items[0])
   }
   // mounted: {
 
