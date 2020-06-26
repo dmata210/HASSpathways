@@ -1,21 +1,21 @@
 <template>
 
-  <!-- <div id="right_panel"> -->
-
-    <v-card class="ml-4 mr-4" height="600px" elevation=0 style="font-family: 'Muli', sans-serif">
+  <div id="right_panel">
 
     <!-- pathway info -->
-    <v-card height=200px color="#DCDCDC" elevation=0>
+    <v-card width="100%" color="#e5e8ed">
       <v-card-text>
+
         <!-- pathway name -->
-        <p class="font-weight-black">
+        <v-card-title class="font-weight-black">
           {{ items.name }}
-        </p>
+        </v-card-title>
 
         <!-- pathway description // THIS SHOULD CHANGE UPON CLICKING A NEW PATHWAY -->
-        <p class="font-weight-medium">
+        <v-card-text class="font-weight-medium">
           {{ items.pathDescription }}
-        </p>
+        </v-card-text>
+
       </v-card-text>
     </v-card>
 
@@ -25,9 +25,7 @@
     
     <!-- All available courses for a pathway -->
     <div id="navigation_drawer_panel">
-
-      <v-list color="#DCDCDC" width="30%" height="300px" nav class="py-3" id="rounded-right">
-
+      <v-list color="#e5e8ed" width="30%" height="300px" nav class="py-3" id="rounded-right">
         <v-list-item-group mandatory color="#fa8072">
           <v-list-item v-for="item in items.Courses" :key="item" @click="specifiedCourse = item">
             <v-list-item-content>
@@ -77,9 +75,7 @@
 
     </div>
 
-    </v-card>
-
-  <!-- </div> -->
+  </div>
 
 </template>
 

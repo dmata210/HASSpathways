@@ -2,9 +2,9 @@
 
   <div id="test">
 
-    <inquiryDisplay id="i_pan" class="inquiryDisplay_id" :items="specifiedCourse"></inquiryDisplay>
-
     <NavigationDrawer id="n_bar" class="navDrawer_id" :items="pathway_info" @drawerSelector="drawerSetter" @pathSelection="updateCourse"></NavigationDrawer>
+
+    <inquiryDisplay id="i_pan" class="inquiryDisplay_id" :items="specifiedCourse"></inquiryDisplay>
 
   </div>
 
@@ -59,7 +59,6 @@ export default {
         document.getElementById("n_bar").style.float = "left";
         document.getElementById("n_bar").style.left = "10%"
         document.getElementById("n_bar").style.width = "20%"
-
 
         // course panel
         document.getElementById("i_pan").style.position = "absolute"
