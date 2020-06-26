@@ -30,7 +30,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     setSelectedPathway(state, pathwayName){
-      state.currentSelection = pathwayName;
+      state.currentSelection.pathway = pathwayName;
     },
     setSelectedCourse1(state, courseName){
       state.currentSelection.course1 = courseName;
@@ -56,15 +56,27 @@ const store = new Vuex.Store({
     progressBarStatus(state){
       // this function returns the number of courses the user has selected (0, 1, 2 or 3)
       // this is intended to be used with our 3 part progress bar
-      if(!state.course1){
+      if(!state.currentSelection.course1){
         return 0;
-      }else if(!state.course2){
+      }else if(!state.currentSelection.course2){
         return 1;
-      }else if(!state.course3){
+      }else if(!state.currentSelection.course3){
         return 2;
       }else{
         return 3;
       }
+    },
+    firstCourse(state) {
+      return state.currentSelection.course1;
+    },
+    secondCourse(state) {
+      return state.currentSelection.course2;
+    },
+    thirdCourse(state) {
+      return state.currentSelection.course3;
+    },
+    pathway(state) {
+      return state.currentSelection.pathway
     }
   }
 })
