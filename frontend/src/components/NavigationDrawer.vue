@@ -26,10 +26,22 @@
         <v-list-item-group mandatory id="listItemGroup" elevation="0" color="#fa8072">
 
           <v-list-item @click="setPath(item)" style="font-family: 'Muli', sans-serif" v-for="item in items" :key="item.name">
-          
-            <v-list-item-content>
-              <v-list-item-title id="textButtons">{{ item.name }}</v-list-item-title>
-            </v-list-item-content>
+
+            <v-tooltip right>
+              
+              <template v-slot:activator="{ on }">
+
+                <v-list-item-content>
+
+                  <v-list-item-title v-on="on" id="textButtons">{{ item.name }}</v-list-item-title>
+
+                </v-list-item-content>
+
+              </template>
+
+              <span>{{ item.name }}</span>
+
+            </v-tooltip>
           
           </v-list-item>
           
@@ -89,7 +101,7 @@ export default {
 <style>
 
   #textButtons {
-    font-size: 1.2vw;
+    font-size: 1.0vw;
   }
 
   .rounded {
@@ -97,9 +109,7 @@ export default {
   }
 
   #listItemGroup {
-    margin-left: 60px;
     margin-right: 20px;
-    margin-top: 10px;
   }
 
 </style>
