@@ -58,7 +58,7 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn text color="primary" @click="showAdditionalCourses(specifiedPathway)">Select</v-btn>
+                    <v-btn text color="primary" @click="fromInquirySelector(specifiedPathway)">Select</v-btn>
                     <!-- so now data has to transfer from here to the pathways page -->
                 </v-card-actions>
             </v-card>
@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import { EventBus } from './event-bus.js';
 
 export default {
     props: ['items'],
@@ -78,8 +79,12 @@ export default {
         }
     },
     methods: {
-        showAdditionalCourses(path) {
-            alert(path);
+        fromInquirySelector(path_name) {
+            // event bus emitter
+            EventBus.$emit("inquiry_updatePathway", path_name)
+
+            // change page view to pathway webpage
+            window.location.replace("http://localhost:8080/#/pathway");
         }
     }
 }

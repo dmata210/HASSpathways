@@ -112,13 +112,6 @@ export default {
 
 <style scoped>
 
-  /* #right_panel {
-    position: absolute;
-    left: 16%;
-    top: 4%;
-    width: 80%;
-  } */
-  
   #navigation_drawer_panel {
     float: left;
     width: 100%;

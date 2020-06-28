@@ -73,7 +73,6 @@ export default {
     setPath(path) {
       this.$emit("pathSelection", path)
       this.setSelectedPathway(path.name)
-      console.log(this.pathway)
     },
     setDrawer(){
       if (this.mini) {

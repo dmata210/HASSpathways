@@ -2,7 +2,7 @@
 
   <div id="test2">
 
-    <NavigationDrawer id="n_pan" class="navDrawer_id" @drawerSelector="drawerSetter" @pathSelection="updatePathway" :items="pathway_info"></NavigationDrawer>
+    <NavigationDrawer id="n_pan" class="navDrawer_id" @drawerSelector="drawerSetter" @fromInquirySelector="inquiry_updatePathway" @pathSelection="updatePathway" :items="pathway_info"></NavigationDrawer>
     
     <pathwayDisplay id="p_pan" class="pathwayDisplay_id" :items="specifiedPath"></pathwayDisplay>
 
@@ -14,6 +14,8 @@
 
 import pathwayDisplay from './pathwayDisplay.vue'
 import NavigationDrawer from './NavigationDrawer'
+import { EventBus } from './event-bus.js';
+
 
 export default {
   // props to change things on the page on click
@@ -36,6 +38,9 @@ export default {
   methods: {
     updatePathway(path) {
       this.specifiedPath = path
+    },
+    inquiry_updatePathway(path) {
+      console.log("IGNORE DIS: " + path)
     },
     drawerSetter(word) {
       if (word === "open") {
@@ -64,6 +69,18 @@ export default {
 
       }
     }
+  },
+  created() {
+    // event bus listener for .on event
+    EventBus.$on("inquiry_updatePathway", (value) => {
+      // search for pathway (value) in objects
+      console.log("somehow search for: " + value + " in objects")
+
+      // essentially now we got to get the object and do this.specifiedPath = value
+      this.specifiedPath = this.pathway_info[1]
+      console.log(typeof(this.specifiedPath))
+      console.log("**********" + this.specifiedPath.name)
+    })
   }
 }
 
