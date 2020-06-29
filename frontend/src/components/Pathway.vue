@@ -42,25 +42,27 @@ export default {
         this.drawerValue = false
         // nav bar
         document.getElementById("n_pan").style.float = "left";
-        document.getElementById("n_pan").style.left = "7%"
-        document.getElementById("n_pan").style.width = "20%"
+        // document.getElementById("n_pan").style.left = "7%"
+        // document.getElementById("n_pan").style.width = "21%"
 
         // pathway panel
         document.getElementById("p_pan").style.position = "absolute"
-        document.getElementById("p_pan").style.left = "21%"
-        document.getElementById("p_pan").style.width = "75%"
+        document.getElementById("p_pan").style.left = "20%"
+        document.getElementById("p_pan").style.width = "80%"
 
       }else if (word === "close") {
         this.drawerValue = true
         // nav panel
         document.getElementById("n_pan").style.float = "left";
-        document.getElementById("n_pan").style.left = "10%"
-        document.getElementById("n_pan").style.width = "20%"
+        // document.getElementById("n_pan").style.left = "10%"
+        // document.getElementById("n_pan").style.width = "6%"
 
         // pathway panel
         document.getElementById("p_pan").style.position = "absolute"
-        document.getElementById("p_pan").style.left = "4%"
-        document.getElementById("p_pan").style.width = "89%"
+        // document.getElementById("p_pan").style.left = "4%"
+        // document.getElementById("p_pan").style.width = "89%"
+        document.getElementById("p_pan").style.left = "5%"
+        document.getElementById("p_pan").style.width = "95%"
 
       }
     }
@@ -72,14 +74,14 @@ export default {
 <style>
   .navDrawer_id {
     float: left;
-    left: 1%;
-    width: 20%;
+    /* left: 1%; */
+    /* width: 20%; */
   }
 
   .pathwayDisplay_id {
     position: absolute;
-    left: 21%;
-    width: 77%;
+    left: 20%;
+    width: 80%;
   }
 
 </style>

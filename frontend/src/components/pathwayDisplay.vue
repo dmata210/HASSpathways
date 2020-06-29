@@ -1,13 +1,13 @@
 <template>
 
-  <div id="right_panel">
+  <div id="right_panel" style="font-family: 'Muli', sans-serif">
 
     <!-- pathway info -->
-    <v-card width="100%" color="#e5e8ed">
+    <v-card flat width="100%" color="#DCDCDC">
       <v-card-text>
 
         <!-- pathway name -->
-        <v-card-title class="font-weight-black">
+        <v-card-title class="font-weight-black" style="font-size: 1em">
           {{ items.name }}
         </v-card-title>
 
@@ -25,8 +25,8 @@
     
     <!-- All available courses for a pathway -->
     <div id="navigation_drawer_panel">
-      <v-list color="#e5e8ed" width="30%" height="300px" nav class="py-3" id="rounded-right">
-        <v-list-item-group mandatory color="#fa8072">
+      <v-list color="#DCDCDC" width="30%" height="90%" nav class="py-3" id="rounded-right">
+        <v-list-item-group class="ml-2 mt-2 mr-2" mandatory color="#fa8072">
           <v-list-item v-for="item in items.Courses" :key="item" @click="specifiedCourse = item">
             <v-list-item-content>
               <v-tooltip top>
@@ -46,7 +46,7 @@
     <!-- Course information for each course part of the specified pathway -->
     <div id="coursePanel">
 
-      <v-card width="100%" height="300px" outlined id="rounded-left">
+      <v-card width="100%" height="90%" outlined id="rounded-left">
         
         <!-- course name & important chips -->
         <v-card-title>
@@ -66,8 +66,8 @@
           Integrated with Chinese culture, students will learn all four types of language skills (listening, speaking, reading, and writing). After completing the Chinese pathway, students will be able to communicate in Chinese at their targeted proficiency levels and think critically and creatively with global and multicultural awareness.
         </v-card-text>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
+        <v-card-actions class="card-actions">
+          <!-- <v-spacer></v-spacer> -->
           <v-btn @click="selectCourse" text color="primary">Select</v-btn>
         </v-card-actions>
 
@@ -118,16 +118,22 @@ export default {
     top: 4%;
     width: 80%;
   } */
+
+  #right_panel {
+    font-family: 'Muli', sans-serif;
+  }
   
   #navigation_drawer_panel {
     float: left;
     width: 100%;
+    height: 300px;
   }
 
   #coursePanel {
     position: absolute;
     left: 30%;
     width: 70%;
+    height: 300px;
   }
 
   #rounded-left {
@@ -136,6 +142,12 @@ export default {
 
   #rounded-right {
     border-radius: 6px 0px 0px 6px;
+  }
+
+  .card-actions {
+    position: absolute;
+    bottom: 0px;
+    right: 1%;
   }
 
 </style>

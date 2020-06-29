@@ -1,7 +1,7 @@
 <template>
  
-  <div id="navDrawer">
-    <v-navigation-drawer class="rounded" width="100%" height="565px" v-model="drawer" :mini-variant.sync="mini" color="#DCDCDC">
+  <div id="navDrawer" style="padding-right: 7px">
+    <v-navigation-drawer class="rounded" width="100%" height="490px" v-model="drawer" :mini-variant.sync="mini" color="#DCDCDC">
     
       <v-list-item>
 
@@ -23,7 +23,7 @@
       <v-list nav>
 
         <!-- LIST OF COURSES/PATHWAYS -->
-        <v-list-item-group mandatory id="listItemGroup" elevation="0" color="#fa8072">
+        <v-list-item-group class="ml-2 mt-2" mandatory id="listItemGroup" elevation="0" color="#fa8072">
 
           <v-list-item @click="setPath(item)" style="font-family: 'Muli', sans-serif" v-for="item in items" :key="item.name">
 
