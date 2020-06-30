@@ -49,15 +49,21 @@
       <v-card width="100%" height="90%" outlined id="rounded-left">
         
         <!-- course name & important chips -->
-        <v-card-title>
-          {{ specifiedCourse }}
-          <v-spacer></v-spacer>
-            <v-chip small color="orange" class="ma-2" text-color="white">IHSS 1140</v-chip>
-            <v-chip small color="red" class="ma-2" text-color="white">Required</v-chip>
-            <v-chip small color="green" class="ma-2" text-color="white">Major Restricted</v-chip>
-            <v-chip small color="green" class="ma-2" text-color="white">Gateway Course</v-chip>
-            <v-chip small color="red" class="ma-2" text-color="white">HASS Inquiry</v-chip>
+        <v-card-title v-if="specifiedCourse == 'No course specified'">
+          {{ defaultCourse }}
         </v-card-title>
+
+        <v-card-title v-else>
+          {{ specifiedCourse }}
+        </v-card-title>
+
+        <v-card-subtitle>
+            <v-chip small color="orange" class="mr-2 mt-2" text-color="white">IHSS 1140</v-chip>
+            <v-chip small color="red" class="mr-2 mt-2" text-color="white">Required</v-chip>
+            <v-chip small color="green" class="mr-2 mt-2" text-color="white">Major Restricted</v-chip>
+            <v-chip small color="green" class="mr-2 mt-2" text-color="white">Gateway Course</v-chip>
+            <v-chip small color="red" class="mr-2 mt-2" text-color="white">HASS Inquiry</v-chip>
+        </v-card-subtitle>
 
         <v-divider></v-divider>
 
@@ -100,9 +106,11 @@ export default {
       if (this.courseNumber == 'first') {
         this.setSelectedCourse1(this.specifiedCourse)
         this.courseNumber = 'second'
+        this.specifiedCourse = this.items.secondCourses[0]
       } else if (this.courseNumber == 'second') {
         this.setSelectedCourse2(this.specifiedCourse)
         this.courseNumber = 'third'
+        this.specifiedCourse = this.items.thirdCourses[0]
       } else if (this.courseNumber == 'third') {
         this.setSelectedCourse3(this.specifiedCourse)
       }
@@ -132,6 +140,9 @@ export default {
       } else {
         return null
       }
+    },
+    defaultCourse() {
+      return this.items.Courses[0]
     },
     ...mapGetters(['thirdCourse', 'secondCourse'])
   }
