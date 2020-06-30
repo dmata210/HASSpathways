@@ -27,7 +27,7 @@
     <div id="navigation_drawer_panel">
       <v-list color="#DCDCDC" width="30%" height="90%" nav class="py-3" id="rounded-right">
         <v-list-item-group class="ml-2 mt-2 mr-2" mandatory color="#fa8072">
-          <v-list-item v-for="item in items.Courses" :key="item" @click="specifiedCourse = item">
+          <v-list-item v-for="item in courses" :key="item" @click="specifiedCourse = item">
             <v-list-item-content>
               <v-tooltip top>
                 <template v-slot:activator="{ on }">
@@ -67,6 +67,7 @@
         </v-card-text>
 
         <v-card-actions class="card-actions">
+          <v-btn @click="undoCourse" text color="primary">Back</v-btn>
           <!-- <v-spacer></v-spacer> -->
           <v-btn @click="selectCourse" text color="primary">Select</v-btn>
         </v-card-actions>
@@ -81,13 +82,13 @@
 
 <script>
 
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   props: ['items'],
   data() {
     return {
-      specifiedCourse: 'No course selected',
+      specifiedCourse: 'No course specified',
       courseNumber: 'first'
     }
   },
@@ -105,7 +106,34 @@ export default {
       } else if (this.courseNumber == 'third') {
         this.setSelectedCourse3(this.specifiedCourse)
       }
+    },
+    undoCourse() {
+      if (this.courseNumber == 'third') {
+        if (this.thirdCourse == null) {
+          this.setSelectedCourse2(null)
+          this.courseNumber = 'second'
+        } else {
+          this.setSelectedCourse3(null)
+        }
+      } else if (this.courseNumber == 'second') {
+        this.setSelectedCourse1(null)
+        this.courseNumber = 'first'
+      }
     }
+  },
+  computed: {
+    courses() {
+      if (this.courseNumber == 'first') {
+        return this.items.Courses
+      } else if (this.courseNumber == 'second') {
+        return this.items.secondCourses
+      } else if (this.courseNumber == 'third') {
+        return this.items.thirdCourses
+      } else {
+        return null
+      }
+    },
+    ...mapGetters(['thirdCourse', 'secondCourse'])
   }
 }
 </script>
@@ -148,6 +176,10 @@ export default {
     position: absolute;
     bottom: 0px;
     right: 1%;
+  }
+
+  .v-list {
+    overflow-y: auto;
   }
 
 </style>
