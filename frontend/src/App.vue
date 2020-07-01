@@ -8,7 +8,6 @@
 
     <!-- BUTTONS -->
     <div class="mt-2 ml-2 mb-2" style="font-family: 'Muli', sans-serif">
-      <v-btn class="mr-4" to="/inquiry">Explore inquiry courses</v-btn>
       <v-btn to="/pathway">Explore pathways</v-btn>
       <v-btn id="button" to="/mypathways" class="mr-2">Activity</v-btn>
     </div>
