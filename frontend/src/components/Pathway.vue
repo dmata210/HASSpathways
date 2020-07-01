@@ -1,76 +1,34 @@
 <template>
+    <v-container>
+    <v-row>
+      <v-col>
+        <SideList></SideList>
+      </v-col>
+      <v-col>
+        <pathwayDisplay></pathwayDisplay>
+      </v-col>
 
-  <div id="test2">
-
-    <NavigationDrawer id="n_pan" class="navDrawer_id" @drawerSelector="drawerSetter" @pathSelection="updatePathway" :items="pathway_info"></NavigationDrawer>
-    
-    <pathwayDisplay id="p_pan" class="pathwayDisplay_id" :items="specifiedPath"></pathwayDisplay>
-
-  </div>
-
+    </v-row>
+    </v-container>
 </template>
 
 <script>
 
 import pathwayDisplay from './pathwayDisplay.vue'
-import NavigationDrawer from './NavigationDrawer'
+import SideList from './SideList'
 
 export default {
-  // props to change things on the page on click
   components: {
     pathwayDisplay,
-    NavigationDrawer
+    SideList
   },
   data() {
     return {
-      specifiedPath: '',
-      drawerValue: true,
-      pathway_info: [
-        { name: 'Artificial Intelligence', pathDescription: "Artificial Intelligence is quickly becoming pervasive in our lives. Study how Artificial Intelligence can benefit from concepts and ideas from cognitive science, and explore the ways in which Artificial Intelligence is changing our lives.", Courses: ["Minds and Machines", "AI and Society", "Are Humans Rational?"], secondCourses: ["Introduction to Cognitive Science"], thirdCourses: ["Cognitive Modeling, Programming for Cognitive Science and AI", "Game AI", "Intelligent Virtual Agents", "Language Endowed Intelligent Agents", "Learning and Advanced Game AI"], clicked: false},
-        { name: 'Chinese Language', pathDescription: "Integrated with Chinese culture, students will learn all four types of language skills (listening, speaking, reading, and writing). After completing the Chinese pathway, students will be able to communicate in Chinese at their targeted proficiency levels and think critically and creatively with global and multicultural awareness.", Courses: [1, 2, 3, 4], clicked: false},
-        { name: 'History', pathDescription: "The pathway in History is designed for students interested in US and world history. Courses primarily focus on the social history and evolution of technology, scientific enterprise, medicine, and law.", Courses: [1, 2, 3, 4], clicked: false},
-        { name: 'Creative Design and Innovation', pathDescription: "This pathway looks at creative design and innovation from various humanities, arts, and social science points of view. Students will learn about the cognitive and communicative principles behind design and innovation, the economic policies, markets, and other social institutions driving and shaping design and innovation, and how to engage in sustainable and socially responsible design and innovation for local and global impact.", Courses: [1, 2, 3, 4], clicked: false},
-        { name: 'Arts History, Theory, and Criticism'},
-        { name: 'Behavioral and Cognitive Neuroscience'},
-        { name: 'Design, Innovation, and Society'},
-        { name: 'Economics'},
-        { name: 'Economics of Banking & Finance'}
-      ],
     }
   },
   methods: {
-    updatePathway(path) {
-      this.specifiedPath = path
-    },
-    drawerSetter(word) {
-      if (word === "open") {
-        this.drawerValue = false
-        // nav bar
-        document.getElementById("n_pan").style.float = "left";
-        // document.getElementById("n_pan").style.left = "7%"
-        // document.getElementById("n_pan").style.width = "21%"
-
-        // pathway panel
-        document.getElementById("p_pan").style.position = "absolute"
-        document.getElementById("p_pan").style.left = "20%"
-        document.getElementById("p_pan").style.width = "80%"
-
-      }else if (word === "close") {
-        this.drawerValue = true
-        // nav panel
-        document.getElementById("n_pan").style.float = "left";
-        // document.getElementById("n_pan").style.left = "10%"
-        // document.getElementById("n_pan").style.width = "6%"
-
-        // pathway panel
-        document.getElementById("p_pan").style.position = "absolute"
-        // document.getElementById("p_pan").style.left = "4%"
-        // document.getElementById("p_pan").style.width = "89%"
-        document.getElementById("p_pan").style.left = "5%"
-        document.getElementById("p_pan").style.width = "95%"
-
-      }
-    }
+  
+    
   }
 }
 

@@ -5,16 +5,19 @@
     <div id="header" class="mb-2">
       <p class="mt-6 ml-4">HASSpathways</p>
     </div>
-
+  <v-container>
+    <v-row>
     <!-- BUTTONS -->
     <div class="mt-2 ml-2 mb-2" style="font-family: 'Muli', sans-serif">
       <v-btn to="/pathway">Explore pathways</v-btn>
       <v-btn id="button" to="/mypathways" class="mr-2">Activity</v-btn>
     </div>
-
+    </v-row>
+    
     <ProgressBar></ProgressBar>
-
-    <router-view></router-view>
+ 
+  </v-container>
+  <router-view></router-view>
 
   </v-app>
 </template>

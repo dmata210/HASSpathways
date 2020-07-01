@@ -3,17 +3,17 @@
   <div id="right_panel" style="font-family: 'Muli', sans-serif">
 
     <!-- pathway info -->
-    <v-card flat width="100%" color="#DCDCDC">
+    <v-card flat color="#DCDCDC">
       <v-card-text>
 
         <!-- pathway name -->
         <v-card-title class="font-weight-black" style="font-size: 1em">
-          {{ items.name }}
+          Pathway Name
         </v-card-title>
 
         <!-- pathway description // THIS SHOULD CHANGE UPON CLICKING A NEW PATHWAY -->
         <v-card-text class="font-weight-medium">
-          {{ items.pathDescription }}
+          Pathway Description
         </v-card-text>
 
       </v-card-text>
@@ -21,40 +21,54 @@
 
     <br>
 
-    <p class="font-weight-bold">Select a {{ courseNumber }} course option</p>
+    <p class="font-weight-bold">Select a course option</p>
     
     <!-- All available courses for a pathway -->
-    <div id="navigation_drawer_panel">
-      <v-list color="#DCDCDC" width="30%" height="90%" nav class="py-3" id="rounded-right">
-        <v-list-item-group class="ml-2 mt-2 mr-2" mandatory color="#fa8072">
-          <v-list-item v-for="item in courses" :key="item" @click="specifiedCourse = item">
+      <v-list color="#DCDCDC">
+        <v-subheader>Courses</v-subheader>
+        <v-list-item-group mandatory color="#fa8072" class="ml-2 mt-2 mr-2">
+          <v-list-item>
             <v-list-item-content>
-              <v-tooltip top>
-                <template v-slot:activator="{ on }">
-                  <v-list-item-title v-on="on">{{ item }}</v-list-item-title>
-                </template>
-                <span>{{ item }}</span>
-              </v-tooltip>
+              <v-list-item-title>course</v-list-item-title>
+                <v-list-item-subtitle>more?</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>course</v-list-item-title>
+                <v-list-item-subtitle>more?</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>course</v-list-item-title>
+                <v-list-item-subtitle>more?</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>course</v-list-item-title>
+                <v-list-item-subtitle>more?</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
 
       </v-list>
 
-    </div>
+   
 
-    <!-- Course information for each course part of the specified pathway -->
+    <!-- Course information for each course part of the specified course -->
     <div id="coursePanel">
 
-      <v-card width="100%" height="90%" outlined id="rounded-left">
+      <v-card outlined id="rounded-left">
         
         <!-- course name & important chips -->
         <v-card-title v-if="specifiedCourse == 'No course specified'">
-          {{ defaultCourse }}
+          default course
         </v-card-title>
 
         <v-card-title v-else>
-          {{ specifiedCourse }}
+          specified course
         </v-card-title>
 
         <v-card-subtitle>
@@ -73,9 +87,9 @@
         </v-card-text>
 
         <v-card-actions class="card-actions">
-          <v-btn @click="undoCourse" text color="primary">Back</v-btn>
+          <v-btn text color="primary">Back</v-btn>
           <!-- <v-spacer></v-spacer> -->
-          <v-btn @click="selectCourse" text color="primary">Select</v-btn>
+          <v-btn text color="primary">Select</v-btn>
         </v-card-actions>
 
       </v-card>
@@ -88,7 +102,7 @@
 
 <script>
 
-import { mapMutations, mapGetters } from 'vuex'
+
 
 export default {
   props: ['items'],
@@ -99,52 +113,9 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
-    selectCourse() {
-      // console.log(this.specifiedCourse)
-      // console.log(this.firstClass)
-      if (this.courseNumber == 'first') {
-        this.setSelectedCourse1(this.specifiedCourse)
-        this.courseNumber = 'second'
-        this.specifiedCourse = this.items.secondCourses[0]
-      } else if (this.courseNumber == 'second') {
-        this.setSelectedCourse2(this.specifiedCourse)
-        this.courseNumber = 'third'
-        this.specifiedCourse = this.items.thirdCourses[0]
-      } else if (this.courseNumber == 'third') {
-        this.setSelectedCourse3(this.specifiedCourse)
-      }
-    },
-    undoCourse() {
-      if (this.courseNumber == 'third') {
-        if (this.thirdCourse == null) {
-          this.setSelectedCourse2(null)
-          this.courseNumber = 'second'
-        } else {
-          this.setSelectedCourse3(null)
-        }
-      } else if (this.courseNumber == 'second') {
-        this.setSelectedCourse1(null)
-        this.courseNumber = 'first'
-      }
-    }
   },
   computed: {
-    courses() {
-      if (this.courseNumber == 'first') {
-        return this.items.Courses
-      } else if (this.courseNumber == 'second') {
-        return this.items.secondCourses
-      } else if (this.courseNumber == 'third') {
-        return this.items.thirdCourses
-      } else {
-        return null
-      }
-    },
-    defaultCourse() {
-      return this.items.Courses[0]
-    },
-    ...mapGetters(['thirdCourse', 'secondCourse'])
+
   }
 }
 </script>
@@ -162,35 +133,12 @@ export default {
     font-family: 'Muli', sans-serif;
   }
   
-  #navigation_drawer_panel {
-    float: left;
-    width: 100%;
-    height: 300px;
-  }
+ 
 
-  #coursePanel {
-    position: absolute;
-    left: 30%;
-    width: 70%;
-    height: 300px;
-  }
+ 
 
-  #rounded-left {
-    border-radius: 0px 6px 6px 0px;
-  }
+ 
 
-  #rounded-right {
-    border-radius: 6px 0px 0px 6px;
-  }
 
-  .card-actions {
-    position: absolute;
-    bottom: 0px;
-    right: 1%;
-  }
-
-  .v-list {
-    overflow-y: auto;
-  }
-
+ 
 </style>
