@@ -97,7 +97,7 @@ export default {
   .navDrawer_id {
     float: left;
     /* left: 1%; */
-    /* width: 20%; */
+    width: 20%;
   }
 
   .pathwayDisplay_id {

@@ -73,9 +73,9 @@
         </v-card-text>
 
         <v-card-actions class="card-actions">
-          <v-btn @click="undoCourse" text color="primary">Back</v-btn>
+          <v-btn class="font-weight-bold" @click="undoCourse" text color="primary">Back</v-btn>
           <!-- <v-spacer></v-spacer> -->
-          <v-btn @click="selectCourse" text color="primary">Select</v-btn>
+          <v-btn class="font-weight-bold" @click="selectCourse" text color="primary">Select</v-btn>
         </v-card-actions>
 
       </v-card>

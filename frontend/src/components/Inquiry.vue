@@ -45,25 +45,25 @@ export default {
         this.drawerValue = false
         // nav bar
         document.getElementById("n_bar").style.float = "left";
-        document.getElementById("n_bar").style.left = "7%"
-        document.getElementById("n_bar").style.width = "20%"
+        // document.getElementById("n_bar").style.left = "7%"
+        // document.getElementById("n_bar").style.width = "20%"
 
         // course panel
         document.getElementById("i_pan").style.position = "absolute"
-        document.getElementById("i_pan").style.left = "21%"
-        document.getElementById("i_pan").style.width = "75%"
+        document.getElementById("i_pan").style.left = "20%"
+        document.getElementById("i_pan").style.width = "80%"
 
       }else if (word === "close") {
         this.drawerValue = true
         // nav panel
         document.getElementById("n_bar").style.float = "left";
-        document.getElementById("n_bar").style.left = "10%"
-        document.getElementById("n_bar").style.width = "20%"
+        // document.getElementById("n_bar").style.left = "10%"
+        // document.getElementById("n_bar").style.width = "20%"
 
         // course panel
         document.getElementById("i_pan").style.position = "absolute"
-        document.getElementById("i_pan").style.left = "4%"
-        document.getElementById("i_pan").style.width = "89%"
+        document.getElementById("i_pan").style.left = "5%"
+        document.getElementById("i_pan").style.width = "95%"
 
       }
     }
@@ -77,14 +77,14 @@ export default {
 
   .navDrawer_id {
     float: left;
-    left: 1%;
+    /* left: 1%; */
     width: 20%;
   }
 
   .inquiryDisplay_id {
     position: absolute;
-    left: 21%;
-    width: 77%;
+    left: 20%;
+    width: 80%;
   }
 
 
