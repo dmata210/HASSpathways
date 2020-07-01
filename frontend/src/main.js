@@ -4,6 +4,10 @@ import vuetify from './plugins/vuetify';
 import router from './router';
 import Vuex from 'vuex';
 
+
+
+
+
 Vue.use(Vuex)
 // this code here is for tracking application state
 // application state includes the following
@@ -13,9 +17,15 @@ Vue.use(Vuex)
     // c. second course the user has selected
     // d. third course the user has selected
 // 2. a "shopping cart" which is a json object storing the current states the user has saved 
+// I'm just going to import the json files in order to make a working prototype
+// not sure if this is bad design
+import courses from "../../database/Courses.json"
+import pathways from "../../database/pathways.json"
 
 const store = new Vuex.Store({
   state: {
+    statecourses: courses,
+    statepathways: pathways,
     count: 0,
     currentSelection: {
         pathway: null,
@@ -29,8 +39,8 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    setSelectedPathway(state, pathwayName){
-      state.currentSelection.pathway = pathwayName;
+    setSelectedPathway(state, pathwayID){
+      state.currentSelection.pathway = pathwayID;
     },
     setSelectedCourse1(state, courseName){
       state.currentSelection.course1 = courseName;

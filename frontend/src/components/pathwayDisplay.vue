@@ -1,7 +1,9 @@
 <template>
 
-  <div id="right_panel" style="font-family: 'Muli', sans-serif">
-
+  <div>
+    
+      <v-row>
+        <v-col class="pt-0">
     <!-- pathway info -->
     <v-card flat color="#DCDCDC">
       <v-card-text>
@@ -18,14 +20,15 @@
 
       </v-card-text>
     </v-card>
+        </v-col>
+      </v-row>
 
-    <br>
 
-    <p class="font-weight-bold">Select a course option</p>
-    
+    <v-row>
+      <v-col>
     <!-- All available courses for a pathway -->
       <v-list color="#DCDCDC">
-        <v-subheader>Courses</v-subheader>
+        <v-subheader>COURSES</v-subheader>
         <v-list-item-group mandatory color="#fa8072" class="ml-2 mt-2 mr-2">
           <v-list-item>
             <v-list-item-content>
@@ -56,9 +59,12 @@
       </v-list>
 
    
-
+      </v-col>
+    </v-row>
     <!-- Course information for each course part of the specified course -->
-    <div id="coursePanel">
+    
+      <v-row>
+        <v-col>
 
       <v-card outlined id="rounded-left">
         
@@ -93,11 +99,13 @@
         </v-card-actions>
 
       </v-card>
+        </v-col>
+      </v-row>
+    
+    
 
-    </div>
-
+  
   </div>
-
 </template>
 
 <script>
