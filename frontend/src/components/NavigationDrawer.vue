@@ -89,7 +89,6 @@ export default {
   computed: mapGetters(['pathway']),
   created() {
     this.setPath(this.items[0])
-    console.log(this.items[0])
   }
   // mounted: {
 

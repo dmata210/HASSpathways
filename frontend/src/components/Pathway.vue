@@ -2,7 +2,7 @@
 
   <div id="test2">
 
-    <NavigationDrawer id="n_pan" class="navDrawer_id" @drawerSelector="drawerSetter" @fromInquirySelector="inquiry_updatePathway" @pathSelection="updatePathway" :items="pathway_info"></NavigationDrawer>
+    <NavigationDrawer id="n_pan" class="navDrawer_id" @drawerSelector="drawerSetter" @pathSelection="updatePathway" :items="pathway_info"></NavigationDrawer>
     
     <pathwayDisplay id="p_pan" class="pathwayDisplay_id" :items="specifiedPath"></pathwayDisplay>
 
@@ -44,9 +44,7 @@ export default {
     ...mapMutations(['setSelectedPathway']),
     updatePathway(path) {
       this.specifiedPath = path
-    },
-    inquiry_updatePathway(path) {
-      console.log("IGNORE DIS: " + path)
+      this.setSelectedPathway = path
     },
     drawerSetter(word) {
       if (word === "open") {

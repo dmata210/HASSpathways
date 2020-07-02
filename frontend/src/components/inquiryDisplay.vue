@@ -61,7 +61,7 @@
           Pathway description for:  {{ specifiedPathway }} <br> Artificial Intelligence is quickly becoming pervasive in our lives. Study how Artificial Intelligence can benefit from concepts and ideas from cognitive science, and explore the ways in which Artificial Intelligence is changing our lives.
         </v-card-text>
         <v-card-actions class="card-actions">
-          <v-btn class="font-weight-bold" text color="primary" @click="fromInquirySelector(specifiedPathway)">Select</v-btn>
+          <v-btn class="font-weight-bold" text color="primary" @click="selectPathway(specifiedPathway)">Select</v-btn>
           <!-- so now data has to transfer from here to the pathways page -->
         </v-card-actions>
       </v-card>
@@ -83,13 +83,12 @@ export default {
     }
   },
   methods: {
-    fromInquirySelector(path_name) {
-      // event bus emitter
-      EventBus.$emit("inquiry_updatePathway", path_name)
-
-      // change page view to pathway webpage
-      window.location.replace("http://localhost:8080/#/pathway");
+    ...mapMutations(['setSelectedPathway']),
+    selectPathway(pathway_name) {
+        window.location.replace("#/pathway")
+        this.setSelectedPathway(pathway_name);
     }
+    
   }
 }
 
