@@ -14,7 +14,7 @@
 
 import pathwayDisplay from './pathwayDisplay.vue'
 import NavigationDrawer from './NavigationDrawer'
-import { EventBus } from './event-bus.js';
+import { mapMutations } from 'vuex'
 
 
 export default {
@@ -41,6 +41,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setSelectedPathway']),
     updatePathway(path) {
       this.specifiedPath = path
     },
@@ -77,18 +78,6 @@ export default {
       }
     }
   },
-  created() {
-    // event bus listener for .on event
-    EventBus.$on("inquiry_updatePathway", (value) => {
-      // search for pathway (value) in objects
-      console.log("somehow search for: " + value + " in objects")
-
-      // essentially now we got to get the object and do this.specifiedPath = value
-      this.specifiedPath = this.pathway_info[1]
-      console.log(typeof(this.specifiedPath))
-      console.log("**********" + this.specifiedPath.name)
-    })
-  }
 }
 
 </script>

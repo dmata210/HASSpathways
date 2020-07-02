@@ -58,7 +58,7 @@
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn text color="primary" @click="fromInquirySelector(specifiedPathway)">Select</v-btn>
+                    <v-btn text color="primary" @click="selectPathway(specifiedPathway)">Select</v-btn>
                     <!-- so now data has to transfer from here to the pathways page -->
                 </v-card-actions>
             </v-card>
@@ -68,9 +68,10 @@
 </template>
 
 <script>
-import { EventBus } from './event-bus.js';
+import { mapMutations } from 'vuex'
 
 export default {
+
     props: ['items'],
     data() {
         return {
@@ -79,13 +80,11 @@ export default {
         }
     },
     methods: {
-        fromInquirySelector(path_name) {
-            // event bus emitter
-            EventBus.$emit("inquiry_updatePathway", path_name)
-
-            // change page view to pathway webpage
-            window.location.replace("http://localhost:8080/#/pathway");
-        }
+        ...mapMutations(['setSelectedPathway']),
+        selectPathway(pathway_name){
+            this.setSelectedPathway(pathway_name)
+            console.log(pathway_name)
+        },
     }
 }
 
