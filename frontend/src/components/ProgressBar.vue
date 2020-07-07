@@ -1,6 +1,6 @@
 <template>
 
-    <div class="ml-2 mr-2" style="font-family: 'Muli', sans-serif">
+    <div style="font-family: 'Muli', sans-serif">
 
       <v-stepper id="progress" class="elevation-0" :value='numberOfCoursesSelected + 1'>
 
