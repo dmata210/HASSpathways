@@ -42,7 +42,7 @@
 
         <v-row>
           <v-col cols=12>
-            <v-expansion-panels accordion>
+            <v-expansion-panels accordion hover>
               <v-expansion-panel v-for="(item, i) in items" :key="i">
                 <v-expansion-panel-header color="#c65353" id="expansion-header">{{ item }}</v-expansion-panel-header>
                 <v-expansion-panel-content>
@@ -60,8 +60,6 @@
 
       <router-view></router-view>
     </v-content>
-    
-    
 
   </v-app>
 </template>
