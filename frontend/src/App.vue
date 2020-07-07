@@ -3,17 +3,17 @@
 
     <!-- HEADER -->
     <div id="header" class="mb-2">
-      <p class="mt-6 ml-4">HASSpathways</p>
+      <p class="mt-6 ml-4">
+        HASSpathways
+        <v-btn id="button" to="/mypathways" class="mr-2">Activity</v-btn>
+      </p>
     </div>
 
-    <!-- BUTTONS -->
-    <div class="mt-2 ml-2 mb-2" style="font-family: 'Muli', sans-serif">
-      <v-btn class="mr-4" to="/inquiry">Explore inquiry courses</v-btn>
-      <v-btn to="/pathway">Explore pathways</v-btn>
-      <v-btn id="button" to="/mypathways" class="mr-2">Activity</v-btn>
+    <div id="searchBar">
+      <v-autocomplete v-model="value" :items="items" dense solo label="Search Courses"></v-autocomplete>
     </div>
 
-    <ProgressBar></ProgressBar>
+    <ProgressBar />
 
     <router-view></router-view>
 
@@ -26,6 +26,9 @@ import ProgressBar from './components/ProgressBar'
 
 export default {
   name: 'App',
+  data: () => ({
+    items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc']
+  }),
   components: {
     ProgressBar
   },
@@ -48,6 +51,10 @@ export default {
   color: white;
   font-family: 'Muli', sans-serif;
   font-size: 20px;
+}
+
+#searchBar{
+  width: 100%;
 }
 
 </style>
