@@ -13,7 +13,7 @@
 
     
     <v-app-bar app absolute flat color="#c65353">
-        <v-row class="mt-6">
+        <!-- <v-row class="mt-6">
           <v-col cols=2>
             <v-toolbar-title id="title">HASSpathways</v-toolbar-title>
           </v-col>
@@ -23,13 +23,30 @@
           </v-col>
 
           <v-col cols=2>
-            <v-btn block id="button" to="/mypathways" class="mr-2">Explore</v-btn>
+            <v-btn block id="button" to="/" class="mr-2">Explore</v-btn>
           </v-col>
 
           <v-col cols=2>
             <v-btn block id="button" to="/mypathways" class="mr-2">Activity</v-btn>
           </v-col>
-        </v-row>      
+        </v-row>       -->
+        <v-container fluid>
+          <v-layout row class="mt-6">
+            <v-flex md2 sm3 xs4>
+              <v-toolbar-title id="title">HASSpathways</v-toolbar-title>
+            </v-flex>
+              
+            <v-flex md6 sm5 xs2>
+              <v-autocomplete :items="items" dense flat solo label="Search Courses" color="#c65353" :search-input.sync="searchInput" @input="handleInput()"></v-autocomplete>
+            </v-flex>
+
+            <v-flex md4 sm4 xs6>
+              <v-btn id="button" to="/mypathways">Activity</v-btn>
+              <v-btn id="button" to="/" class="mr-2">Explore</v-btn>
+            </v-flex>
+
+          </v-layout>
+        </v-container>
     </v-app-bar>
 
     <v-content>
@@ -61,14 +78,17 @@ import ExpansionPanel from './components/ExpansionPanel'
 export default {
   name: 'App',
   data: () => ({
-    items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc']
+    items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
+    searchInput: ""
   }),
   components: {
     ProgressBar,
     ExpansionPanel
   },
-  created() {
-    
+  methods: {
+    handleInput() {
+      console.log(this.searchInput)
+    }
   }
 };
 
@@ -76,9 +96,9 @@ export default {
 
 <style>
 
-/* #button {
+#button {
   float: right;
-} */
+}
 
 #header {
   height: 70px;

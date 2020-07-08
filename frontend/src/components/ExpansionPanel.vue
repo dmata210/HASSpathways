@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-expansion-panels accordion hover>
+    <v-expansion-panels accordion hover id="expansion-panel" class="overflow-y-auto">
       <v-expansion-panel @click="selectPathway(path)" v-for="(path, i) in pathways" :key="i">
         <v-expansion-panel-header color="#c65353" id="expansion-header">{{ path.name }}</v-expansion-panel-header>
         <v-expansion-panel-content>
@@ -99,4 +99,7 @@ export default {
 
 <style scoped>
 
+  #expansion-panel {
+    height: 400px;
+  }
 </style>
