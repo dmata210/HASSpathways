@@ -1,35 +1,6 @@
 <template>
-  <v-app id="app">
-
-    <!-- HEADER -->
-    <!-- <div id="header">
-      <p class="mt-6 ml-4">
-        HASSpathways
-        <v-btn id="button" to="/mypathways" class="mr-2">Activity</v-btn>
-        <v-btn id="button" to="/#" class="mr-2">Explore</v-btn>
-      </p>
-      <v-autocomplete v-model="value" :items="items" dense solo label="Search Courses"></v-autocomplete>
-    </div> -->
-
-    
+  <v-app id="app">    
     <v-app-bar app absolute flat color="#c65353">
-        <!-- <v-row class="mt-6">
-          <v-col cols=2>
-            <v-toolbar-title id="title">HASSpathways</v-toolbar-title>
-          </v-col>
-
-          <v-col cols=6>
-            <v-autocomplete :items="items" dense solo label="Search Courses"></v-autocomplete>
-          </v-col>
-
-          <v-col cols=2>
-            <v-btn block id="button" to="/" class="mr-2">Explore</v-btn>
-          </v-col>
-
-          <v-col cols=2>
-            <v-btn block id="button" to="/mypathways" class="mr-2">Activity</v-btn>
-          </v-col>
-        </v-row>       -->
         <v-container fluid>
           <v-layout row class="mt-6">
             <v-flex md2 sm3 xs4>

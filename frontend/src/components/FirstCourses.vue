@@ -1,65 +1,37 @@
 <template>
+
   <div>
-    <v-expansion-panels accordion hover id="expansion-panel" class="overflow-y-auto">
-      <v-expansion-panel @click="selectPathway(path)" v-for="(path, i) in pathways" :key="i">
-        <v-expansion-panel-header color="#c65353" id="expansion-header">{{ path.name }}</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <v-card tile flat color="#dcdcdc">
-            <v-card-text class="mt-4">{{ path.pathDescription }}</v-card-text>
+    <v-list id="list" class="overflow-y-auto">
+      Select a {{ courseNumber }} course
+      <v-divider></v-divider>
+      <v-list-group color="#c65353" v-for="(course, i) in path.Courses" :key="i">
+        <template v-slot:activator>
+          <v-list-item-content>
+            <v-list-item-title>{{ course }}</v-list-item-title>
+          </v-list-item-content>
+        </template>
+
+        <v-list-item>
+          <v-card tile flat class="mt-2 mb-2" color="#dcdcdc" width="100%">
+            <v-card-text>Description of course here</v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn @click="selectCourse(course)" class="mr-2 mb-2">Add</v-btn>
+            </v-card-actions>
           </v-card>
-          <!-- <v-expansion-panels accordion>
-            <v-expansion-panel v-for="(item, i) in items" :key="i">
-              <v-expansion-panel-header>{{ item }}</v-expansion-panel-header>
-              <v-expansion-panel-content>
-                hi
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels> -->
+        </v-list-item>
 
-          <!-- <v-list id="list" class="overflow-y-auto">
-            Select a {{ courseNumber }} course
-            <v-divider></v-divider>
-            <v-list-group color="#c65353" v-for="(course, i) in courses(path)" :key="i">
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>{{ course }}</v-list-item-title>
-                </v-list-item-content>
-              </template>
-
-              <v-list-item>
-                <v-card tile flat class="mt-2 mb-2" color="#dcdcdc" width="100%">
-                  <v-card-text>Description of course here</v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn @click="selectCourse(course)" class="mr-2 mb-2">Add</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-list-item>
-
-            </v-list-group>
-          </v-list> -->
-          <FirstCourses @nextCourse="moveToNextCourse" v-if="courseNumber=='first'" :path="path"/>
-          <SecondCourses @nextCourse="moveToNextCourse" v-else-if="courseNumber=='second'" :path="path"/>
-          <ThirdCourses v-else-if="courseNumber=='third'" :path="path"/>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
+      </v-list-group>
+    </v-list>
   </div>
+    
 </template>
 
 <script>
 
 import { mapMutations } from 'vuex'
-import FirstCourses from './FirstCourses'
-import SecondCourses from './SecondCourses'
-import ThirdCourses from './ThirdCourses'
-
 export default {
-  components: {
-    FirstCourses,
-    SecondCourses,
-    ThirdCourses
-  },
+  props: ['path'],
   data() {
     return {
       items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
@@ -74,22 +46,26 @@ export default {
         { name: 'Economics'},
         { name: 'Economics of Banking & Finance'}
       ],
-      courseNumber: 'first'
+      courseNumber: 'first',
+      next: 'second'
     }
   },
   methods: {
     ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
     selectCourse(course) {
-      if (this.courseNumber == 'first') {
-        this.setSelectedCourse1(course)
-        this.courseNumber = 'second'
-      } else if (this.courseNumber == 'second') {
-        this.setSelectedCourse2(course)
-        this.courseNumber = 'third'
-      } else if (this.courseNumber == 'third') {
-        this.setSelectedCourse3(course)
-      }
+      // if (this.courseNumber == 'first') {
+      //   this.setSelectedCourse1(course)
+      //   this.courseNumber = 'second'
+      // } else if (this.courseNumber == 'second') {
+      //   this.setSelectedCourse2(course)
+      //   this.courseNumber = 'third'
+      // } else if (this.courseNumber == 'third') {
+      //   this.setSelectedCourse3(course)
+      // }
+      this.setSelectedCourse1(course);
       console.log(course)
+      this.$emit('nextCourse', this.next)
+
     },
     selectPathway(path) {
       console.log(path.name)
@@ -104,9 +80,6 @@ export default {
       } else {
         return null
       }
-    },
-    moveToNextCourse(course) {
-      this.courseNumber = course
     }
   }
 }
@@ -114,7 +87,4 @@ export default {
 
 <style scoped>
 
-  #expansion-panel {
-    height: 400px;
-  }
 </style>
