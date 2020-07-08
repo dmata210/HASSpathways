@@ -19,11 +19,11 @@
           </v-col>
 
           <v-col cols=6>
-            <v-autocomplete v-model="value" :items="items" dense solo label="Search Courses"></v-autocomplete>
+            <v-autocomplete :items="items" dense solo label="Search Courses"></v-autocomplete>
           </v-col>
 
           <v-col cols=2>
-            <v-btn block id="button" to="/#" class="mr-2">Explore</v-btn>
+            <v-btn block id="button" to="/mypathways" class="mr-2">Explore</v-btn>
           </v-col>
 
           <v-col cols=2>
@@ -42,38 +42,7 @@
 
         <v-row>
           <v-col cols=12>
-            <v-expansion-panels accordion hover>
-              <v-expansion-panel v-for="(item, i) in items" :key="i">
-                <v-expansion-panel-header color="#c65353" id="expansion-header">{{ item }}</v-expansion-panel-header>
-                <v-expansion-panel-content>
-                  <v-card tile flat color="#dcdcdc">
-                    <v-card-text class="mt-4">Description here</v-card-text>
-                  </v-card>
-                  <!-- <v-expansion-panels accordion>
-                    <v-expansion-panel v-for="(item, i) in items" :key="i">
-                      <v-expansion-panel-header>{{ item }}</v-expansion-panel-header>
-                      <v-expansion-panel-content>
-                        hi
-                      </v-expansion-panel-content>
-                    </v-expansion-panel>
-                  </v-expansion-panels> -->
-                  <v-list id="list" class="overflow-y-auto">
-                    <v-list-group color="#c65353" v-for="(item, i) in items" :key="i">
-                      <template v-slot:activator>
-                        <v-list-item-content>
-                          <v-list-item-title>{{item}}</v-list-item-title>
-                        </v-list-item-content>
-                      </template>
-
-                      <v-list-item>
-                        <v-list-item-title>Description of course here</v-list-item-title>                        
-                      </v-list-item>
-
-                    </v-list-group>
-                  </v-list>
-                </v-expansion-panel-content>
-              </v-expansion-panel>
-            </v-expansion-panels>
+            <ExpansionPanel/>
           </v-col>
         </v-row>
       </v-container>
@@ -87,6 +56,7 @@
 <script>
 
 import ProgressBar from './components/ProgressBar'
+import ExpansionPanel from './components/ExpansionPanel'
 
 export default {
   name: 'App',
@@ -94,7 +64,8 @@ export default {
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc']
   }),
   components: {
-    ProgressBar
+    ProgressBar,
+    ExpansionPanel
   },
   created() {
     
