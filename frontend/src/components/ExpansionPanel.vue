@@ -7,39 +7,9 @@
           <v-card tile flat color="#dcdcdc">
             <v-card-text class="mt-4">{{ path.pathDescription }}</v-card-text>
           </v-card>
-          <!-- <v-expansion-panels accordion>
-            <v-expansion-panel v-for="(item, i) in items" :key="i">
-              <v-expansion-panel-header>{{ item }}</v-expansion-panel-header>
-              <v-expansion-panel-content>
-                hi
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels> -->
 
-          <!-- <v-list id="list" class="overflow-y-auto">
-            Select a {{ courseNumber }} course
-            <v-divider></v-divider>
-            <v-list-group color="#c65353" v-for="(course, i) in courses(path)" :key="i">
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>{{ course }}</v-list-item-title>
-                </v-list-item-content>
-              </template>
-
-              <v-list-item>
-                <v-card tile flat class="mt-2 mb-2" color="#dcdcdc" width="100%">
-                  <v-card-text>Description of course here</v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn @click="selectCourse(course)" class="mr-2 mb-2">Add</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-list-item>
-
-            </v-list-group>
-          </v-list> -->
-          <FirstCourses @nextCourse="moveToNextCourse" v-if="courseNumber=='first'" :path="path"/>
-          <SecondCourses @nextCourse="moveToNextCourse" v-else-if="courseNumber=='second'" :path="path"/>
+          <FirstCourses @nextBucket="moveToNextBucket" v-if="courseNumber=='first'" :path="path"/>
+          <SecondCourses @nextBucket="moveToNextBucket" v-else-if="courseNumber=='second'" :path="path"/>
           <ThirdCourses v-else-if="courseNumber=='third'" :path="path"/>
         </v-expansion-panel-content>
       </v-expansion-panel>
@@ -62,7 +32,6 @@ export default {
   },
   data() {
     return {
-      items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
       pathways: [
         { name: 'Artificial Intelligence', pathDescription: "Artificial Intelligence is quickly becoming pervasive in our lives. Study how Artificial Intelligence can benefit from concepts and ideas from cognitive science, and explore the ways in which Artificial Intelligence is changing our lives.", Courses: ["Minds and Machines", "AI and Society", "Are Humans Rational?"], secondCourses: ["Introduction to Cognitive Science"], thirdCourses: ["Cognitive Modeling, Programming for Cognitive Science and AI", "Game AI", "Intelligent Virtual Agents", "Language Endowed Intelligent Agents", "Learning and Advanced Game AI"], clicked: false},
         { name: 'Chinese Language', pathDescription: "Integrated with Chinese culture, students will learn all four types of language skills (listening, speaking, reading, and writing). After completing the Chinese pathway, students will be able to communicate in Chinese at their targeted proficiency levels and think critically and creatively with global and multicultural awareness.", Courses: [1, 2, 3, 4], clicked: false},
@@ -79,33 +48,10 @@ export default {
   },
   methods: {
     ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
-    selectCourse(course) {
-      if (this.courseNumber == 'first') {
-        this.setSelectedCourse1(course)
-        this.courseNumber = 'second'
-      } else if (this.courseNumber == 'second') {
-        this.setSelectedCourse2(course)
-        this.courseNumber = 'third'
-      } else if (this.courseNumber == 'third') {
-        this.setSelectedCourse3(course)
-      }
-      console.log(course)
-    },
     selectPathway(path) {
       console.log(path.name)
     },
-    courses(path) {
-      if (this.courseNumber == 'first') {
-        return path.Courses
-      } else if (this.courseNumber == 'second') {
-        return path.secondCourses
-      } else if (this.courseNumber == 'third') {
-        return path.thirdCourses
-      } else {
-        return null
-      }
-    },
-    moveToNextCourse(course) {
+    moveToNextBucket(course) {
       this.courseNumber = course
     }
   }
