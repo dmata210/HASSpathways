@@ -13,8 +13,8 @@ export default new Router({
       component: ExpansionPanel,
     },
     {
-      path: "/mypathways",
-      name: "mypathways",
+      path: "/activity",
+      name: "activity",
       component: MyPathways,
     },
     {
