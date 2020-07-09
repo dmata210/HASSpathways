@@ -12,8 +12,11 @@
             </v-flex>
 
             <v-flex md4 sm4 xs6>
-              <v-btn id="button" to="/mypathways">Activity</v-btn>
-              <v-btn id="button" to="/" class="mr-2">Explore</v-btn>
+              <!-- <v-btn id="button" to="/mypathways">Activity</v-btn>
+              <v-btn id="button" to="/" class="mr-2">Explore</v-btn> -->
+              <v-btn id="button" :to="{name: 'mypathways'}">Activity</v-btn>
+              <v-btn id="button" :to="{name: 'home'}" class="mr-2">Explore</v-btn>
+
             </v-flex>
 
           </v-layout>

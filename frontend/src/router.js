@@ -8,14 +8,20 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/mypathways',
-      name: 'mypathways',
-      component: MyPathways
+      path: "/",
+      name: "home",
+      component: ExpansionPanel,
     },
     {
-      path: '/',
-      name: '',
+      path: "/mypathways",
+      name: "mypathways",
+      component: MyPathways,
+    },
+    {
+      path: "*",
+      name: "",
       component: ExpansionPanel
     }
-  ]
-})
+  ],
+  mode: "history",
+});
