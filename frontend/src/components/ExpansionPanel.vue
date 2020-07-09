@@ -1,23 +1,17 @@
 <template>
   <div>
-    <v-expansion-panels accordion hover id="expansion-panel" class="overflow-y-auto">
+    <ProgressBar/>
+    <v-expansion-panels accordion hover multiple id="expansion-panel" class="overflow-y-auto">
       <v-expansion-panel @click="selectPathway(path)" v-for="(path, i) in pathways" :key="i">
         <v-expansion-panel-header color="#c65353" id="expansion-header">{{ path.name }}</v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-card tile flat color="#dcdcdc">
             <v-card-text class="mt-4">{{ path.pathDescription }}</v-card-text>
           </v-card>
-          <!-- <v-expansion-panels accordion>
-            <v-expansion-panel v-for="(item, i) in items" :key="i">
-              <v-expansion-panel-header>{{ item }}</v-expansion-panel-header>
-              <v-expansion-panel-content>
-                hi
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels> -->
           <v-list id="list" class="overflow-y-auto">
             Select a {{ courseNumber }} course
             <v-divider></v-divider>
+            
             <v-list-group color="#c65353" v-for="(course, i) in courses(path)" :key="i">
               <template v-slot:activator>
                 <v-list-item-content>
@@ -33,6 +27,7 @@
                     <v-btn @click="selectCourse(course)" class="mr-2 mb-2">Add</v-btn>
                   </v-card-actions>
                 </v-card>
+              
               </v-list-item>
 
             </v-list-group>
@@ -46,8 +41,13 @@
 <script>
 
 import { mapMutations } from 'vuex'
+import ProgressBar from './ProgressBar.vue'
+
 
 export default {
+  components: {
+    ProgressBar
+  },
   data() {
     return {
       items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
@@ -100,6 +100,6 @@ export default {
 <style scoped>
 
   #expansion-panel {
-    height: 400px;
+    height: 100%;
   }
 </style>

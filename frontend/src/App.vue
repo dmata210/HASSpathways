@@ -53,15 +53,14 @@
       <v-container fluid>
         <v-row>
           <v-col cols=12>
-            <ProgressBar/>
           </v-col>
         </v-row>
 
-        <v-row>
+        <!-- <v-row>
           <v-col cols=12>
             <ExpansionPanel/>
           </v-col>
-        </v-row>
+        </v-row> -->
       </v-container>
 
       <router-view></router-view>
@@ -72,19 +71,12 @@
 
 <script>
 
-import ProgressBar from './components/ProgressBar'
-import ExpansionPanel from './components/ExpansionPanel'
-
 export default {
   name: 'App',
   data: () => ({
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
     searchInput: ""
   }),
-  components: {
-    ProgressBar,
-    ExpansionPanel
-  },
   methods: {
     handleInput() {
       console.log(this.searchInput)
