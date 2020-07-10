@@ -12,13 +12,16 @@
       <v-card-subtitle>
         <v-btn depressed shaped x-large width="33%" color="pink" dark @click="selectCourse('Minds and Machines')">
           <v-icon>mdi-numeric-1</v-icon>
-          Minds and Machines</v-btn>
+          {{ history[0] }}
+        </v-btn>
         <v-btn depressed shaped x-large width="33%" color="orange" dark  @click="selectCourse('Artificial Intelligence and Society')">
           <v-icon>mdi-numeric-2</v-icon>
-          Artificial Intelligence and Society</v-btn>
+          Artificial Intelligence and Society
+        </v-btn>
         <v-btn depressed shaped x-large width="33%" color="success" dark  @click="selectCourse('Are Humans Rational?')">
           <v-icon>mdi-numeric-3</v-icon>
-          Are Humans Rational?</v-btn>
+          Are Humans Rational?
+        </v-btn>
       </v-card-subtitle>
       <v-card-text>
         <v-card width="100%" height="90%" outlined id="rounded-left">
@@ -58,6 +61,8 @@
 
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: ['path'],
   data() {
@@ -66,8 +71,12 @@ export default {
     }
   },
   methods: {
+    ...mapGetters(['getOptions']),
     selectCourse(course) {
       this.specifiedCourse = course;
+    },
+    history() {
+      return this.getOptions;
     }
   }
 }

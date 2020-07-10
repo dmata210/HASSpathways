@@ -21,7 +21,7 @@
 
 <script>
 
-import { mapMutations } from 'vuex'
+// import { mapMutations } from 'vuex'
 import ProgressBar from './ProgressBar.vue'
 import FirstCourses from './FirstCourses'
 import SecondCourses from './SecondCourses'
@@ -48,11 +48,12 @@ export default {
         { name: 'Economics'},
         { name: 'Economics of Banking & Finance'}
       ],
-      courseNumber: 'first'
+      courseNumber: 'first',
+      savedCourses: []
     }
   },
   methods: {
-    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
+    // ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
     selectPathway(path) {
       console.log(path.name)
     },
