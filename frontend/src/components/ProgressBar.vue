@@ -10,6 +10,8 @@
           :step="1"
           :complete="numberOfCoursesSelected > 0"
           @click="goToCourse(1)"
+          editable
+          color="#c65353"
           >
           {{coursesList.firstCourse}}
           </v-stepper-step>
@@ -20,6 +22,8 @@
           :step="2"
           :complete="numberOfCoursesSelected > 1"
           @click="goToCourse(2)"
+          editable
+          color="#c65353"
           >
           {{coursesList.secondCourse}}
           </v-stepper-step>
@@ -30,6 +34,8 @@
           :step="3"
           :complete="numberOfCoursesSelected > 2"
           @click="goToCourse(3)"
+          editable
+          color="#c65353"
           >
           {{coursesList.thirdCourse}}
           </v-stepper-step>
@@ -49,23 +55,20 @@ import { mapGetters } from 'vuex'
 export default {
   data(){
     return {
-      courseNumber: 0
+      courseNumber: ""
     }
   },
   methods: {
     goToCourse(num) {
       if (num == 1) {
-        this.courseNumber = 1
-        console.log(this.courseNumber)
-        this.$emit('switchCourse', this.courseNumber)
+        this.courseNumber = "first"
+        this.$root.$emit('changeWhichCourse', "first")
       } else if (num == 2) {
-        this.courseNumber = 2
-        console.log(this.courseNumber)
-        this.$emit('switchCourse', this.courseNumber)
+        this.courseNumber = "second"
+        this.$root.$emit('changeWhichCourse', "second")
       } else if (num == 3) {
-        this.courseNumber = 3
-        console.log(this.courseNumber)
-        this.$emit('switchCourse', this.courseNumber)
+        this.courseNumber = "third"
+        this.$root.$emit('changeWhichCourse', "third")
       }
     }
   },
@@ -84,6 +87,11 @@ export default {
         thirdCourse: this.thirdCourse ? this.thirdCourse : "No Course Selected"
       }
     }
+  },
+  mounted() {
+    this.$root.$on('changeWhichCourse', (course) => {
+      this.courseNumber = course
+    })
   }
 }
 

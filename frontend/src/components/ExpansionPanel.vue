@@ -53,7 +53,19 @@ export default {
     },
     moveToNextBucket(course) {
       this.courseNumber = course
+      if (this.courseNumber == "first") {
+        this.$root.$emit('changeWhichCourse', "first")
+      } else if (this.courseNumber == "second") {
+        this.$root.$emit('changeWhichCourse', "second")
+      } else if (this.courseNumber == "third") {
+        this.$root.$emit('changeWhichCourse', "third")
+      }
     }
+  },
+  mounted() {
+    this.$root.$on('changeWhichCourse', (course) => {
+      this.courseNumber = course
+    })
   }
 }
 </script>
@@ -63,4 +75,5 @@ export default {
   #expansion-panel {
     height: 400px;
   }
+  
 </style>
