@@ -2,13 +2,14 @@
 
     <div style="font-family: 'Muli', sans-serif">
 
-      <v-stepper id="progress" class="elevation-0" :value='numberOfCoursesSelected + 1'>
+      <v-stepper id="progress" class="elevation-0" :value="numberOfCoursesSelected + 1">
 
         <v-stepper-header>
 
           <v-stepper-step 
           :step="1"
           :complete="numberOfCoursesSelected > 0"
+          @click="goToCourse(1)"
           >
           {{coursesList.firstCourse}}
           </v-stepper-step>
@@ -18,6 +19,7 @@
           <v-stepper-step 
           :step="2"
           :complete="numberOfCoursesSelected > 1"
+          @click="goToCourse(2)"
           >
           {{coursesList.secondCourse}}
           </v-stepper-step>
@@ -27,6 +29,7 @@
           <v-stepper-step 
           :step="3"
           :complete="numberOfCoursesSelected > 2"
+          @click="goToCourse(3)"
           >
           {{coursesList.thirdCourse}}
           </v-stepper-step>
@@ -45,7 +48,26 @@ import { mapGetters } from 'vuex'
 
 export default {
   data(){
-    return {}
+    return {
+      courseNumber: 0
+    }
+  },
+  methods: {
+    goToCourse(num) {
+      if (num == 1) {
+        this.courseNumber = 1
+        console.log(this.courseNumber)
+        this.$emit('switchCourse', this.courseNumber)
+      } else if (num == 2) {
+        this.courseNumber = 2
+        console.log(this.courseNumber)
+        this.$emit('switchCourse', this.courseNumber)
+      } else if (num == 3) {
+        this.courseNumber = 3
+        console.log(this.courseNumber)
+        this.$emit('switchCourse', this.courseNumber)
+      }
+    }
   },
   // we use a computed property to automatically update the 
   // number of steps shown as complete on the progressbar based on the 
