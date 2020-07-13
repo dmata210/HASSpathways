@@ -8,7 +8,7 @@
             </v-flex>
               
             <v-flex md6 sm5 xs2>
-              <v-autocomplete :items="items" dense flat solo label="Search Courses" color="#c65353" :search-input.sync="searchInput" @input="handleInput()"></v-autocomplete>
+              <v-autocomplete :items="items" dense flat solo label="Search Courses" item-color="grey" color="#c65353" :search-input.sync="searchInput"></v-autocomplete>
             </v-flex>
 
             <v-flex md4 sm4 xs6>
@@ -30,7 +30,7 @@
 
         <v-row>
           <v-col cols=12>
-            <ExpansionPanel/>
+            <ExpansionPanel :filter="searchInput"/>
           </v-col>
         </v-row>
       </v-container>
@@ -55,11 +55,6 @@ export default {
   components: {
     ProgressBar,
     ExpansionPanel
-  },
-  methods: {
-    handleInput() {
-      console.log(this.searchInput)
-    }
   }
 };
 
