@@ -8,7 +8,7 @@
             </v-flex>
               
             <v-flex md6 sm5 xs2>
-              <v-autocomplete :items="items" dense flat solo label="Search Courses" item-color="grey" color="#c65353" :search-input.sync="searchInput"></v-autocomplete>
+              <v-autocomplete clearable :items="items" dense flat solo label="Search Courses" item-color="grey" color="#c65353" :search-input.sync="searchInput"></v-autocomplete>
             </v-flex>
 
             <v-flex md4 sm4 xs6>
