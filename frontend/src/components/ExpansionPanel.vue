@@ -27,6 +27,8 @@ import FirstCourses from './FirstCourses'
 import SecondCourses from './SecondCourses'
 import ThirdCourses from './ThirdCourses'
 
+import { mapGetters, mapMutations } from 'vuex'
+
 
 export default {
   components: {
@@ -54,9 +56,10 @@ export default {
     }
   },
   methods: {
-    // ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
+    ...mapMutations(['setSelectedPathway']),
     selectPathway(path) {
       console.log(path.name)
+      this.setSelectedPathway(path)
     },
     moveToNextBucket(course) {
       this.courseNumber = course
@@ -78,6 +81,7 @@ export default {
     })
   },
   computed: {
+    ...mapGetters(['pathway', 'firstCourse']),
     filteredPathways() {
       var items = this.pathways
       var result = []
