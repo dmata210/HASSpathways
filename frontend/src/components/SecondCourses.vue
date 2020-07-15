@@ -44,6 +44,7 @@ export default {
       this.setSelectedCourse2(course);
       console.log(course)
       this.$emit('nextBucket', this.nextBucketNumber)
+      this.$root.$emit('makeThirdCourseEditable', true)
     }
   }
 }

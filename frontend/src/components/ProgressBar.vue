@@ -10,7 +10,7 @@
           :step="1"
           :complete="numberOfCoursesSelected > 0"
           @click="goToCourse(1)"
-          editable
+          :editable='firstCourseEditable'
           color="#c65353"
           >
           {{coursesList.firstCourse}}
@@ -22,7 +22,7 @@
           :step="2"
           :complete="numberOfCoursesSelected > 1"
           @click="goToCourse(2)"
-          editable
+          :editable='secondCourseEditable'
           color="#c65353"
           >
           {{coursesList.secondCourse}}
@@ -34,7 +34,7 @@
           :step="3"
           :complete="numberOfCoursesSelected > 2"
           @click="goToCourse(3)"
-          editable
+          :editable='thirdCourseEditable'
           color="#c65353"
           >
           {{coursesList.thirdCourse}}
@@ -55,7 +55,10 @@ import { mapGetters } from 'vuex'
 export default {
   data(){
     return {
-      courseNumber: ""
+      courseNumber: "",
+      firstCourseEditable: true,
+      secondCourseEditable: false,
+      thirdCourseEditable: false
     }
   },
   methods: {
@@ -64,11 +67,15 @@ export default {
         this.courseNumber = "first"
         this.$root.$emit('changeWhichCourse', "first")
       } else if (num == 2) {
-        this.courseNumber = "second"
-        this.$root.$emit('changeWhichCourse', "second")
+        if (this.firstCourse != null) {
+          this.courseNumber = "second"
+          this.$root.$emit('changeWhichCourse', "second")
+        }
       } else if (num == 3) {
-        this.courseNumber = "third"
-        this.$root.$emit('changeWhichCourse', "third")
+        if (this.secondCourse != null) {
+          this.courseNumber = "third"
+          this.$root.$emit('changeWhichCourse', "third")
+        }
       }
     }
   },
@@ -91,6 +98,12 @@ export default {
   mounted() {
     this.$root.$on('changeWhichCourse', (course) => {
       this.courseNumber = course
+    }),
+    this.$root.$on('makeSecondCourseEditable', (editable) => {
+      this.secondCourseEditable = editable
+    }),
+    this.$root.$on('makeThirdCourseEditable', (editable) => {
+      this.thirdCourseEditable = editable
     })
   }
 }

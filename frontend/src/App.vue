@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">    
-    <v-app-bar app absolute flat color="#c65353">
+    <v-app-bar app fixed flat color="#c65353">
         <v-container fluid>
           <v-layout row class="mt-6">
             <v-flex md2 sm3 xs4>
@@ -8,7 +8,7 @@
             </v-flex>
               
             <v-flex md6 sm5 xs2>
-              <v-autocomplete clearable :items="items" dense flat solo label="Search Courses" item-color="grey" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-autocomplete>
+              <v-autocomplete clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-autocomplete>
             </v-flex>
 
             <v-flex md4 sm4 xs6>
@@ -37,7 +37,7 @@ export default {
   methods: {
     handleInput() {
       this.$root.$emit('changedFilter', this.searchInput)
-      
+
     }
   }
 };
