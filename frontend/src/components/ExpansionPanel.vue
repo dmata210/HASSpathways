@@ -29,7 +29,6 @@ import ThirdCourses from './ThirdCourses'
 
 
 export default {
-  props: ["filter"],
   components: {
     FirstCourses,
     SecondCourses,
@@ -50,7 +49,8 @@ export default {
         { name: 'Economics of Banking & Finance'}
       ],
       courseNumber: 'first',
-      savedCourses: []
+      savedCourses: [],
+      filter: ''
     }
   },
   methods: {
@@ -72,6 +72,9 @@ export default {
   mounted() {
     this.$root.$on('changeWhichCourse', (course) => {
       this.courseNumber = course
+    }),
+    this.$root.$on('changedFilter', (input) => {
+      this.filter = input
     })
   },
   computed: {
