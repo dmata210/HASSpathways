@@ -37,6 +37,7 @@ export default {
   methods: {
     handleInput() {
       this.$root.$emit('changedFilter', this.searchInput)
+      
     }
   }
 };
