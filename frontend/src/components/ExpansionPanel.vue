@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-expansion-panels accordion hover id="expansion-panel" class="overflow-y-auto" multiple>
+    <ProgressBar/>
+    <v-expansion-panels accordion hover multiple id="expansion-panel" class="overflow-y-auto">
       <v-expansion-panel @click="selectPathway(path)" v-for="(path, i) in filteredPathways" :key="i">
         <v-expansion-panel-header color="#c65353" id="expansion-header">{{ path.name }}</v-expansion-panel-header>
         <v-expansion-panel-content>
@@ -11,6 +12,7 @@
           <FirstCourses @nextBucket="moveToNextBucket" v-if="courseNumber=='first'" :path="path"/>
           <SecondCourses @nextBucket="moveToNextBucket" v-else-if="courseNumber=='second'" :path="path"/>
           <ThirdCourses v-else-if="courseNumber=='third'" :path="path"/>
+        
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -19,17 +21,20 @@
 
 <script>
 
-import { mapMutations } from 'vuex'
+// import { mapMutations } from 'vuex'
+import ProgressBar from './ProgressBar.vue'
 import FirstCourses from './FirstCourses'
 import SecondCourses from './SecondCourses'
 import ThirdCourses from './ThirdCourses'
+
 
 export default {
   props: ["filter"],
   components: {
     FirstCourses,
     SecondCourses,
-    ThirdCourses
+    ThirdCourses,
+    ProgressBar
   },
   data() {
     return {
@@ -44,11 +49,12 @@ export default {
         { name: 'Economics'},
         { name: 'Economics of Banking & Finance'}
       ],
-      courseNumber: 'first'
+      courseNumber: 'first',
+      savedCourses: []
     }
   },
   methods: {
-    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
+    // ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
     selectPathway(path) {
       console.log(path.name)
     },
@@ -100,7 +106,7 @@ export default {
 <style scoped>
 
   #expansion-panel {
-    max-height: 400px;
+    height: 100%;
   }
 
 </style>

@@ -12,29 +12,14 @@
             </v-flex>
 
             <v-flex md4 sm4 xs6>
-              <v-btn id="button" to="/mypathways">Activity</v-btn>
-              <v-btn id="button" to="/" class="mr-2">Explore</v-btn>
+              <v-btn id="button" :to="{name: 'activity'}">Activity</v-btn>
+              <v-btn id="button" :to="{name: 'home'}" class="mr-2">Explore</v-btn>
             </v-flex>
-
           </v-layout>
         </v-container>
     </v-app-bar>
 
     <v-content>
-      <v-container fluid>
-        <v-row>
-          <v-col cols=12>
-            <ProgressBar/>
-          </v-col>
-        </v-row>
-
-        <v-row>
-          <v-col cols=12>
-            <ExpansionPanel :filter="searchInput"/>
-          </v-col>
-        </v-row>
-      </v-container>
-
       <router-view></router-view>
     </v-content>
 
@@ -43,18 +28,16 @@
 
 <script>
 
-import ProgressBar from './components/ProgressBar'
-import ExpansionPanel from './components/ExpansionPanel'
-
 export default {
   name: 'App',
   data: () => ({
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
     searchInput: ""
   }),
-  components: {
-    ProgressBar,
-    ExpansionPanel
+  methods: {
+    handleInput() {
+      console.log(this.searchInput)
+    }
   }
 };
 
