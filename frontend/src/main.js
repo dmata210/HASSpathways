@@ -16,7 +16,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0,
+    count: 3,
     currentSelection: {
       pathway: null,
       course1: null,
@@ -26,7 +26,7 @@ const store = new Vuex.Store({
     // shopping cart starts out as an empty object
     // we just copy application states as the user saves them
     shoppingCart: {
-      options: [["Minds & Machines", "AI & Society", "Are Humans Rational"]]
+      options: [["Minds & Machines1", "AI & Society2", "Are Humans Rational3"], ["Minds & Machines4", "AI & Society5", "Are Humans Rational6"], ["Minds & Machines7", "AI & Society8", "Are Humans Rational9"]]
     }
   },
   mutations: {
@@ -92,7 +92,16 @@ const store = new Vuex.Store({
     pathway(state) {
       return state.currentSelection.pathway;
     },
+    getOptionsLength(state) {
+      // double check
+      if (state.count === state.shoppingCart.options.length){
+        return state.count
+      }else{
+        return state.shoppingCart.options.length;
+      }
+    },
     getOptions(state) {
+      // return state.shoppingCart.options;
       return state.shoppingCart.options;
     }
   }
