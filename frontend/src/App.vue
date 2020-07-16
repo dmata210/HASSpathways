@@ -12,8 +12,8 @@
             </v-flex>
 
             <v-flex md4 sm4 xs6>
-              <v-btn id="button" :to="{name: 'activity'}">Activity</v-btn>
-              <v-btn id="button" :to="{name: 'home'}" class="mr-2">Explore</v-btn>
+              <v-btn depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
+              <v-btn depressed id="button" :to="{name: 'home'}" class="mr-2">Explore</v-btn>
             </v-flex>
           </v-layout>
         </v-container>

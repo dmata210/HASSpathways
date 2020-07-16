@@ -98,10 +98,6 @@ export default {
       // }
 
       for (var key in items) {
-        if (key == null) {
-          console.log("not null")
-          break
-        }
         var item = items[key]
         var courses = item.Courses
         var secondCourses = item.secondCourses
@@ -132,7 +128,7 @@ export default {
             }
           }
         }
-      }      
+      }
 
       if (result.length != 0) {
         return result
