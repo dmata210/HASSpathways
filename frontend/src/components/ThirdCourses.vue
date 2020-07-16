@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <v-list id="list" class="overflow-y-auto">
+    <v-list id="list" class="overflow-y-auto" height="250px">
       Select a {{ bucketNumber }} course
       <v-divider></v-divider>
       <v-list-group color="#c65353" v-for="(course, i) in path.thirdCourses" :key="i">
