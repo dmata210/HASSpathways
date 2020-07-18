@@ -16,17 +16,17 @@
         <v-card-subtitle>
 
           <!-- loop button x times -->
-          <v-btn depressed shaped x-large width="33%" color="pink" dark v-on:click="selectCourse('h')">
+          <v-btn depressed shaped x-large width="33%" color="pink" dark class="text-wrap" v-on:click="selectCourse('h')">
             <v-icon>mdi-numeric-1</v-icon>
             {{ course.first_course }}
           </v-btn>
 
-          <v-btn depressed shaped x-large width="33%" color="orange" dark>
+          <v-btn depressed shaped x-large width="33%" color="orange" dark class="text-wrap">
             <v-icon>mdi-numeric-2</v-icon>
             {{ course.second_course }}
           </v-btn>
 
-          <v-btn depressed shaped x-large width="33%" color="blue" dark>
+          <v-btn depressed shaped x-large width="33%" color="blue" dark class="text-wrap">
             <v-icon>mdi-numeric-3</v-icon>
             {{ course.third_course }}
           </v-btn>
