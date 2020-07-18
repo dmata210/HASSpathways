@@ -6,38 +6,47 @@
     </center>
 
     <v-container v-if="optionsLength > 0">
+      
 
-      <v-card flat v-for="i in storedCoursesAppender" :key="i">
+      <v-card flat v-for="course in storedCoursesAppender" :key="course">
         <v-card-title>
           Artificial Intelligence
         </v-card-title>
+
         <v-card-subtitle>
-          <v-btn depressed shaped x-large width="33%" color="pink" dark @click="selectCourse('Minds and Machines')">
+
+          <!-- loop button x times -->
+          <v-btn depressed shaped x-large width="33%" color="pink" dark v-on:click="selectCourse('h')">
             <v-icon>mdi-numeric-1</v-icon>
-            {{ storedCoursesAppender[0][0] }}
+            {{ course.first_course }}
           </v-btn>
-          <v-btn depressed shaped x-large width="33%" color="orange" dark  @click="selectCourse('Artificial Intelligence and Society')">
+
+          <v-btn depressed shaped x-large width="33%" color="orange" dark>
             <v-icon>mdi-numeric-2</v-icon>
-            {{ storedCoursesAppender[0][1] }}
-            <!-- Artificial Intelligence and Society -->
+            {{ course.second_course }}
           </v-btn>
-          <v-btn depressed shaped x-large width="33%" color="success" dark  @click="selectCourse('Are Humans Rational?')">
+
+          <v-btn depressed shaped x-large width="33%" color="blue" dark>
             <v-icon>mdi-numeric-3</v-icon>
-            {{ storedCoursesAppender[0][2] }}
-            <!-- Are Humans Rational? -->
+            {{ course.third_course }}
           </v-btn>
+
         </v-card-subtitle>
+
+        <!-- card information -->
         <v-card-text>
           <v-card width="100%" height="90%" outlined id="rounded-left">
           
             <!-- course name & important chips -->
-            <v-card-title v-if="specifiedCourse == 'None'">
-              Minds and Machines
-            </v-card-title>
+            <template>
+              <v-card-title v-if="specifiedCourse == 'None'">
+                s{{ course.first_course }}
+              </v-card-title>
 
-            <v-card-title v-else>
-              {{ this.specifiedCourse }}
-            </v-card-title>
+              <v-card-title v-else>
+                ss{{ this.specifiedCourse }}
+              </v-card-title>
+            </template>
 
             <v-card-subtitle>
               <v-chip small color="orange" class="mr-2 mt-2" text-color="white">IHSS 1140</v-chip>
@@ -49,10 +58,17 @@
 
             <v-divider></v-divider>
 
-            <!-- course description -->
-            <v-card-text class="font-weight-black">
-              Integrated with Chinese culture, students will learn all four types of language skills (listening, speaking, reading, and writing). After completing the Chinese pathway, students will be able to communicate in Chinese at their targeted proficiency levels and think critically and creatively with global and multicultural awareness.
-            </v-card-text>
+            <template>
+              <!-- course description -->
+              <v-card-text class="font-weight-black" v-if="specifiedCourse == 'None'">
+                {{ course.first_course }}'s course description IF specifiedCourse EQUALS NONE
+              </v-card-text>
+
+              <v-card-text class="font-weight-black" v-else>
+                {{ course.first_course }}'s course description IF specifiedCourse DOESN'T EQUAL NONE
+              </v-card-text>
+            </template>
+
           </v-card>
         </v-card-text>
       </v-card>
@@ -94,8 +110,7 @@ export default {
     },
     storedCoursesAppender(){
       var storedCourses = []
-      console.log(this.$store.getters.getOptions)
-      
+
       // if no options (no activity)
       // if (this.$store.getters.getOptionsLength === 0) return storedCourses;
       if (this.$store.getters.getOptions.length === 0) return storedCourses;
@@ -103,13 +118,18 @@ export default {
 
       var array_length, innerLoop;
       for (array_length = 0; array_length < this.$store.getters.getOptions.length; array_length++){
-        var tempArray = [];
+        var firstCourse, secondCourse, thirdCourse;
         for (innerLoop = 0; innerLoop < this.$store.getters.getOptions[array_length].length; innerLoop++){
-          tempArray.push(this.$store.getters.getOptions[array_length][innerLoop])
+          // tempArray.push(this.$store.getters.getOptions[array_length][innerLoop])
+          if (innerLoop === 0) firstCourse = this.$store.getters.getOptions[array_length][innerLoop];
+          if (innerLoop === 1) secondCourse = this.$store.getters.getOptions[array_length][innerLoop]
+          if (innerLoop === 2) thirdCourse = this.$store.getters.getOptions[array_length][innerLoop];
         }
-        storedCourses.push(tempArray);
+        var object = {first_course: firstCourse, second_course: secondCourse, third_course: thirdCourse}
+        storedCourses.push(object);
       }
 
+      console.log(storedCourses)
       return storedCourses;
     }
 
