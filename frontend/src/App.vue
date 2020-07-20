@@ -33,8 +33,6 @@
             </div>
             
           </v-layout>
-          
-          
         </template>
         
     </v-app-bar>
@@ -42,6 +40,28 @@
     <v-content>
       <router-view></router-view>
     </v-content>
+
+    <v-footer app >
+      <v-layout column>
+        <div>
+
+          We love feedback!
+          <a href="https://github.com/dmata210/HASSpathways/issues" target="_blank" style="text-decoration: none">
+
+            <span style="color: #c65353">
+              Github
+              <i style="color: #c65353" class="fab fa-github"></i>
+            </span>
+
+          </a>
+
+        </div>
+        
+      </v-layout>
+      
+      <v-spacer></v-spacer>
+      <div>HASSpathways &copy; {{ new Date().getFullYear() }}</div>
+    </v-footer>
 
   </v-app>
 </template>
