@@ -1,22 +1,42 @@
 <template>
   <v-app id="app">    
-    <v-app-bar app fixed flat color="#c65353">
+    <v-app-bar app fixed flat color="#c65353" extension-height="100px">
         <v-container fluid>
-          <v-layout row class="mt-6">
-            <v-flex md2 sm3 xs4>
+          <v-layout row>
+            <v-flex md2 sm11 xs11>
               <v-toolbar-title id="title">HASSpathways</v-toolbar-title>
             </v-flex>
               
-            <v-flex md6 sm5 xs2>
-              <v-autocomplete clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-autocomplete>
+            <v-flex md7>
+              <v-autocomplete hide-details class="hidden-sm-and-down" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-autocomplete>
             </v-flex>
 
-            <v-flex md4 sm4 xs6>
-              <v-btn depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
-              <v-btn depressed id="button" :to="{name: 'home'}" class="mr-2">Explore</v-btn>
+            <v-flex md3>
+              <v-btn class="hidden-sm-and-down" depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
+              <v-btn class="hidden-sm-and-down mr-2" depressed id="button" :to="{name: 'home'}">Explore</v-btn>
             </v-flex>
+
+            <v-flex sm1 xs1>
+              <v-icon @click="extension=!extension" class="hidden-md-and-up" color="white">fa-bars</v-icon>
+            </v-flex>
+
           </v-layout>
         </v-container>
+
+        <template v-if="(this.$vuetify.breakpoint.xs==true || this.$vuetify.breakpoint.sm==true) && extension==true" v-slot:extension>
+          <v-layout column>
+            <v-autocomplete class="mb-2" hide-details clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-autocomplete>
+            
+            <div class="mb-2">
+              <v-btn class="mr-2" depressed :to="{name: 'activity'}">Activity</v-btn>
+              <v-btn depressed :to="{name: 'home'}">Explore</v-btn>
+            </div>
+            
+          </v-layout>
+          
+          
+        </template>
+        
     </v-app-bar>
 
     <v-content>
@@ -32,13 +52,17 @@ export default {
   name: 'App',
   data: () => ({
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
-    searchInput: ""
+    searchInput: "",
+    extension: false
   }),
   methods: {
     handleInput() {
       this.$root.$emit('changedFilter', this.searchInput)
 
     }
+  },
+  mounted() {
+    console.log(this.$vuetify.breakpoint)
   }
 };
 
