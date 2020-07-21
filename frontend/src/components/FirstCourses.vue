@@ -12,11 +12,18 @@
         </template>
 
         <v-list-item>
-          <v-card tile flat class="mt-2 mb-2" color="#dcdcdc" width="100%">
+          <v-card flat class="mt-2 mb-2" color="#dcdcdc" width="100%">
             <v-card-text>Description of course here</v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn @click="selectCourse(course)" class="mr-2 mb-2">Add</v-btn>
+              
+              <v-btn depressed @click="selectCourse(course)" class="mr-2 mb-2">
+                <span>
+                  <i style="color: #c65353" class="fas fa-plus"></i>
+                  Add Course
+                </span>
+              </v-btn>
+
             </v-card-actions>
           </v-card>
         </v-list-item>

@@ -8,7 +8,7 @@
             </v-flex>
               
             <v-flex md7>
-              <v-autocomplete hide-details class="hidden-sm-and-down" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-autocomplete>
+              <v-combobox append-icon="" prepend-inner-icon="mdi-magnify" hide-details class="hidden-sm-and-down" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
             </v-flex>
 
             <v-flex md3>
@@ -25,7 +25,7 @@
 
         <template v-if="(this.$vuetify.breakpoint.xs==true || this.$vuetify.breakpoint.sm==true) && extension==true" v-slot:extension>
           <v-layout column>
-            <v-autocomplete class="mb-2" hide-details clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-autocomplete>
+            <v-combobox class="mb-2" append-icon="" prepend-inner-icon="mdi-magnify" hide-details clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
             
             <div class="mb-2">
               <v-btn class="mr-2" depressed :to="{name: 'activity'}">Activity</v-btn>
