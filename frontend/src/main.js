@@ -47,13 +47,13 @@ const store = new Vuex.Store({
       state.count += 1;
 
       // Reset everything
-      state.currentSelection.pathway = null;
-      state.currentSelection.course1 = null
-      state.currentSelection.course2 = null;
-      state.currentSelection.course3 = null;
+      // state.currentSelection.pathway = null;
+      // state.currentSelection.course1 = null
+      // state.currentSelection.course2 = null;
+      // state.currentSelection.course3 = null;
 
       // notification
-      alert("Saved Information to activity panel");
+      // alert("Saved Information to activity panel");
     },
     clearCurrentSelection(state){
       state.currentSelection = {}
