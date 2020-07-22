@@ -56,7 +56,7 @@ ROOT_URLCONF = 'HASSpathways.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['frontend'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

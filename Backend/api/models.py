@@ -11,9 +11,8 @@ class Courses(models.Model):
 	code = models.IntegerField(primary_key=True)
 	name = models.CharField(max_length=100)
 	category = models.CharField(max_length=100)
-	class_2 = models.ForeignKey('Pathways',on_delete = models.PROTECT, null = True,blank = True,related_name='class2')
-	class_3 = models.ForeignKey('Pathways',on_delete = models.PROTECT,null = True,blank = True,related_name='class3')
-#	paths = []
+
+	Pathways = models.ManyToManyField('Pathways',blank = False)
 
 #def __init__(self,name,cate,code,paths):
 def __init__(self,code,name,cate):
@@ -31,7 +30,10 @@ class Pathways(models.Model):
 	name = models.CharField(max_length=100)
 	desc = models.TextField()
 
-	class_1 = models.ManyToManyField(Courses,blank = False)
+
+	class_1 = models.ForeignKey(Courses,on_delete = models.PROTECT, null = True,blank = True,related_name='class1')
+	class_2 = models.ForeignKey(Courses,on_delete = models.PROTECT, null = True,blank = True,related_name='class2')
+	class_3 = models.ForeignKey(Courses,on_delete = models.PROTECT,null = True,blank = True,related_name='class3')
 
 def __init__(self,name,desc):
 	self.name = name
