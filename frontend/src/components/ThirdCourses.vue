@@ -41,7 +41,8 @@ export default {
   props: ['path'],
   data() {
     return {
-      bucketNumber: 'third'
+      bucketNumber: 'third',
+      selected: false
     }
   },
   methods: {
