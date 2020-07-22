@@ -26,7 +26,7 @@ const store = new Vuex.Store({
     // shopping cart starts out as an empty object
     // we just copy application states as the user saves them
     shoppingCart: {
-      options: [["Minds & Machines", "AI & Society", "Are Humans Rational"]]
+      options: []
     }
   },
   mutations: {
@@ -47,13 +47,13 @@ const store = new Vuex.Store({
       state.count += 1;
 
       // Reset everything
-      state.currentSelection.pathway = null;
-      state.currentSelection.course1 = null
-      state.currentSelection.course2 = null;
-      state.currentSelection.course3 = null;
+      // state.currentSelection.pathway = null;
+      // state.currentSelection.course1 = null
+      // state.currentSelection.course2 = null;
+      // state.currentSelection.course3 = null;
 
       // notification
-      alert("Saved Information to activity panel");
+      // alert("Saved Information to activity panel");
     },
     clearCurrentSelection(state){
       state.currentSelection = {}
@@ -92,7 +92,16 @@ const store = new Vuex.Store({
     pathway(state) {
       return state.currentSelection.pathway;
     },
+    getOptionsLength(state) {
+      // double check
+      if (state.count === state.shoppingCart.options.length){
+        return state.count
+      }else{
+        return state.shoppingCart.options.length;
+      }
+    },
     getOptions(state) {
+      // return state.shoppingCart.options;
       return state.shoppingCart.options;
     }
   }
