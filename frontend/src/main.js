@@ -19,8 +19,8 @@ Vue.use(Vuex)
 // 2. a "shopping cart" which is a json object storing the current states the user has saved 
 // I'm just going to import the json files in order to make a working prototype
 // not sure if this is bad design
-import courses from "../../database/Courses.json"
-import pathways from "../../database/pathways.json"
+import courses from "../../database/Courses_v2.json"
+import pathways from "../../database/Pathways_v2.json"
 
 const store = new Vuex.Store({
   state: {
@@ -57,10 +57,10 @@ const store = new Vuex.Store({
       state.count += 1;
 
       // Reset everything
-      // state.currentSelection.pathway = null;
-      // state.currentSelection.course1 = null
-      // state.currentSelection.course2 = null;
-      // state.currentSelection.course3 = null;
+      state.currentSelection.pathway = null;
+      state.currentSelection.course1 = null
+      state.currentSelection.course2 = null;
+      state.currentSelection.course3 = null;
 
       // notification
       // alert("Saved Information to activity panel");

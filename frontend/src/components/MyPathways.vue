@@ -77,7 +77,14 @@
 
     <v-container v-else>
       <center>
-        <h1>No activity found</h1>
+        <h1>
+          <a href="/home">Explore courses</a>
+
+          <!-- ILL PLAY WITH THIS LATER -->
+          <v-skeleton-loader class="mx-auto" max-width="300" type="card">
+
+          </v-skeleton-loader>
+        </h1>
       </center>
     </v-container>
 
