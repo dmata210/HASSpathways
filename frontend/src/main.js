@@ -53,17 +53,26 @@ const store = new Vuex.Store({
       state.currentSelection.course3 = courseName;
       
       // Save to options for activity panel
+      // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+      // state.count += 1;
+
+      // Reset everything
+      // state.currentSelection.pathway = null;
+      // state.currentSelection.course1 = null
+      // state.currentSelection.course2 = null;
+      // state.currentSelection.course3 = null;
+
+      // notification
+      // alert("Saved Information to activity panel");
+    },
+    saveButton(state){
       state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
       state.count += 1;
 
-      // Reset everything
       state.currentSelection.pathway = null;
       state.currentSelection.course1 = null
       state.currentSelection.course2 = null;
       state.currentSelection.course3 = null;
-
-      // notification
-      // alert("Saved Information to activity panel");
     },
     clearCurrentSelection(state){
       state.currentSelection = {}

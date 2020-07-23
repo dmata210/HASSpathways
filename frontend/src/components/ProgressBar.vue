@@ -2,47 +2,55 @@
 
     <div style="font-family: 'Muli', sans-serif">
 
-      <v-stepper id="progress" class="elevation-0" :value="numberOfCoursesSelected + 1">
+      <div id="stepper">
+        <v-stepper id="progress" class="elevation-0" :value="numberOfCoursesSelected + 1">
 
-        <v-stepper-header>
+          <v-stepper-header>
 
-          <v-stepper-step 
-          :step="1"
-          :complete="numberOfCoursesSelected > 0"
-          @click="goToCourse(1)"
-          :editable='firstCourseEditable'
-          color="#c65353"
-          >
-          {{coursesList.firstCourse}}
-          </v-stepper-step>
+            <v-stepper-step 
+            :step="1"
+            :complete="numberOfCoursesSelected > 0"
+            @click="goToCourse(1)"
+            :editable='firstCourseEditable'
+            color="#c65353"
+            >
+            {{coursesList.firstCourse}}
+            </v-stepper-step>
 
-          <v-divider></v-divider>
+            <v-divider></v-divider>
 
-          <v-stepper-step 
-          :step="2"
-          :complete="numberOfCoursesSelected > 1"
-          @click="goToCourse(2)"
-          :editable='secondCourseEditable'
-          color="#c65353"
-          >
-          {{coursesList.secondCourse}}
-          </v-stepper-step>
+            <v-stepper-step 
+            :step="2"
+            :complete="numberOfCoursesSelected > 1"
+            @click="goToCourse(2)"
+            :editable='secondCourseEditable'
+            color="#c65353"
+            >
+            {{coursesList.secondCourse}}
+            </v-stepper-step>
 
-          <v-divider></v-divider>
+            <v-divider></v-divider>
 
-          <v-stepper-step 
-          :step="3"
-          :complete="numberOfCoursesSelected > 2"
-          @click="goToCourse(3)"
-          :editable='thirdCourseEditable'
-          color="#c65353"
-          >
-          {{coursesList.thirdCourse}}
-          </v-stepper-step>
+            <v-stepper-step 
+            :step="3"
+            :complete="numberOfCoursesSelected > 2"
+            @click="goToCourse(3)"
+            :editable='thirdCourseEditable'
+            color="#c65353"
+            >
+            {{coursesList.thirdCourse}}
+            </v-stepper-step>
 
-        </v-stepper-header>
+          </v-stepper-header>
 
-      </v-stepper>
+        </v-stepper>
+      </div>
+
+      <div id="save">
+        <v-btn v-if="coursesList.thirdCourse === 'No Course Selected'" disabled text color="primary">Save</v-btn>
+        <v-btn v-if="coursesList.thirdCourse !== 'No Course Selected'" text color="primary" @click="saveCourses()">Save</v-btn>
+      </div>
+
 
     </div>
 
@@ -50,7 +58,7 @@
 
 <script>
 
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   data(){
@@ -62,6 +70,10 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['saveButton']),
+    saveCourses() {
+      this.saveButton();
+    },
     goToCourse(num) {
       if (num == 1) {
         this.courseNumber = "first"
@@ -109,3 +121,17 @@ export default {
 }
 
 </script>
+
+
+<style>
+
+  #stepper {
+    float: left;
+    width: 90%;
+  }
+
+  #save {
+    position: relative;
+  }
+
+</style>

@@ -42,7 +42,7 @@ export default {
     FirstCourses,
     SecondCourses,
     ThirdCourses,
-    ProgressBar
+    ProgressBar,
   },
   data() {
     return {
@@ -148,6 +148,14 @@ export default {
 
   .expansion-panel {
     height: 100%;
+  }
+  
+  #progressBarAndSave {
+    width: 100%;
+  }
+
+  #progressBar {
+    width: 90%;
   }
 
 </style>
