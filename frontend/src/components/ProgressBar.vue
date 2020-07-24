@@ -105,6 +105,12 @@ export default {
         secondCourse: this.secondCourse ? this.secondCourse : "No Course Selected",
         thirdCourse: this.thirdCourse ? this.thirdCourse : "No Course Selected"
       }
+    },
+    editable() {
+      if (this.firstCourse && this.secondCourse && this.thirdCourse) {
+        return true
+      }
+      return false
     }
   },
   mounted() {
@@ -116,7 +122,10 @@ export default {
     }),
     this.$root.$on('makeThirdCourseEditable', (editable) => {
       this.thirdCourseEditable = editable
-    })
+    }),
+    this.firstCourseEditable = this.editable,
+    this.secondCourseEditable = this.editable,
+    this.thirdCourseEditable = this.editable
   }
 }
 
