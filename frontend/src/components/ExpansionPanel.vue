@@ -85,10 +85,11 @@ export default {
     }),
     this.$root.$on('changedFilter', (input) => {
       this.filter = input
-    })
+    }),
+    this.courseNumber = this.bucketNumber;
   },
   computed: {
-    ...mapGetters(['pathway', 'firstCourse', 'secondCourse']),
+    ...mapGetters(['pathway', 'firstCourse', 'secondCourse', 'thirdCourse']),
     filteredPathways() {
       var items = this.pathways
       var result = []
@@ -139,6 +140,18 @@ export default {
       }
 
       return items
+    },
+    bucketNumber() {
+      if (this.firstCourse != null) {
+        if (this.secondCourse != null) {
+          if (this.thirdCourse != null) {
+            return 'third'
+          }
+          return 'third'
+        }
+        return 'second'
+      }
+      return 'first'
     }
   }
 }

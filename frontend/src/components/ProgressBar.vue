@@ -46,10 +46,10 @@
         </v-stepper>
       </div>
 
-      <div id="save">
+      <!-- <div id="save">
         <v-btn v-if="coursesList.thirdCourse === 'No Course Selected'" disabled text color="primary">Save</v-btn>
         <v-btn v-if="coursesList.thirdCourse !== 'No Course Selected'" text color="primary" @click="saveCourses()">Save</v-btn>
-      </div>
+      </div> -->
 
 
     </div>
@@ -58,7 +58,7 @@
 
 <script>
 
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   data(){
@@ -70,10 +70,10 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['saveButton']),
-    saveCourses() {
-      this.saveButton();
-    },
+    // ...mapMutations(['saveButton']),
+    // saveCourses() {
+    //   this.saveButton();
+    // },
     goToCourse(num) {
       if (num == 1) {
         this.courseNumber = "first"
@@ -125,13 +125,13 @@ export default {
 
 <style>
 
-  #stepper {
+  /* #stepper {
     float: left;
     width: 90%;
   }
 
   #save {
     position: relative;
-  }
+  } */
 
 </style>

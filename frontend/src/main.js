@@ -45,12 +45,16 @@ const store = new Vuex.Store({
     },
     setSelectedCourse1(state, courseName){
       state.currentSelection.course1 = courseName;
+      state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
     },
     setSelectedCourse2(state, courseName){
       state.currentSelection.course2 = courseName;
+      state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
     },
     setSelectedCourse3(state, courseName){
       state.currentSelection.course3 = courseName;
+      state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+      state.count += 1;
       
       // Save to options for activity panel
       // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
