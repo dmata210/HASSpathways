@@ -1,14 +1,15 @@
 <template>
 
   <div>
+
     <center>
       <h1>Saved Courses</h1>
     </center>
 
     <v-container v-if="optionsLength > 0">
       
-      
       <v-card flat v-for="course in storedCoursesAppender" :key="course">
+
         <v-card-title>
           Artificial Intelligence
         </v-card-title>
@@ -71,6 +72,7 @@
 
           </v-card>
         </v-card-text>
+
       </v-card>
 
     </v-container>
@@ -88,14 +90,13 @@
       </center>
     </v-container>
 
-
   </div>
   
-
 </template>
 
 
 <script>
+
 import { mapGetters } from 'vuex'
 
 export default {
@@ -115,7 +116,7 @@ export default {
     optionsLength() {
       return this.$store.getters.getOptionsLength;
     },
-    storedCoursesAppender(){
+    storedCoursesAppender() {
       var storedCourses = []
 
       // if no options (no activity)
@@ -139,7 +140,7 @@ export default {
       console.log(storedCourses)
       return storedCourses;
     }
-
   }
 }
+
 </script>

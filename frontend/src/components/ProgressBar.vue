@@ -51,7 +51,6 @@
         <v-btn v-if="coursesList.thirdCourse !== 'No Course Selected'" text color="primary" @click="saveCourses()">Save</v-btn>
       </div> -->
 
-
     </div>
 
 </template>

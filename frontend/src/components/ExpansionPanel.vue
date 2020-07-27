@@ -1,13 +1,17 @@
 <template>
   <div>
     <ProgressBar/>
+
     <v-expansion-panels flat outlined tile accordion hover multiple class="expansion-panel">
       <v-expansion-panel @click="selectPathway(path)" v-for="(path, i) in filteredPathways" :key="i">
-        <v-expansion-panel-header color="#c65353" id="expansion-header">{{ path.name }}
+
+        <v-expansion-panel-header color="#c65353" id="expansion-header">
+          {{ path.name }}
           <template v-slot:actions>
             <v-icon color="white">$expand</v-icon>
           </template>
         </v-expansion-panel-header>
+
         <v-expansion-panel-content>
           <v-card flat color="#dcdcdc">
             <v-card-text class="mt-4">{{ path.pathDescription }}</v-card-text>
@@ -16,7 +20,6 @@
           <FirstCourses @nextBucket="moveToNextBucket" v-if="courseNumber=='first'" :path="path"/>
           <SecondCourses @nextBucket="moveToNextBucket" v-else-if="courseNumber=='second'" :path="path"/>
           <ThirdCourses v-else-if="courseNumber=='third'" :path="path"/>
-
         </v-expansion-panel-content>
 
         <v-divider color="white"></v-divider>
@@ -28,7 +31,6 @@
 
 <script>
 
-// import { mapMutations } from 'vuex'
 import ProgressBar from './ProgressBar.vue'
 import FirstCourses from './FirstCourses'
 import SecondCourses from './SecondCourses'
