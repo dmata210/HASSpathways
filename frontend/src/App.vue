@@ -107,6 +107,7 @@ export default {
       this.setSelectedCourse1(null)
       this.setSelectedCourse2(null)
       this.setSelectedCourse3(null)
+      this.$root.$emit('changeWhichCourse', "first")
     }
   },
   mounted() {
