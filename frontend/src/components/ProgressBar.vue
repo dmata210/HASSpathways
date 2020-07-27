@@ -122,7 +122,6 @@ export default {
     this.$root.$on('makeThirdCourseEditable', (editable) => {
       this.thirdCourseEditable = editable
     }),
-    this.firstCourseEditable = this.editable,
     this.secondCourseEditable = this.editable,
     this.thirdCourseEditable = this.editable
   }
