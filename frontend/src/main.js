@@ -53,10 +53,11 @@ const store = new Vuex.Store({
     },
     setSelectedCourse3(state, courseName) {
       state.currentSelection.course3 = courseName;
-      if (state.currentSelection.course3 != null) {
+      if (state.currentSelection.course3 != null && !this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
         state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         state.count += 1;
       }
+      
       
       // Save to options for activity panel
       // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
@@ -128,6 +129,19 @@ const store = new Vuex.Store({
     getOptions(state) {
       // return state.shoppingCart.options;
       return state.shoppingCart.options;
+    },
+    stateAlreadyExists(state) {
+      return (courseCombo, count) => {
+        for (var i = 0; i < state.shoppingCart.options.length; i++) {
+          if (state.shoppingCart.options[i][0] == courseCombo[0] &&
+            state.shoppingCart.options[i][1] == courseCombo[1] &&
+            state.shoppingCart.options[i][2] == courseCombo[2] &&
+            count != i) {
+              return true
+          }
+        }
+        return false
+      }
     }
   }
 })
