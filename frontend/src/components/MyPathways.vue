@@ -8,7 +8,7 @@
 
     <v-container v-if="optionsLength > 0">
       
-      <v-card flat v-for="course in storedCoursesAppender" :key="course">
+      <v-card flat v-for="(course, i) in storedCoursesAppender" :key="i">
 
         <v-card-title>
           Artificial Intelligence

@@ -1,21 +1,31 @@
 <template>
-  <v-app id="app">    
+
+  <v-app id="app">
+
+    <!-- HEADER -->
     <v-app-bar app fixed flat color="#c65353" extension-height="100px">
+
         <v-container fluid>
           <v-layout row>
+
+            <!-- TITLE -->
             <v-flex md2 sm11 xs11>
               <v-toolbar-title id="title">HASSpathways</v-toolbar-title>
             </v-flex>
-              
-            <v-flex md7>
+            
+            <!-- SEARCH BAR -->
+            <v-flex md6>
               <v-combobox append-icon="" prepend-inner-icon="mdi-magnify" hide-details class="hidden-sm-and-down" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
             </v-flex>
 
-            <v-flex md3>
+            <!-- BUTTONS -->
+            <v-flex md4>
               <v-btn class="hidden-sm-and-down" depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
               <v-btn class="hidden-sm-and-down mr-2" depressed id="button" :to="{name: 'home'}">Explore</v-btn>
+              <v-icon class="hidden-sm-and-down mr-4" @click="clearProgress()" x-large id="button" color="white">mdi-delete-forever</v-icon>
             </v-flex>
 
+            <!-- MENU BAR -->
             <v-flex sm1 xs1>
               <v-icon @click="extension=!extension" class="hidden-md-and-up" color="white">fa-bars</v-icon>
             </v-flex>
@@ -23,11 +33,16 @@
           </v-layout>
         </v-container>
 
+        <!-- HEADER EXTENSION -->
         <template v-if="(this.$vuetify.breakpoint.xs==true || this.$vuetify.breakpoint.sm==true) && extension==true" v-slot:extension>
           <v-layout column>
+
+            <!-- SEARCH BAR -->
             <v-combobox class="mb-2" append-icon="" prepend-inner-icon="mdi-magnify" hide-details clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
             
+            <!-- BUTTONS -->
             <div class="mb-2">
+              <v-icon class="mr-4" @click="clearProgress()" x-large color="white">mdi-delete-forever</v-icon>
               <v-btn class="mr-2" depressed :to="{name: 'activity'}">Activity</v-btn>
               <v-btn depressed :to="{name: 'home'}">Explore</v-btn>
             </div>
@@ -37,11 +52,14 @@
         
     </v-app-bar>
 
+    <!-- ROUTER VIEW -->
     <v-content>
       <router-view></router-view>
     </v-content>
 
-    <v-footer app >
+    <!-- FOOTER -->
+    <v-footer app>
+
       <v-layout column>
         <div>
 
@@ -56,17 +74,21 @@
           </a>
 
         </div>
-        
       </v-layout>
       
       <v-spacer></v-spacer>
+
       <div>HASSpathways &copy; {{ new Date().getFullYear() }}</div>
+
     </v-footer>
 
   </v-app>
+
 </template>
 
 <script>
+
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
@@ -76,9 +98,15 @@ export default {
     extension: false
   }),
   methods: {
+    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
     handleInput() {
       this.$root.$emit('changedFilter', this.searchInput)
-
+    },
+    clearProgress() {
+      console.log("clear progress")
+      this.setSelectedCourse1(null)
+      this.setSelectedCourse2(null)
+      this.setSelectedCourse3(null)
     }
   },
   mounted() {
