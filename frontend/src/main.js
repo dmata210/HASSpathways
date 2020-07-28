@@ -90,6 +90,9 @@ const store = new Vuex.Store({
     },
     loadSelection(state, selectionToLoad) {
       state.currentSelection = selectionToLoad;
+    },
+    incrementCount(state) {
+      state.count += 1;
     }
   },
   getters: {

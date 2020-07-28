@@ -98,7 +98,7 @@ export default {
     extension: false
   }),
   methods: {
-    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3']),
+    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3', 'incrementCount']),
     handleInput() {
       this.$root.$emit('changedFilter', this.searchInput)
     },
@@ -107,6 +107,7 @@ export default {
       this.setSelectedCourse1(null)
       this.setSelectedCourse2(null)
       this.setSelectedCourse3(null)
+      this.incrementCount()
       this.$root.$emit('changeWhichCourse', "first")
     }
   },
