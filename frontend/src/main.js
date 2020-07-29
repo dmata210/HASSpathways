@@ -42,18 +42,28 @@ const store = new Vuex.Store({
     setSelectedCourse1(state, courseName) {
       state.currentSelection.course1 = courseName;
       if (state.currentSelection.course1 != null) {
+        if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
+          return
+        }
         state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
       }
     },
     setSelectedCourse2(state, courseName) {
       state.currentSelection.course2 = courseName;
       if (state.currentSelection.course2 != null) {
+        if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
+          return
+        }
         state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
       }
     },
     setSelectedCourse3(state, courseName) {
       state.currentSelection.course3 = courseName;
-      if (state.currentSelection.course3 != null && !this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
+      console.log()
+      if (state.currentSelection.course3 != null) {
+        if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
+          return
+        }
         state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         state.count += 1;
       }
@@ -140,9 +150,11 @@ const store = new Vuex.Store({
             state.shoppingCart.options[i][1] == courseCombo[1] &&
             state.shoppingCart.options[i][2] == courseCombo[2] &&
             count != i) {
+              console.log("exists")
               return true
           }
         }
+        console.log("does not exist")
         return false
       }
     }
