@@ -4,13 +4,23 @@
 
     <center>
       <h1>Saved Courses</h1>
-
-      <div v-if="optionsLength > 0">
-        <v-icon @click="goToLastPathway()">mdi-menu-left</v-icon>
-        <span>{{ i + 1 }} / {{ optionsLength }}</span>
-        <v-icon @click="goToNextPathway()">mdi-menu-right</v-icon>
-      </div>
     </center>
+
+    <v-container v-if="optionsLength > 0">
+      <v-layout row class="ml-2">
+        <v-flex md2 sm2 xs2>
+          <div v-if="optionsLength > 0">
+            <v-icon @click="goToLastPathway()">mdi-menu-left</v-icon>
+            <span>{{ i + 1 }} / {{ optionsLength }}</span>
+            <v-icon @click="goToNextPathway()">mdi-menu-right</v-icon>
+          </div>
+        </v-flex>
+        <v-flex md2 sm2 xs2>
+          <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear</v-btn>
+        </v-flex>
+      </v-layout>
+    </v-container>
+    
 
     <v-container v-if="optionsLength > 0">
       
@@ -104,7 +114,7 @@
 
 <script>
 
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   props: ['path'],
@@ -115,6 +125,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['clear']),
     selectCourse(course) {
       this.specifiedCourse = course;
     },
@@ -127,6 +138,10 @@ export default {
       if (this.i > 0) {
         this.i--
       }
+    },
+    clearActivity() {
+      console.log("clearing")
+      this.clear()
     }
   },
   computed: {

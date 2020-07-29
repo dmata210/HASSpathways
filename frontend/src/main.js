@@ -103,6 +103,10 @@ const store = new Vuex.Store({
     },
     incrementCount(state) {
       state.count += 1;
+    },
+    clear(state) {
+      state.shoppingCart.options = []
+      state.count = 0
     }
   },
   getters: {
