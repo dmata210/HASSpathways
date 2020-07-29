@@ -24,17 +24,17 @@
         <v-card-subtitle>
 
           <!-- loop button x times -->
-          <v-btn depressed shaped x-large width="33%" color="pink" dark class="text-wrap" v-on:click="selectCourse('h')">
+          <v-btn depressed shaped x-large width="33%" color="pink" dark class="text-wrap" v-on:click="selectCourse(currentCourse.first_course)">
             <v-icon>mdi-numeric-1</v-icon>
             {{ currentCourse.first_course }}
           </v-btn>
 
-          <v-btn depressed shaped x-large width="33%" color="orange" dark class="text-wrap">
+          <v-btn depressed shaped x-large width="33%" color="orange" dark class="text-wrap" @click="selectCourse(currentCourse.second_course)">
             <v-icon>mdi-numeric-2</v-icon>
             {{ currentCourse.second_course }}
           </v-btn>
 
-          <v-btn depressed shaped x-large width="33%" color="blue" dark class="text-wrap">
+          <v-btn depressed shaped x-large width="33%" color="blue" dark class="text-wrap" @click="selectCourse(currentCourse.third_course)">
             <v-icon>mdi-numeric-3</v-icon>
             {{ currentCourse.third_course }}
           </v-btn>
@@ -48,11 +48,11 @@
             <!-- course name & important chips -->
             <template>
               <v-card-title v-if="specifiedCourse == 'None'">
-                s{{ currentCourse.first_course }}
+                {{ currentCourse.first_course }}
               </v-card-title>
 
               <v-card-title v-else>
-                ss{{ this.specifiedCourse }}
+                {{ this.specifiedCourse }}
               </v-card-title>
             </template>
 
@@ -69,11 +69,11 @@
             <template>
               <!-- course description -->
               <v-card-text class="font-weight-black" v-if="specifiedCourse == 'None'">
-                {{ currentCourse.first_course }}s course description IF specifiedCourse EQUALS NONE
+                {{ currentCourse.first_course }}'s course description IF specifiedCourse EQUALS NONE
               </v-card-text>
 
               <v-card-text class="font-weight-black" v-else>
-                {{ currentCourse.first_course }}'s course description IF specifiedCourse DOESN'T EQUAL NONE
+                {{ this.specifiedCourse }}'s course description IF specifiedCourse DOESN'T EQUAL NONE
               </v-card-text>
             </template>
 
