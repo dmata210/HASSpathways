@@ -22,11 +22,11 @@
             <v-flex md4>
               <v-btn class="hidden-sm-and-down" depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
               <v-btn class="hidden-sm-and-down mr-2" depressed id="button" :to="{name: 'home'}">Explore</v-btn>
-              <v-tooltip transition="slide-x-reverse-transition" left color="white">
+              <v-tooltip transition="slide-y-transition" bottom>
                 <template v-slot:activator="{ on, attrs}">
                   <v-icon v-bind="attrs" v-on="on" class="hidden-sm-and-down mr-4" @click="clearProgress()" x-large id="button" color="white">mdi-delete-forever</v-icon>
                 </template>
-                <span style="color: black">Clear progress</span>
+                <span>Clear progress</span>
               </v-tooltip>
               
             </v-flex>
@@ -113,7 +113,7 @@ export default {
       this.setSelectedCourse1(null)
       this.setSelectedCourse2(null)
       this.setSelectedCourse3(null)
-      this.incrementCount()
+      // this.incrementCount()
       this.$root.$emit('changeWhichCourse', "first")
     }
   },
