@@ -4,11 +4,13 @@
 
     <center>
       <h1>Saved Courses</h1>
+      <v-btn @click="goToNextPathway()">button</v-btn>
     </center>
 
     <v-container v-if="optionsLength > 0">
       
-      <v-card flat v-for="(course, i) in storedCoursesAppender" :key="i">
+      <!-- <v-card flat v-for="(course, i) in storedCoursesAppender" :key="i"> -->
+      <v-card flat >
 
         <v-card-title>
           Artificial Intelligence
@@ -19,17 +21,17 @@
           <!-- loop button x times -->
           <v-btn depressed shaped x-large width="33%" color="pink" dark class="text-wrap" v-on:click="selectCourse('h')">
             <v-icon>mdi-numeric-1</v-icon>
-            {{ course.first_course }}
+            {{ currentCourse.first_course }}
           </v-btn>
 
           <v-btn depressed shaped x-large width="33%" color="orange" dark class="text-wrap">
             <v-icon>mdi-numeric-2</v-icon>
-            {{ course.second_course }}
+            {{ currentCourse.second_course }}
           </v-btn>
 
           <v-btn depressed shaped x-large width="33%" color="blue" dark class="text-wrap">
             <v-icon>mdi-numeric-3</v-icon>
-            {{ course.third_course }}
+            {{ currentCourse.third_course }}
           </v-btn>
 
         </v-card-subtitle>
@@ -41,7 +43,7 @@
             <!-- course name & important chips -->
             <template>
               <v-card-title v-if="specifiedCourse == 'None'">
-                s{{ course.first_course }}
+                s{{ currentCourse.first_course }}
               </v-card-title>
 
               <v-card-title v-else>
@@ -62,11 +64,11 @@
             <template>
               <!-- course description -->
               <v-card-text class="font-weight-black" v-if="specifiedCourse == 'None'">
-                {{ course.first_course }}'s course description IF specifiedCourse EQUALS NONE
+                {{ currentCourse.first_course }}s course description IF specifiedCourse EQUALS NONE
               </v-card-text>
 
               <v-card-text class="font-weight-black" v-else>
-                {{ course.first_course }}'s course description IF specifiedCourse DOESN'T EQUAL NONE
+                {{ currentCourse.first_course }}'s course description IF specifiedCourse DOESN'T EQUAL NONE
               </v-card-text>
             </template>
 
@@ -103,13 +105,19 @@ export default {
   props: ['path'],
   data() {
     return {
-      specifiedCourse: "None"
+      specifiedCourse: "None",
+      i: 0
     }
   },
   methods: {
     selectCourse(course) {
       this.specifiedCourse = course;
     },
+    goToNextPathway() {
+      if (this.optionsLength > this.i + 1) {
+        this.i++
+      }
+    }
   },
   computed: {
     ...mapGetters(['getOptions', 'getOptionsLength']),
@@ -139,6 +147,12 @@ export default {
 
       console.log(storedCourses)
       return storedCourses;
+    },
+    currentCourse() {
+      if (this.optionsLength > 0) {
+        return this.storedCoursesAppender[this.i]
+      }
+      return ""
     }
   }
 }
