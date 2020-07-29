@@ -3,7 +3,7 @@
     <div style="font-family: 'Muli', sans-serif">
 
       <div id="stepper">
-        <v-stepper id="progress" class="elevation-0" :value="numberOfCoursesSelected + 1">
+        <v-stepper id="progress" class="elevation-0" :value="current">
 
           <v-stepper-header>
 
@@ -65,7 +65,8 @@ export default {
       courseNumber: "",
       firstCourseEditable: true,
       secondCourseEditable: false,
-      thirdCourseEditable: false
+      thirdCourseEditable: false,
+      current: 1
     }
   },
   methods: {
@@ -77,15 +78,18 @@ export default {
       if (num == 1) {
         this.courseNumber = "first"
         this.$root.$emit('changeWhichCourse', "first")
+        this.current = 1
       } else if (num == 2) {
         if (this.firstCourse != null) {
           this.courseNumber = "second"
           this.$root.$emit('changeWhichCourse', "second")
+          this.current = 2
         }
       } else if (num == 3) {
         if (this.secondCourse != null) {
           this.courseNumber = "third"
           this.$root.$emit('changeWhichCourse', "third")
+          this.current = 3
         }
       }
     }
@@ -105,8 +109,14 @@ export default {
         thirdCourse: this.thirdCourse ? this.thirdCourse : "No Course Selected"
       }
     },
-    editable() {
-      if (this.firstCourse && this.secondCourse && this.thirdCourse) {
+    secondEditable() {
+      if (this.firstCourse) {
+        return true
+      }
+      return false
+    },
+    thirdEditable() {
+      if (this.secondCourse) {
         return true
       }
       return false
@@ -122,8 +132,11 @@ export default {
     this.$root.$on('makeThirdCourseEditable', (editable) => {
       this.thirdCourseEditable = editable
     }),
-    this.secondCourseEditable = this.editable,
-    this.thirdCourseEditable = this.editable
+    this.$root.$on('changeCurrent', (current) => {
+      this.current = current
+    })
+    this.secondCourseEditable = this.secondEditable,
+    this.thirdCourseEditable = this.thirdEditable
   }
 }
 

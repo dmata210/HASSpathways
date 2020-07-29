@@ -63,6 +63,7 @@ export default {
       console.log(course)
       this.$emit('nextBucket', this.nextBucketNumber)
       this.$root.$emit('makeSecondCourseEditable', true)
+      this.$root.$emit('changeCurrent', 2)
     }
   }
 }
