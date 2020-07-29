@@ -4,13 +4,18 @@
 
     <center>
       <h1>Saved Courses</h1>
-      <v-btn @click="goToNextPathway()">button</v-btn>
+
+      <div v-if="optionsLength > 0">
+        <v-icon @click="goToLastPathway()">mdi-menu-left</v-icon>
+        <span>{{ i + 1 }} / {{ optionsLength }}</span>
+        <v-icon @click="goToNextPathway()">mdi-menu-right</v-icon>
+      </div>
     </center>
 
     <v-container v-if="optionsLength > 0">
       
       <!-- <v-card flat v-for="(course, i) in storedCoursesAppender" :key="i"> -->
-      <v-card flat >
+      <v-card flat>
 
         <v-card-title>
           Artificial Intelligence
@@ -116,6 +121,11 @@ export default {
     goToNextPathway() {
       if (this.optionsLength > this.i + 1) {
         this.i++
+      }
+    },
+    goToLastPathway() {
+      if (this.i > 0) {
+        this.i--
       }
     }
   },
