@@ -20,8 +20,8 @@
 
             <!-- BUTTONS -->
             <v-flex md4>
-              <v-btn class="hidden-sm-and-down" depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
-              <v-btn class="hidden-sm-and-down mr-2" depressed id="button" :to="{name: 'home'}">Explore</v-btn>
+              <v-btn class="hidden-sm-and-down text-capitalize" depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
+              <v-btn class="hidden-sm-and-down mr-2 text-capitalize" depressed id="button" :to="{name: 'home'}">Explore</v-btn>
 
               <v-tooltip transition="slide-y-transition" bottom>
                 <template v-slot:activator="{ on, attrs}">
@@ -56,8 +56,8 @@
                 <span>Click to clear progress</span>
               </v-tooltip>
 
-              <v-btn class="mr-2" depressed :to="{name: 'activity'}">Activity</v-btn>
-              <v-btn depressed :to="{name: 'home'}">Explore</v-btn>
+              <v-btn class="mr-2 text-capitalize" depressed :to="{name: 'activity'}">Activity</v-btn>
+              <v-btn class="text-capitalize" depressed :to="{name: 'home'}">Explore</v-btn>
             </div>
             
           </v-layout>

@@ -25,7 +25,7 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn depressed @click="selectCourse(course)" class="mr-2 mb-2">
+              <v-btn depressed @click="selectCourse(course)" class="mr-2 mb-2 text-capitalize">
                 <span>
                   <i style="color: #c65353" class="fas fa-plus"></i>
                   Add Course
