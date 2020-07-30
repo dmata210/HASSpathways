@@ -4,13 +4,15 @@
 
     <!-- HEADER -->
     <v-app-bar app fixed flat color="#c65353" extension-height="100px">
-
+        
         <v-container fluid>
           <v-layout row>
 
             <!-- TITLE -->
             <v-flex md2 sm11 xs11>
-              <v-toolbar-title id="title">HASSpathways</v-toolbar-title>
+              <v-toolbar-title>
+                <router-link id="title" to="/home">HASSpathways</router-link>
+              </v-toolbar-title>
             </v-flex>
             
             <!-- SEARCH BAR -->
@@ -147,6 +149,7 @@ export default {
 
 #title {
   color: white;
+  text-decoration: none;
 }
 
 #app {
