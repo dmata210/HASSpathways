@@ -2,17 +2,17 @@
 
   <div>
 
-    <center>
+    <!-- <center>
       <h1>Saved Courses</h1>
-    </center>
+    </center> -->
 
-    <v-container v-if="optionsLength > 0">
+    <v-container class="mt-4" v-if="optionsLength > 0">
       <v-layout row class="ml-2">
         <v-flex md2 sm2 xs2>
           <div v-if="optionsLength > 0">
-            <v-icon @click="goToLastPathway()">mdi-menu-left</v-icon>
-            <span>{{ i + 1 }} / {{ optionsLength }}</span>
-            <v-icon @click="goToNextPathway()">mdi-menu-right</v-icon>
+            <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
+            <span class="mr-2 ml-2">{{ i + 1 }} / {{ optionsLength }}</span>
+            <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
           </div>
         </v-flex>
         <v-flex md2 sm2 xs2>
@@ -183,3 +183,11 @@ export default {
 }
 
 </script>
+
+<style scoped>
+
+.pointer {
+  cursor: pointer;
+}
+
+</style>
