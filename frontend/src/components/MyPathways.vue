@@ -6,8 +6,8 @@
       <h1>Saved Courses</h1>
     </center> -->
 
-    <v-container class="mt-4" v-if="optionsLength > 0">
-      <v-layout row class="ml-2">
+    <v-container fluid class="mt-4" v-if="optionsLength > 0">
+      <v-layout row class="ml-5">
         <v-flex md2 sm2 xs2>
           <div v-if="optionsLength > 0">
             <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
@@ -22,7 +22,7 @@
     </v-container>
     
 
-    <v-container v-if="optionsLength > 0">
+    <v-container fluid v-if="optionsLength > 0">
       
       <!-- <v-card flat v-for="(course, i) in storedCoursesAppender" :key="i"> -->
       <v-card flat>
@@ -34,17 +34,17 @@
         <v-card-subtitle>
 
           <!-- loop button x times -->
-          <v-btn depressed shaped x-large width="33%" color="pink" dark class="text-trunctate text-capitalize" v-on:click="selectCourse(currentCourse.first_course)">
+          <v-btn tile depressed shaped x-large width="33.333%" color="pink" dark class="text-trunctate text-capitalize rounded-left" v-on:click="selectCourse(currentCourse.first_course)">
             <v-icon>mdi-numeric-1</v-icon>
             {{ currentCourse.first_course }}
           </v-btn>
 
-          <v-btn depressed shaped x-large width="33%" color="orange" dark class="text-truncate text-capitalize" @click="selectCourse(currentCourse.second_course)">
+          <v-btn tile depressed shaped x-large width="33.333%" color="orange" dark class="text-truncate text-capitalize" @click="selectCourse(currentCourse.second_course)">
             <v-icon>mdi-numeric-2</v-icon>
             {{ currentCourse.second_course }}
           </v-btn>
 
-          <v-btn depressed shaped x-large width="33%" color="blue" dark class="text-truncate text-capitalize" @click="selectCourse(currentCourse.third_course)">
+          <v-btn tile depressed shaped x-large width="33.333%" color="blue" dark class="text-truncate text-capitalize rounded-right" @click="selectCourse(currentCourse.third_course)">
             <v-icon>mdi-numeric-3</v-icon>
             {{ currentCourse.third_course }}
           </v-btn>
@@ -145,7 +145,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getOptions', 'getOptionsLength']),
+    ...mapGetters(['getOptions', 'getOptionsLength', 'pathway']),
     optionsLength() {
       return this.$store.getters.getOptionsLength;
     },
@@ -188,6 +188,14 @@ export default {
 
 .pointer {
   cursor: pointer;
+}
+
+.rounded-left {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.rounded-right {
+  border-radius: 0px 5px 5px 0px;
 }
 
 </style>
