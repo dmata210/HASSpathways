@@ -124,6 +124,9 @@ export default {
       this.setSelectedCourse3(null)
       // this.incrementCount()
       this.$root.$emit('changeWhichCourse', "first")
+      this.$root.$emit('changeCurrent', 1)
+      this.$root.$emit('makeSecondCourseEditable', false)
+      this.$root.$emit('makeThirdCourseEditable', false)
     }
   },
   mounted() {
