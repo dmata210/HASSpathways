@@ -6,12 +6,12 @@
       <h1>Saved Courses</h1>
     </center> -->
 
-    <v-container fluid class="mt-4" v-if="optionsLength > 0">
+    <v-container fluid class="mt-4" v-if="getOptions.length > 0">
       <v-layout row class="ml-5">
         <v-flex md2 sm2 xs2>
-          <div v-if="optionsLength > 0">
+          <div v-if="getOptions.length > 0">
             <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
-            <span class="mr-2 ml-2">{{ i + 1 }} / {{ optionsLength }}</span>
+            <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
             <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
           </div>
         </v-flex>
@@ -22,7 +22,7 @@
     </v-container>
     
 
-    <v-container fluid v-if="optionsLength > 0">
+    <v-container fluid v-if="getOptions.length > 0">
       
       <!-- <v-card flat v-for="(course, i) in storedCoursesAppender" :key="i"> -->
       <v-card flat>
@@ -97,7 +97,7 @@
     <v-container v-else>
       <center>
         <h1>
-          <a href="/home">Explore courses</a>
+          <a href="/home">Explore courses options {{ getOptions.length }} hi</a>
 
           <!-- ILL PLAY WITH THIS LATER -->
           <v-skeleton-loader class="mx-auto" max-width="300" type="card">
@@ -130,7 +130,7 @@ export default {
       this.specifiedCourse = course;
     },
     goToNextPathway() {
-      if (this.optionsLength > this.i + 1) {
+      if (this.getOptions.length > this.i + 1) {
         this.i++
       }
     },
@@ -154,6 +154,7 @@ export default {
 
       // if no options (no activity)
       // if (this.$store.getters.getOptionsLength === 0) return storedCourses;
+      console.log("options " + this.getOptions.length)
       if (this.$store.getters.getOptions.length === 0) return storedCourses;
 
 

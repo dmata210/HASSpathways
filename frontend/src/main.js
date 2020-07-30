@@ -42,10 +42,12 @@ const store = new Vuex.Store({
     setSelectedCourse1(state, courseName) {
       state.currentSelection.course1 = courseName;
       if (state.currentSelection.course1 != null) {
+        console.log("hi")
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
         state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        console.log(state.shoppingCart.options.length + " options")
       }
     },
     setSelectedCourse2(state, courseName) {
