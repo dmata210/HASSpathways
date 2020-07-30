@@ -120,6 +120,18 @@ export default {
         return true
       }
       return false
+    },
+    activeStep() {
+      if (this.firstCourse != null) {
+        if (this.secondCourse != null) {
+          if (this.thirdCourse != null) {
+            return 3
+          }
+          return 3
+        }
+        return 2
+      }
+      return 1
     }
   },
   mounted() {
@@ -136,7 +148,8 @@ export default {
       this.current = current
     })
     this.secondCourseEditable = this.secondEditable,
-    this.thirdCourseEditable = this.thirdEditable
+    this.thirdCourseEditable = this.thirdEditable,
+    this.current = this.activeStep
   }
 }
 
