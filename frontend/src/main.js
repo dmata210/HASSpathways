@@ -155,9 +155,9 @@ const store = new Vuex.Store({
     stateAlreadyExists(state) {
       return (courseCombo, count) => {
         for (var i = 0; i < state.shoppingCart.options.length; i++) {
-          if (state.shoppingCart.options[i][0] == courseCombo[0] &&
-            state.shoppingCart.options[i][1] == courseCombo[1] &&
-            state.shoppingCart.options[i][2] == courseCombo[2] &&
+          if (state.shoppingCart.options[i][1] == courseCombo[0] &&
+            state.shoppingCart.options[i][2] == courseCombo[1] &&
+            state.shoppingCart.options[i][3] == courseCombo[2] &&
             count != i) {
               console.log("exists")
               return true
