@@ -130,12 +130,16 @@ export default {
       this.specifiedCourse = course;
     },
     goToNextPathway() {
-      if (this.getOptions.length > this.i + 1) {
+      if (this.i == this.getOptions.length - 1) {
+        this.i = 0
+      } else if (this.i < this.getOptions.length - 1) {
         this.i++
       }
     },
     goToLastPathway() {
-      if (this.i > 0) {
+      if (this.i == 0) {
+        this.i = this.getOptions.length - 1
+      } else if (this.i > 0) {
         this.i--
       }
     },
