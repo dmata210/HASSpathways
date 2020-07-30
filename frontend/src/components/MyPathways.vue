@@ -28,7 +28,7 @@
       <v-card flat>
 
         <v-card-title>
-          Artificial Intelligence
+          {{ currentCourse.pathway.name }}
         </v-card-title>
 
         <v-card-subtitle>
@@ -165,13 +165,14 @@ export default {
       var array_length, innerLoop;
       for (array_length = 0; array_length < this.$store.getters.getOptions.length; array_length++){
         var firstCourse, secondCourse, thirdCourse;
-        for (innerLoop = 0; innerLoop < this.$store.getters.getOptions[array_length].length; innerLoop++){
+        for (innerLoop = 1; innerLoop < this.$store.getters.getOptions[array_length].length; innerLoop++){
           // tempArray.push(this.$store.getters.getOptions[array_length][innerLoop])
-          if (innerLoop === 0) firstCourse = this.$store.getters.getOptions[array_length][innerLoop];
-          if (innerLoop === 1) secondCourse = this.$store.getters.getOptions[array_length][innerLoop]
-          if (innerLoop === 2) thirdCourse = this.$store.getters.getOptions[array_length][innerLoop];
+          if (innerLoop === 1) firstCourse = this.$store.getters.getOptions[array_length][innerLoop];
+          if (innerLoop === 2) secondCourse = this.$store.getters.getOptions[array_length][innerLoop]
+          if (innerLoop === 3) thirdCourse = this.$store.getters.getOptions[array_length][innerLoop];
         }
-        var object = {first_course: firstCourse, second_course: secondCourse, third_course: thirdCourse}
+        var path = this.$store.getters.getOptions[array_length][0]
+        var object = {pathway: path, first_course: firstCourse, second_course: secondCourse, third_course: thirdCourse}
         storedCourses.push(object);
       }
 

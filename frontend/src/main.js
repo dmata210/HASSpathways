@@ -46,7 +46,8 @@ const store = new Vuex.Store({
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
-        state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         console.log(state.shoppingCart.options.length + " options")
       }
     },
@@ -56,7 +57,8 @@ const store = new Vuex.Store({
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
-        state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
       }
     },
     setSelectedCourse3(state, courseName) {
@@ -66,7 +68,8 @@ const store = new Vuex.Store({
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
-        state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         state.count += 1;
       }
       
