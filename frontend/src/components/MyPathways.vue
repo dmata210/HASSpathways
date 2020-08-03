@@ -96,14 +96,13 @@
 
     <v-container v-else>
       <center>
-        <h1>
-          <a href="/home">Explore courses options {{ getOptions.length }} hi</a>
+        <p class="mt-8">No courses selected :(</p>
+        <v-btn depressed class="text-capitalize mb-4" :to="{name: 'home'}">Explore pathways</v-btn>
 
-          <!-- ILL PLAY WITH THIS LATER -->
-          <v-skeleton-loader class="mx-auto" max-width="300" type="card">
+        <!-- ILL PLAY WITH THIS LATER -->
+        <v-skeleton-loader class="mx-auto" max-width="300" type="card">
 
-          </v-skeleton-loader>
-        </h1>
+        </v-skeleton-loader>
       </center>
     </v-container>
 
