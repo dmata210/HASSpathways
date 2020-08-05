@@ -15,6 +15,7 @@ Vue.use(Vuex)
 // 2. a "shopping cart" which is a json object storing the current states the user has saved 
 // I'm just going to import the json files in order to make a working prototype
 // not sure if this is bad design
+
 import courses from "../../database/Courses_v2.json"
 import pathways from "../../database/Pathways_v2.json"
 
@@ -36,11 +37,49 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
+    initializeStore(state) {
+      if (localStorage.getItem('options')) {
+        try {
+          state.shoppingCart.options = JSON.parse(localStorage.getItem('options'))
+        } catch (e) {
+          localStorage.removeItem('options')
+        }
+      }
+
+      if (localStorage.getItem('count')) {
+        console.log(typeof state.count)
+        state.count = parseInt (localStorage.getItem('count'))
+        console.log(typeof state.count)
+      }
+
+      if (localStorage.getItem('pathway')) {
+        state.currentSelection.pathway = localStorage.getItem('pathway')
+      }
+
+      if (localStorage.getItem('course1') != "null") {
+        state.currentSelection.course1 = localStorage.getItem('course1')
+      }
+
+      if (localStorage.getItem('course2') != "null") {
+        state.currentSelection.course2 = localStorage.getItem('course2')
+      }
+
+      if (localStorage.getItem('course3') != "null") {
+        state.currentSelection.course3 = localStorage.getItem('course3')
+      }
+    },
     setSelectedPathway(state, pathwayID) {
       state.currentSelection.pathway = pathwayID;
+
+      // save in localStorage
+      localStorage.setItem('pathway', pathwayID)
     },
     setSelectedCourse1(state, courseName) {
       state.currentSelection.course1 = courseName;
+
+      // save in localStorage
+      localStorage.setItem('course1', courseName)
+
       if (state.currentSelection.course1 != null) {
         console.log("hi")
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
@@ -48,21 +87,38 @@ const store = new Vuex.Store({
         }
         // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        
+        // save in localStorage
+        const parsed = JSON.stringify(state.shoppingCart.options)
+        localStorage.setItem('options', parsed)
+        
         console.log(state.shoppingCart.options.length + " options")
       }
     },
     setSelectedCourse2(state, courseName) {
       state.currentSelection.course2 = courseName;
+
+      // save in localStorage
+      localStorage.setItem('course2', courseName)
+
       if (state.currentSelection.course2 != null) {
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
         // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+      
+        // save in localStorage
+        const parsed = JSON.stringify(state.shoppingCart.options)
+        localStorage.setItem('options', parsed)
       }
     },
     setSelectedCourse3(state, courseName) {
       state.currentSelection.course3 = courseName;
+
+      // save in localStorage
+      localStorage.setItem('course3', courseName)
+
       console.log()
       if (state.currentSelection.course3 != null) {
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
@@ -70,7 +126,17 @@ const store = new Vuex.Store({
         }
         // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+        
+        // save in localStorage
+        const parsed = JSON.stringify(state.shoppingCart.options)
+        localStorage.setItem('options', parsed)
+        
         state.count += 1;
+
+        // save in localStorage
+        localStorage.setItem('count', state.count)
+        console.log("current count " + localStorage.getItem('count'))
+        console.log(typeof state.count)
       }
       
       
@@ -112,6 +178,10 @@ const store = new Vuex.Store({
     clear(state) {
       state.shoppingCart.options = []
       state.count = 0
+
+      // save in localStorage
+      localStorage.setItem('options', '')
+      localStorage.setItem('count', 0)
     }
   },
   getters: {
@@ -176,5 +246,6 @@ new Vue({
   router,
   vuetify,
   store,
+  beforeCreate() { this.$store.commit('initializeStore') },
   render: h => h(App)
 }).$mount('#app')
