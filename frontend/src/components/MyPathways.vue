@@ -2,13 +2,9 @@
 
   <div>
 
-    <!-- <center>
-      <h1>Saved Courses</h1>
-    </center> -->
-
     <v-container fluid class="mt-4" v-if="getOptions.length > 0">
       <v-layout row class="ml-5">
-        <v-flex md2 sm2 xs2>
+        <v-flex md2 sm3 xs3>
           <div v-if="getOptions.length > 0">
             <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
             <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
@@ -24,7 +20,6 @@
 
     <v-container fluid v-if="getOptions.length > 0">
       
-      <!-- <v-card flat v-for="(course, i) in storedCoursesAppender" :key="i"> -->
       <v-card flat>
 
         <v-card-title>
@@ -110,7 +105,6 @@
   
 </template>
 
-
 <script>
 
 import { mapGetters, mapMutations } from 'vuex'
@@ -159,7 +153,6 @@ export default {
       // if (this.$store.getters.getOptionsLength === 0) return storedCourses;
       console.log("options " + this.getOptions.length)
       if (this.$store.getters.getOptions.length === 0) return storedCourses;
-
 
       var array_length, innerLoop;
       for (array_length = 0; array_length < this.$store.getters.getOptions.length; array_length++){
