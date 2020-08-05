@@ -5,6 +5,7 @@ import router from './router';
 import Vuex from 'vuex';
 
 Vue.use(Vuex)
+
 // this code here is for tracking application state
 // application state includes the following
 // 1. current state which is comprised of:
@@ -81,11 +82,10 @@ const store = new Vuex.Store({
       localStorage.setItem('course1', courseName)
 
       if (state.currentSelection.course1 != null) {
-        console.log("hi")
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
-        // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+
         state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         
         // save in localStorage
@@ -105,7 +105,7 @@ const store = new Vuex.Store({
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
-        // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+
         state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
       
         // save in localStorage
@@ -124,7 +124,7 @@ const store = new Vuex.Store({
         if (this.getters.stateAlreadyExists([state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3], state.count)) {
           return
         }
-        // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
+
         state.shoppingCart.options[state.count] = [state.currentSelection.pathway, state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
         
         // save in localStorage
@@ -135,23 +135,7 @@ const store = new Vuex.Store({
 
         // save in localStorage
         localStorage.setItem('count', state.count)
-        console.log("current count " + localStorage.getItem('count'))
-        console.log(typeof state.count)
       }
-      
-      
-      // Save to options for activity panel
-      // state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
-      // state.count += 1;
-
-      // Reset everything
-      // state.currentSelection.pathway = null;
-      // state.currentSelection.course1 = null
-      // state.currentSelection.course2 = null;
-      // state.currentSelection.course3 = null;
-
-      // notification
-      // alert("Saved Information to activity panel");
     },
     saveButton(state) {
       state.shoppingCart.options[state.count] = [state.currentSelection.course1, state.currentSelection.course2, state.currentSelection.course3];
@@ -219,7 +203,6 @@ const store = new Vuex.Store({
       }
     },
     getOptions(state) {
-      // return state.shoppingCart.options;
       return state.shoppingCart.options;
     },
     stateAlreadyExists(state) {
