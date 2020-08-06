@@ -10,9 +10,9 @@
 
             <!-- TITLE -->
             <v-flex md2 sm11 xs11>
-              <v-toolbar-title>
-                <router-link id="title" to="/home">HASSpathways</router-link>
-              </v-toolbar-title>
+              <router-link to="/home">
+                <v-img class="pl-6 pr-6 ml-4" height=40 width=40 :src="require('./assets/logo.png')"></v-img>
+              </router-link>
             </v-flex>
             
             <!-- SEARCH BAR -->
