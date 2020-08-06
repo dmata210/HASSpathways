@@ -11,7 +11,7 @@
             <!-- TITLE -->
             <v-flex md2 sm11 xs11>
               <router-link to="/home">
-                <v-img class="pl-6 pr-6 ml-4" height=40 width=40 :src="require('./assets/logo.png')"></v-img>
+                <v-img transition="" class="pl-6 pr-6 ml-4" height=40 width=40 :src="require('./assets/logo.png')"></v-img>
               </router-link>
             </v-flex>
             
@@ -36,7 +36,7 @@
 
             <!-- MENU BAR -->
             <v-flex sm1 xs1>
-              <v-icon @click="extension=!extension" class="hidden-md-and-up" color="white">fa-bars</v-icon>
+              <v-icon @click="extension=!extension" class="hidden-md-and-up mt-2" color="white">fa-bars</v-icon>
             </v-flex>
 
           </v-layout>
