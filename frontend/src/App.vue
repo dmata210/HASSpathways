@@ -11,7 +11,7 @@
             <!-- TITLE -->
             <v-flex md1 sm11 xs11>
               <router-link to="/home">
-                <v-img transition="" class="pl-6 pr-8 ml-4" height=40 width=40 :src="require('./assets/logo.png')"></v-img>
+                <v-img class="pl-6 pr-8 ml-4" height=40 width=40 :src="require('./assets/logo.png')"></v-img>
               </router-link>
             </v-flex>
             
