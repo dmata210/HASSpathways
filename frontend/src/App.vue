@@ -9,15 +9,15 @@
           <v-layout row>
 
             <!-- TITLE -->
-            <v-flex md2 sm11 xs11>
+            <v-flex md1 sm11 xs11>
               <router-link to="/home">
-                <v-img transition="" class="pl-6 pr-6 ml-4" height=40 width=40 :src="require('./assets/logo.png')"></v-img>
+                <v-img transition="" class="pl-6 pr-8 ml-4" height=40 width=40 :src="require('./assets/logo.png')"></v-img>
               </router-link>
             </v-flex>
             
             <!-- SEARCH BAR -->
-            <v-flex md6>
-              <v-combobox append-icon="" prepend-inner-icon="mdi-magnify" hide-details class="hidden-sm-and-down" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
+            <v-flex md7>
+              <v-combobox append-icon="" prepend-inner-icon="mdi-magnify" hide-details class="hidden-sm-and-down pl-4" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
             </v-flex>
 
             <!-- BUTTONS -->
