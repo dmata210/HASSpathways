@@ -110,7 +110,7 @@ export default {
   data: () => ({
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
     searchInput: "",
-    extension: false
+    extension: ""
   }),
   methods: {
     ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3', 'incrementCount']),
@@ -131,6 +131,14 @@ export default {
   },
   mounted() {
     console.log(this.$vuetify.breakpoint)
+    if (localStorage.getItem('extension') == "true") {
+      this.extension = true
+    }
+  },
+  watch: {
+    extension(newExtension) {
+      localStorage.setItem('extension', newExtension)
+    }
   }
 };
 
