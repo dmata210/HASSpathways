@@ -166,6 +166,14 @@ const store = new Vuex.Store({
       // save in localStorage
       localStorage.setItem('options', '')
       localStorage.setItem('count', 0)
+    },
+    removePath(state, i) {
+      state.shoppingCart.options.splice(i, 1)
+      state.count -=1
+
+      // save in localStorage
+      localStorage.setItem('count', state.count)
+      localStorage.setItem('options', JSON.stringify(state.shoppingCart.options))
     }
   },
   getters: {
