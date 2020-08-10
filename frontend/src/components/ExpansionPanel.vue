@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <ProgressBar/> -->
+    <ProgressBar/>
 
     <v-expansion-panels flat outlined tile accordion hover multiple class="expansion-panel">
       <v-expansion-panel @click="selectPathway(path)" v-for="(path, i) in filteredPathways" :key="i">
@@ -31,7 +31,7 @@
 
 <script>
 
-// import ProgressBar from './ProgressBar.vue'
+import ProgressBar from './ProgressBar.vue'
 import FirstCourses from './FirstCourses'
 import SecondCourses from './SecondCourses'
 import ThirdCourses from './ThirdCourses'
@@ -44,7 +44,7 @@ export default {
     FirstCourses,
     SecondCourses,
     ThirdCourses,
-    // ProgressBar,
+    ProgressBar,
   },
   data() {
     return {
@@ -163,7 +163,6 @@ export default {
 
   .expansion-panel {
     height: 100%;
-    margin-top: 30px;
   }
   
   #progressBarAndSave {

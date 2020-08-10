@@ -3,10 +3,10 @@
   <v-app id="app">
 
     <!-- HEADER -->
-    <v-app-bar app fixed flat color="#c65353" extension-height="100px" height="110px">
+    <v-app-bar app fixed flat color="#c65353" extension-height="100px">
         
         <v-container fluid>
-          <v-layout row class="mt-12 mb-3 ml-2 mr-2">
+          <v-layout row>
 
             <!-- TITLE -->
             <v-flex md1 sm11 xs11>
@@ -33,11 +33,11 @@
 
           </v-layout>
 
-          <v-layout row>
+          <!-- <v-layout row>
             <v-flex md12>
               <ProgressBar/>
             </v-flex>
-          </v-layout>
+          </v-layout> -->
         </v-container>
 
         <!-- HEADER EXTENSION -->
@@ -94,12 +94,12 @@
 
 <script>
 
-import ProgressBar from './components/ProgressBar'
+// import ProgressBar from './components/ProgressBar'
 
 export default {
-  components: {
-    ProgressBar
-  },
+  // components: {
+  //   ProgressBar
+  // },
   name: 'App',
   data: () => ({
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
@@ -157,12 +157,12 @@ export default {
   color: white;
 }
 
-div.v-toolbar__content {
+/* div.v-toolbar__content {
   padding: 0;
 }
 
 div.v-stepper {
   border-radius: 0;
-}
+} */
 
 </style>
