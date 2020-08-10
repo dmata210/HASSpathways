@@ -24,6 +24,8 @@
 
         <v-card-title>
           {{ currentCourse.pathway.name }}
+          <v-spacer></v-spacer>
+          <i @click="removePathway(i)" style="color: #c65353" class="fas fa-minus-circle pointer"></i>
         </v-card-title>
 
         <v-card-subtitle>
@@ -144,7 +146,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['clear']),
+    ...mapMutations(['clear', 'removePath']),
     selectCourse(course) {
       this.specifiedCourse = course;
     },
@@ -165,6 +167,15 @@ export default {
     clearActivity() {
       console.log("clearing")
       this.clear()
+    },
+    removePathway(i) {
+      console.log("remove " + i)
+      this.removePath(i)
+
+      console.log("i " + i)
+      if (i == this.getOptions.length) {
+        this.i -= 1
+      }
     }
   },
   computed: {
