@@ -93,12 +93,38 @@
       <center>
         <p class="mt-8">No courses selected :(</p>
         <v-btn depressed class="text-capitalize mb-4" :to="{name: 'home'}">Explore pathways</v-btn>
-
-        <!-- ILL PLAY WITH THIS LATER -->
-        <v-skeleton-loader class="mx-auto" max-width="300" type="card">
-
-        </v-skeleton-loader>
       </center>
+
+      <v-card flat>
+
+        <v-card-subtitle>
+
+        <!-- loop button x times -->
+        <v-skeleton-loader type="heading"></v-skeleton-loader>
+
+        </v-card-subtitle>
+
+        <!-- card information -->
+        <v-card-text>
+          <v-card width="100%" height="90%" outlined id="rounded-left">
+          
+            <!-- course name & important chips -->
+            <v-skeleton-loader class="mr-2 mt-2" type="card-heading"></v-skeleton-loader>
+
+            <v-divider></v-divider>
+
+            <template>
+              <!-- course description -->
+              <v-skeleton-loader width="100%" class="mr-2 mt-2" type="text@3"></v-skeleton-loader>
+            </template>
+
+          </v-card>
+        </v-card-text>
+
+      </v-card>
+
+
+
     </v-container>
 
   </div>
