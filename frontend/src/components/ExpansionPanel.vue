@@ -2,7 +2,7 @@
   <div>
     <ProgressBar/>
 
-    <v-expansion-panels flat outlined tile accordion hover multiple class="expansion-panel">
+    <v-expansion-panels flat outlined tile accordion hover multiple class="expansion-panel overflow-y-auto">
       <v-expansion-panel @click="selectPathway(path)" v-for="(path, i) in filteredPathways" :key="i">
 
         <v-expansion-panel-header color="#c65353" id="expansion-header">
@@ -162,7 +162,7 @@ export default {
 <style scoped>
 
   .expansion-panel {
-    height: 100%;
+    height: 400px;
   }
   
   #progressBarAndSave {
