@@ -22,8 +22,8 @@
 
             <!-- BUTTONS -->
             <v-flex md4>
-              <v-btn class="hidden-sm-and-down text-capitalize" depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
-              <v-btn class="hidden-sm-and-down mr-2 text-capitalize" depressed id="button" :to="{name: 'home'}">Explore</v-btn>
+              <v-btn class="hidden-sm-and-down text-capitalize" depressed id="button" :to="{name: 'activity'}">My Pathways</v-btn>
+              <v-btn class="hidden-sm-and-down mr-2 text-capitalize" depressed id="button" :to="{name: 'home'}">Add Pathways</v-btn>
             </v-flex>
 
             <!-- MENU BAR -->
