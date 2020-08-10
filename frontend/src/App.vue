@@ -33,7 +33,7 @@
 
           </v-layout>
 
-          <v-layout row v-if="!hideProgress">
+          <v-layout row>
             <v-flex md12>
               <ProgressBar/>
             </v-flex>
