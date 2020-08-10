@@ -94,7 +94,6 @@
 
 <script>
 
-import { mapMutations } from 'vuex'
 import ProgressBar from './components/ProgressBar'
 
 export default {
