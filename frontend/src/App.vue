@@ -3,10 +3,10 @@
   <v-app id="app">
 
     <!-- HEADER -->
-    <v-app-bar app fixed flat color="#c65353" extension-height="100px">
+    <v-app-bar app fixed flat color="#c65353" extension-height="100px" height="110px">
         
         <v-container fluid>
-          <v-layout row>
+          <v-layout row class="mt-12 mb-3 ml-2 mr-2">
 
             <!-- TITLE -->
             <v-flex md1 sm11 xs11>
@@ -39,6 +39,12 @@
               <v-icon @click="extension=!extension" class="hidden-md-and-up mt-2" color="white">fa-bars</v-icon>
             </v-flex>
 
+          </v-layout>
+
+          <v-layout row v-if="!hideProgress">
+            <v-flex md12>
+              <ProgressBar/>
+            </v-flex>
           </v-layout>
         </v-container>
 
@@ -104,8 +110,12 @@
 <script>
 
 import { mapMutations } from 'vuex'
+import ProgressBar from './components/ProgressBar'
 
 export default {
+  components: {
+    ProgressBar
+  },
   name: 'App',
   data: () => ({
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
@@ -173,6 +183,14 @@ export default {
 
 #expansion-header {
   color: white;
+}
+
+div.v-toolbar__content {
+  padding: 0;
+}
+
+div.v-stepper {
+  border-radius: 0;
 }
 
 </style>
