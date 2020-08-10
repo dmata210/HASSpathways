@@ -3,18 +3,20 @@
   <div>
 
     <v-container fluid class="mt-4" v-if="getOptions.length > 0">
-      <v-layout row class="ml-5">
-        <v-flex md2 sm3 xs3>
-          <div v-if="getOptions.length > 0">
-            <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
-            <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
-            <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
+        <div id="buttonAndNav_holder">
+          <div id="clearButtons">
+            <v-btn @click="removePathway(i)" color="#c65353" depressed class="white--text text-capitalize">Delete Pathway</v-btn>
+            &nbsp;
+            <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear All Pathways</v-btn>
           </div>
-        </v-flex>
-        <v-flex md2 sm2 xs2>
-          <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear</v-btn>
-        </v-flex>
-      </v-layout>
+          <div id="pathwaysNavigation">
+            <div v-if="getOptions.length > 0">
+              <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
+              <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
+              <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
+            </div>
+          </div>
+        </div>
     </v-container>
     
 
@@ -93,7 +95,6 @@
 
     <v-container v-else>
       <center>
-        <p class="mt-8">No courses selected :(</p>
         <v-btn depressed class="text-capitalize mb-4" :to="{name: 'home'}">Explore pathways</v-btn>
       </center>
 
@@ -220,6 +221,18 @@ export default {
 </script>
 
 <style scoped>
+
+#buttonAndNav_holder {
+  overflow: hidden;
+}
+
+#clearButtons {
+  float: left;
+}
+
+#pathwaysNavigation {
+  float: right;
+}
 
 .pointer {
   cursor: pointer;

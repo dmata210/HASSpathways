@@ -24,14 +24,6 @@
             <v-flex md4>
               <v-btn class="hidden-sm-and-down text-capitalize" depressed id="button" :to="{name: 'activity'}">Activity</v-btn>
               <v-btn class="hidden-sm-and-down mr-2 text-capitalize" depressed id="button" :to="{name: 'home'}">Explore</v-btn>
-
-              <v-tooltip transition="slide-y-transition" bottom>
-                <template v-slot:activator="{ on, attrs}">
-                  <v-icon v-bind="attrs" v-on="on" class="hidden-sm-and-down mr-4" @click="clearProgress()" x-large id="button" color="white">mdi-delete-forever</v-icon>
-                </template>
-                <span>Click to clear progress</span>
-              </v-tooltip>
-              
             </v-flex>
 
             <!-- MENU BAR -->
@@ -51,13 +43,6 @@
             
             <!-- BUTTONS -->
             <div class="mb-2">
-              <v-tooltip transition="slide-y-transition" bottom>
-                <template v-slot:activator="{ on, attrs}">
-                  <v-icon v-bind="attrs" v-on="on" class="mr-4" @click="clearProgress()" x-large color="white">mdi-delete-forever</v-icon>
-                </template>
-                <span>Click to clear progress</span>
-              </v-tooltip>
-
               <v-btn class="mr-2 text-capitalize" depressed :to="{name: 'activity'}">Activity</v-btn>
               <v-btn class="text-capitalize" depressed :to="{name: 'home'}">Explore</v-btn>
             </div>
@@ -93,7 +78,7 @@
       
       <v-spacer></v-spacer>
 
-      <div>HASSpathways &copy; {{ new Date().getFullYear() }}</div>
+      <div>HASS Pathways &copy; {{ new Date().getFullYear() }}</div>
 
     </v-footer>
 
@@ -103,7 +88,6 @@
 
 <script>
 
-import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
@@ -113,21 +97,9 @@ export default {
     extension: ""
   }),
   methods: {
-    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3', 'incrementCount']),
     handleInput() {
       this.$root.$emit('changedFilter', this.searchInput)
     },
-    clearProgress() {
-      console.log("clear progress")
-      this.setSelectedCourse1(null)
-      this.setSelectedCourse2(null)
-      this.setSelectedCourse3(null)
-      // this.incrementCount()
-      this.$root.$emit('changeWhichCourse', "first")
-      this.$root.$emit('changeCurrent', 1)
-      this.$root.$emit('makeSecondCourseEditable', false)
-      this.$root.$emit('makeThirdCourseEditable', false)
-    }
   },
   mounted() {
     console.log(this.$vuetify.breakpoint)

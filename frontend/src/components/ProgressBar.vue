@@ -3,9 +3,19 @@
     <div style="font-family: 'Muli', sans-serif">
 
       <div id="stepper">
+
+
         <v-stepper id="progress" class="elevation-0" :value="current">
 
           <v-stepper-header>
+
+            <v-tooltip transition="slide-y-transition" bottom>
+              <template v-slot:activator="{ on, attrs}">
+                <v-icon blocked v-bind="attrs" v-on="on" @click="clearProgress()" x-large color="red">mdi-delete-forever</v-icon>
+              </template>
+              <span>Click to clear progress</span>
+            </v-tooltip>
+
 
             <v-stepper-step 
             :step="1"
@@ -46,18 +56,13 @@
         </v-stepper>
       </div>
 
-      <!-- <div id="save">
-        <v-btn v-if="coursesList.thirdCourse === 'No Course Selected'" disabled text color="primary">Save</v-btn>
-        <v-btn v-if="coursesList.thirdCourse !== 'No Course Selected'" text color="primary" @click="saveCourses()">Save</v-btn>
-      </div> -->
-
     </div>
 
 </template>
 
 <script>
 
-import { mapGetters } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   data(){
@@ -70,10 +75,18 @@ export default {
     }
   },
   methods: {
-    // ...mapMutations(['saveButton']),
-    // saveCourses() {
-    //   this.saveButton();
-    // },
+    ...mapMutations(['setSelectedCourse1', 'setSelectedCourse2', 'setSelectedCourse3', 'incrementCount']),
+    clearProgress() {
+      console.log("clear progress")
+      this.setSelectedCourse1(null)
+      this.setSelectedCourse2(null)
+      this.setSelectedCourse3(null)
+      // this.incrementCount()
+      this.$root.$emit('changeWhichCourse', "first")
+      this.$root.$emit('changeCurrent', 1)
+      this.$root.$emit('makeSecondCourseEditable', false)
+      this.$root.$emit('makeThirdCourseEditable', false)
+    },
     goToCourse(num) {
       if (num == 1) {
         this.courseNumber = "first"
