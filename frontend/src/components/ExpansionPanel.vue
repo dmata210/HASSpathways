@@ -162,7 +162,7 @@ export default {
 <style scoped>
 
   .expansion-panel {
-    height: 400px;
+    max-height: 400px;
   }
   
   #progressBarAndSave {
