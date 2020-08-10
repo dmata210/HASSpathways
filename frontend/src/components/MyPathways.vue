@@ -3,18 +3,20 @@
   <div>
 
     <v-container fluid class="mt-4" v-if="getOptions.length > 0">
-      <v-layout row class="ml-5">
-        <v-flex md2 sm3 xs3>
-          <div v-if="getOptions.length > 0">
-            <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
-            <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
-            <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
+        <div id="buttonAndNav_holder">
+          <div id="clearButtons">
+            <v-btn @click="removePathway(i)" color="#c65353" depressed class="white--text text-capitalize">Delete Pathway</v-btn>
+            &nbsp;
+            <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear All Pathways</v-btn>
           </div>
-        </v-flex>
-        <v-flex md2 sm2 xs2>
-          <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear</v-btn>
-        </v-flex>
-      </v-layout>
+          <div id="pathwaysNavigation">
+            <div v-if="getOptions.length > 0">
+              <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
+              <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
+              <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
+            </div>
+          </div>
+        </div>
     </v-container>
     
 
@@ -93,14 +95,39 @@
 
     <v-container v-else>
       <center>
-        <p class="mt-8">No courses selected :(</p>
         <v-btn depressed class="text-capitalize mb-4" :to="{name: 'home'}">Explore pathways</v-btn>
-
-        <!-- ILL PLAY WITH THIS LATER -->
-        <v-skeleton-loader class="mx-auto" max-width="300" type="card">
-
-        </v-skeleton-loader>
       </center>
+
+      <v-card flat>
+
+        <v-card-subtitle>
+
+        <!-- loop button x times -->
+        <v-skeleton-loader type="heading"></v-skeleton-loader>
+
+        </v-card-subtitle>
+
+        <!-- card information -->
+        <v-card-text>
+          <v-card width="100%" height="90%" outlined id="rounded-left">
+          
+            <!-- course name & important chips -->
+            <v-skeleton-loader class="mr-2 mt-2" type="card-heading"></v-skeleton-loader>
+
+            <v-divider></v-divider>
+
+            <template>
+              <!-- course description -->
+              <v-skeleton-loader width="100%" class="mr-2 mt-2" type="text@3"></v-skeleton-loader>
+            </template>
+
+          </v-card>
+        </v-card-text>
+
+      </v-card>
+
+
+
     </v-container>
 
   </div>
@@ -194,6 +221,18 @@ export default {
 </script>
 
 <style scoped>
+
+#buttonAndNav_holder {
+  overflow: hidden;
+}
+
+#clearButtons {
+  float: left;
+}
+
+#pathwaysNavigation {
+  float: right;
+}
 
 .pointer {
   cursor: pointer;
