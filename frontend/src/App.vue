@@ -49,8 +49,8 @@
             
             <!-- BUTTONS -->
             <div class="mb-2">
-              <v-btn class="mr-2 text-capitalize" depressed :to="{name: 'activity'}">Activity</v-btn>
-              <v-btn class="text-capitalize" depressed :to="{name: 'home'}">Explore</v-btn>
+              <v-btn class="mr-2 text-capitalize" depressed :to="{name: 'activity'}">My Pathways</v-btn>
+              <v-btn class="text-capitalize" depressed :to="{name: 'home'}">Add Pathways</v-btn>
             </div>
             
           </v-layout>
