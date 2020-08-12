@@ -11,7 +11,7 @@
 
             <v-tooltip transition="slide-x-transition" right>
               <template v-slot:activator="{ on, attrs}">
-                <v-btn class="ml-2 mt-4 mr-2" text icon @click="clearProgress()">
+                <v-btn class="ml-4 mt-4 pt-1 mr-2" text icon @click="clearProgress()">
                   <v-icon blocked v-bind="attrs" v-on="on" color="#c65353" large>mdi-delete-forever</v-icon>
                 </v-btn>
               </template>

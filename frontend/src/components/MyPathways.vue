@@ -4,12 +4,11 @@
 
     <v-container fluid class="mt-4" v-if="getOptions.length > 0">
         <div id="buttonAndNav_holder">
-          <div id="clearButtons">
-            <v-btn @click="removePathway(i)" color="#c65353" depressed class="white--text text-capitalize">Delete Pathway</v-btn>
-            &nbsp;
+          <div id="clearButtons" class="ml-4">
+            <v-btn @click="removePathway(i)" color="#c65353" depressed class="white--text text-capitalize mr-2">Delete Pathway</v-btn>
             <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear All Pathways</v-btn>
           </div>
-          <div id="pathwaysNavigation">
+          <div id="pathwaysNavigation" class="mr-4">
             <div v-if="getOptions.length > 0">
               <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
               <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
@@ -26,8 +25,6 @@
 
         <v-card-title>
           {{ currentCourse.pathway.name }}
-          <v-spacer></v-spacer>
-          <i @click="removePathway(i)" style="color: #c65353" class="fas fa-minus-circle pointer"></i>
         </v-card-title>
 
         <v-card-subtitle>
@@ -95,7 +92,7 @@
 
     <v-container v-else>
       <center>
-        <v-btn depressed class="text-capitalize mb-4" :to="{name: 'home'}">Explore pathways</v-btn>
+        <v-btn depressed class="text-capitalize mt-4 mb-4" :to="{name: 'home'}">Explore pathways</v-btn>
       </center>
 
       <v-card flat>
