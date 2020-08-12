@@ -9,9 +9,11 @@
 
           <v-stepper-header>
 
-            <v-tooltip transition="slide-y-transition" bottom>
+            <v-tooltip transition="slide-x-transition" right>
               <template v-slot:activator="{ on, attrs}">
-                <v-icon blocked v-bind="attrs" v-on="on" @click="clearProgress()" x-large color="red">mdi-delete-forever</v-icon>
+                <v-btn class="ml-2 mt-4 mr-2" text icon @click="clearProgress()">
+                  <v-icon blocked v-bind="attrs" v-on="on" color="#c65353" large>mdi-delete-forever</v-icon>
+                </v-btn>
               </template>
               <span>Click to clear progress</span>
             </v-tooltip>
