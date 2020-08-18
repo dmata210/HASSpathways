@@ -38,7 +38,6 @@ import ThirdCourses from './ThirdCourses'
 
 import { mapGetters, mapMutations } from 'vuex'
 
-
 export default {
   components: {
     FirstCourses,
@@ -57,7 +56,13 @@ export default {
         { name: 'Behavioral and Cognitive Neuroscience' },
         { name: 'Design, Innovation, and Society' },
         { name: 'Economics' },
-        { name: 'Economics of Banking & Finance' }
+        { name: 'Economics of Banking & Finance' },
+        { name: 'Other' },
+        { name: 'Other' },
+        { name: 'Other' },
+        { name: 'Other' },
+        { name: 'Other' },
+        { name: 'Other' }
       ],
       courseNumber: 'first',
       savedCourses: [],
@@ -95,14 +100,6 @@ export default {
     filteredPathways() {
       var items = this.pathways
       var result = []
-
-      // var entries = Object.entries(items)
-      // console.log(entries)
-
-      // for (const [index, item] of entries) {
-      //   console.log(index + "   " + item.name)
-      //   entries.splice(1, 1)
-      // }
 
       for (var key in items) {
         var item = items[key]
@@ -162,7 +159,7 @@ export default {
 <style scoped>
 
   .expansion-panel {
-    max-height: 480px;
+    max-height: 438.3px;
   }
   
   #progressBarAndSave {
@@ -171,6 +168,10 @@ export default {
 
   #progressBar {
     width: 90%;
+  }
+
+  #expansion-header {
+    color: white;
   }
 
 </style>

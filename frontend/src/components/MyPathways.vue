@@ -3,22 +3,21 @@
   <div>
 
     <v-container fluid class="mt-4" v-if="getOptions.length > 0">
-        <div id="buttonAndNav_holder">
-          <div id="clearButtons" class="ml-4">
-            <v-btn @click="removePathway(i)" color="#c65353" depressed class="white--text text-capitalize mr-2">Delete Pathway</v-btn>
-            <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear All Pathways</v-btn>
-          </div>
-          <div id="pathwaysNavigation" class="mr-4">
-            <div v-if="getOptions.length > 0">
-              <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
-              <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
-              <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
-            </div>
+      <div id="buttonAndNav_holder">
+        <div id="clearButtons" class="ml-4">
+          <v-btn @click="removePathway(i)" color="#c65353" depressed class="white--text text-capitalize mr-2">Delete Pathway</v-btn>
+          <v-btn @click="clearActivity()" color="#c65353" depressed class="white--text text-capitalize">Clear All Pathways</v-btn>
+        </div>
+        <div id="pathwaysNavigation" class="mr-4">
+          <div v-if="getOptions.length > 0">
+            <i @click="goToLastPathway()" class="fa fa-caret-left pointer"></i>
+            <span class="mr-2 ml-2">{{ i + 1 }} / {{ getOptions.length }}</span>
+            <i @click="goToNextPathway()" class="fa fa-caret-right pointer"></i>
           </div>
         </div>
+      </div>
     </v-container>
     
-
     <v-container fluid v-if="getOptions.length > 0">
       
       <v-card flat>
@@ -123,8 +122,6 @@
 
       </v-card>
 
-
-
     </v-container>
 
   </div>
@@ -185,7 +182,6 @@ export default {
       var storedCourses = []
 
       // if no options (no activity)
-      // if (this.$store.getters.getOptionsLength === 0) return storedCourses;
       console.log("options " + this.getOptions.length)
       if (this.$store.getters.getOptions.length === 0) return storedCourses;
 
@@ -193,7 +189,6 @@ export default {
       for (array_length = 0; array_length < this.$store.getters.getOptions.length; array_length++){
         var firstCourse, secondCourse, thirdCourse;
         for (innerLoop = 1; innerLoop < this.$store.getters.getOptions[array_length].length; innerLoop++){
-          // tempArray.push(this.$store.getters.getOptions[array_length][innerLoop])
           if (innerLoop === 1) firstCourse = this.$store.getters.getOptions[array_length][innerLoop];
           if (innerLoop === 2) secondCourse = this.$store.getters.getOptions[array_length][innerLoop]
           if (innerLoop === 3) thirdCourse = this.$store.getters.getOptions[array_length][innerLoop];

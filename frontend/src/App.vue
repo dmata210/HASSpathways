@@ -33,11 +33,6 @@
 
           </v-layout>
 
-          <!-- <v-layout row>
-            <v-flex md12>
-              <ProgressBar/>
-            </v-flex>
-          </v-layout> -->
         </v-container>
 
         <!-- HEADER EXTENSION -->
@@ -94,12 +89,7 @@
 
 <script>
 
-// import ProgressBar from './components/ProgressBar'
-
 export default {
-  // components: {
-  //   ProgressBar
-  // },
   name: 'App',
   data: () => ({
     items: ['Minds and Machines', 'AI and Society', 'Are Humans Rational?', 'Chinese 1', 'Chinese 2', 'Chinese 3', 'Chinese 4', 'etc'],
@@ -152,17 +142,5 @@ export default {
 #list {
   height: 200px;
 }
-
-#expansion-header {
-  color: white;
-}
-
-/* div.v-toolbar__content {
-  padding: 0;
-}
-
-div.v-stepper {
-  border-radius: 0;
-} */
 
 </style>

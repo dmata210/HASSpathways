@@ -1,22 +1,12 @@
 <template>
 
-    <div style="font-family: 'Muli', sans-serif">
+    <div >
 
       <div id="stepper">
-
 
         <v-stepper id="progress" class="elevation-0" :value="current">
 
           <v-stepper-header class="elevation-0">
-
-            <!-- <v-tooltip transition="slide-y-transition" bottom>
-              <template v-slot:activator="{ on, attrs}">
-                <v-btn color="#c65353" class="ml-2 mt-4 pt-1 mr-4" text icon @click="clearProgress()">
-                  <v-icon blocked v-bind="attrs" v-on="on" color="#c65353" large>mdi-delete-forever</v-icon>
-                </v-btn>
-              </template>
-              <span>Click to clear progress</span>
-            </v-tooltip> -->
 
             <v-btn @click="clearProgress()" color="#c65353" depressed class="white--text text-capitalize button ml-2 mr-2">Clear</v-btn>
 
@@ -171,17 +161,7 @@ export default {
 
 </script>
 
-
 <style>
-
-  /* #stepper {
-    float: left;
-    width: 90%;
-  }
-
-  #save {
-    position: relative;
-  } */
 
   .theme--light.v-stepper .v-stepper__step--editable:hover {
     background: rgba(198, 83, 83, 0.2);
