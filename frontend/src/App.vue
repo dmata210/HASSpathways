@@ -3,7 +3,7 @@
   <v-app id="app">
 
     <!-- HEADER -->
-    <v-app-bar app fixed flat color="#c65353" extension-height="100px">
+    <v-app-bar class="app-bar" app fixed flat color="#c65353" extension-height="100px">
         
         <v-container fluid>
           <v-layout row>

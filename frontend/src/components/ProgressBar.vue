@@ -1,6 +1,6 @@
 <template>
 
-    <div >
+    <div class="progress">
 
       <div id="stepper">
 
@@ -169,6 +169,16 @@ export default {
 
   .button {
     margin: auto;
+  }
+
+  .progress {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+  }
+
+  #progress {
+    border-radius: 0;
   }
 
 </style>
