@@ -161,6 +161,7 @@ export default {
   .expansion-panel {
     position: relative;
     top: 72px;
+    margin-bottom: 36px;
   }
   
   #progressBarAndSave {
