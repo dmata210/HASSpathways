@@ -17,7 +17,7 @@
             
             <!-- SEARCH BAR -->
             <v-flex md7>
-              <v-combobox append-icon="" prepend-inner-icon="mdi-magnify" hide-details class="hidden-sm-and-down pl-4" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
+              <v-combobox append-icon="" prepend-inner-icon="mdi-magnify" hide-details class="hidden-sm-and-down pl-4 combo-box" clearable :items="items" dense flat solo label="Search Courses" item-color="#c65353" color="#c65353" :search-input.sync="searchInput" @update:search-input="handleInput"></v-combobox>
             </v-flex>
 
             <!-- BUTTONS -->
@@ -141,6 +141,10 @@ export default {
 
 #list {
   height: 200px;
+}
+
+.combo-box {
+  z-index: 200;
 }
 
 </style>
