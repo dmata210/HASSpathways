@@ -1,27 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Inquiry from './components/Inquiry.vue'
-import Pathway from './components/Pathway.vue'
 import MyPathways from './components/MyPathways.vue'
+import ExpansionPanel from './components/ExpansionPanel.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/inquiry',
-      name: 'inquiry',
-      component: Inquiry
+      path: "/home",
+      name: "home",
+      component: ExpansionPanel,
     },
     {
-      path: '/pathway',
-      name: 'pathway',
-      component: Pathway
+      path: "/activity",
+      name: "activity",
+      component: MyPathways,
     },
     {
-      path: '/mypathways',
-      name: 'mypathways',
-      component: MyPathways
+      path: "*",
+      name: "",
+      component: ExpansionPanel
     }
-  ]
-})
+  ],
+  mode: "history",
+});
