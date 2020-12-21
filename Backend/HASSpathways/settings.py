@@ -56,7 +56,7 @@ ROOT_URLCONF = 'HASSpathways.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['frontend'],
+        'DIRS': ['Templates'], #in future might want to change to be front end 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,11 +80,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    'Courses': {
+    'Course': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),#C:/Users/mansfj/Desktop/HASS/HASSpathways/database/Courses.json  C:\Users\mansfj\Desktop\HASS\HASSpathways\Backend\api\fixtures\Courses.json
     },
-    'Pathways': {
+    'Pathway': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
