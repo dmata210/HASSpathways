@@ -1,6 +1,6 @@
 [
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 0,
 		"fields" :{
 			"name": "Artifical Intelligence",
@@ -13,7 +13,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 1,
 		"fields" :{
 			"name": "Arts History, Theory, and Criticism",
@@ -27,7 +27,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 2,
 		"fields" :{
 			"name": "Behavioral and Cognitive Neuroscience",
@@ -38,7 +38,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 3,
 		"fields" :{
 			"name": "Chinese Language",
@@ -49,7 +49,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 4,
 		"fields" :{
 			"name": "Creative Design and Innovation",
@@ -63,7 +63,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 5,
 		"fields" :{
 			"name": "Design, Innovation, and Society",
@@ -74,7 +74,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 6,
 		"fields" :{
 			"name": "Economics",
@@ -85,7 +85,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 7,
 		"fields" :{
 			"name": "Economics of Banking and Finance",
@@ -96,7 +96,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 8,
 		"fields" :{
 			"name": "Economics of Biotech and Medical Markets",
@@ -107,7 +107,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 9,
 		"fields" :{
 			"name": "Economics of Policy and Regulations",
@@ -118,7 +118,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 10,
 		"fields" :{
 			"name": "Economics of Quantitative Modeling",
@@ -129,7 +129,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 11,
 		"fields" :{
 			"name": "Economics of Technology and Innovation",
@@ -140,7 +140,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 12,
 		"fields" :{
 			"name": "Electronic Arts",
@@ -152,7 +152,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 13,
 		"fields" :{
 			"name": "Environmental Futures",
@@ -168,7 +168,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 14,
 		"fields" :{
 			"name": "Ethics, Integrity, and Social Responsibility",
@@ -182,7 +182,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 15,
 		"fields" :{
 			"name": "Extent and Limits of Rationality",
@@ -196,7 +196,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 16,
 		"fields" :{
 			"name": "Fact and Fiction",
@@ -210,7 +210,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 17,
 		"fields" :{
 			"name": "Foreign Language",
@@ -221,7 +221,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 18,
 		"fields" :{
 			"name": "Game Studies",
@@ -232,7 +232,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 19,
 		"fields" :{
 			"name": "Gender, Race, Sexuality, Ethnicity and Social Change",
@@ -247,7 +247,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 20,
 		"fields" :{
 			"name": "Graphic Design",
@@ -258,7 +258,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 21,
 		"fields" :{
 			"name": "History",
@@ -272,7 +272,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 22,
 		"fields" :{
 			"name": "Information Technology and Web Sciences",
@@ -283,7 +283,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 23,
 		"fields" :{
 			"name": "Interactive Media/Data Design",
@@ -294,7 +294,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 24,
 		"fields" :{
 			"name": "Law and Policy",
@@ -306,7 +306,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 25,
 		"fields" :{
 			"name": "Linguistics",
@@ -317,7 +317,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 26,
 		"fields" :{
 			"name": "Literature and Creative Writing",
@@ -329,7 +329,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 27,
 		"fields" :{
 			"name": "Living in a World of Data",
@@ -342,7 +342,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 28,
 		"fields" :{
 			"name": "Logical Thinking",
@@ -353,7 +353,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 29,
 		"fields" :{
 			"name": "Media and Culture",
@@ -368,7 +368,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 30,
 		"fields" :{
 			"name": "Mind, Brain, and Intelligence",
@@ -381,7 +381,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 31,
 		"fields" :{
 			"name": "Music and Culture",
@@ -395,7 +395,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 32,
 		"fields" :{
 			"name": "Music Composition and Production",
@@ -409,7 +409,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 33,
 		"fields" :{
 			"name": "Music Performance",
@@ -421,7 +421,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 34,
 		"fields" :{
 			"name": "Philosophy",
@@ -433,7 +433,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 35,
 		"fields" :{
 			"name": "Public Health",
@@ -445,7 +445,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 36,
 		"fields" :{
 			"name": "Science, Technology, and Society",
@@ -456,7 +456,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 37,
 		"fields" :{
 			"name": "Strategic Communication",
@@ -467,7 +467,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 38,
 		"fields" :{
 			"name": "Studio Arts",
@@ -478,7 +478,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 39,
 		"fields" :{
 			"name": "Sustainability",
@@ -491,7 +491,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 40,
 		"fields" :{
 			"name": "Thinking with Science",
@@ -502,7 +502,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 41,
 		"fields" :{
 			"name": "Transfer Student Arts and Humanities",
@@ -513,7 +513,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 42,
 		"fields" :{
 			"name": "Transfer Student Social Science",
@@ -524,7 +524,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 43,
 		"fields" :{
 			"name": "Understanding Human Behavior",
@@ -535,7 +535,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 44,
 		"fields" :{
 			"name": "Vpkeo, Performance, and Social Impact",
@@ -549,7 +549,7 @@
 		}
 	},
 	{
-		"model": "api.Pathways",
+		"model": "api.Pathway",
 		"pk": 45,
 		"fields" :{
 			"name": "Well-being: Body and Mind",
